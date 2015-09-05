@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MAUserTableViewController.h
 //  Magic
 //
 //  Created by totta on 2015/09/05.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MAUserTableViewController : UITableViewController
 
 @end
-

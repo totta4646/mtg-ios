@@ -10,11 +10,17 @@
 		176BF7951B9A912900F0FAC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7941B9A912900F0FAC6 /* main.m */; };
 		176BF7981B9A912900F0FAC6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7971B9A912900F0FAC6 /* AppDelegate.m */; };
 		176BF79B1B9A912900F0FAC6 /* Magic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7991B9A912900F0FAC6 /* Magic.xcdatamodeld */; };
-		176BF79E1B9A912900F0FAC6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF79D1B9A912900F0FAC6 /* ViewController.m */; };
 		176BF7A11B9A912900F0FAC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 176BF79F1B9A912900F0FAC6 /* Main.storyboard */; };
 		176BF7A31B9A912900F0FAC6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 176BF7A21B9A912900F0FAC6 /* Images.xcassets */; };
 		176BF7A61B9A912900F0FAC6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 176BF7A41B9A912900F0FAC6 /* LaunchScreen.xib */; };
 		176BF7B21B9A912900F0FAC6 /* MagicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7B11B9A912900F0FAC6 /* MagicTests.m */; };
+		176BF7C81B9A96C900F0FAC6 /* MATopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7C61B9A96C900F0FAC6 /* MATopViewController.m */; };
+		176BF7CD1B9A991D00F0FAC6 /* MACustomUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7CC1B9A991D00F0FAC6 /* MACustomUIButton.m */; };
+		176BF7D01B9A99F300F0FAC6 /* MAUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7CF1B9A99F300F0FAC6 /* MAUserTableViewController.m */; };
+		176BF7D31B9A9A1D00F0FAC6 /* MABattoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7D21B9A9A1D00F0FAC6 /* MABattoleViewController.m */; };
+		176BF7D61B9A9A2D00F0FAC6 /* MAResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7D51B9A9A2D00F0FAC6 /* MAResultViewController.m */; };
+		176BF7D91B9A9A8200F0FAC6 /* MAUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7D81B9A9A8200F0FAC6 /* MAUser.m */; };
+		176BF7DE1B9A9B9400F0FAC6 /* MAUserTableViewControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7DD1B9A9B9400F0FAC6 /* MAUserTableViewControllerDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,8 +40,6 @@
 		176BF7961B9A912900F0FAC6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		176BF7971B9A912900F0FAC6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		176BF79A1B9A912900F0FAC6 /* Magic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Magic.xcdatamodel; sourceTree = "<group>"; };
-		176BF79C1B9A912900F0FAC6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		176BF79D1B9A912900F0FAC6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		176BF7A01B9A912900F0FAC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		176BF7A21B9A912900F0FAC6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		176BF7A51B9A912900F0FAC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -43,6 +47,20 @@
 		176BF7B01B9A912900F0FAC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		176BF7B11B9A912900F0FAC6 /* MagicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagicTests.m; sourceTree = "<group>"; };
 		176BF7C41B9A921800F0FAC6 /* MAPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAPrefixHeader.pch; sourceTree = "<group>"; };
+		176BF7C51B9A96C900F0FAC6 /* MATopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MATopViewController.h; sourceTree = "<group>"; };
+		176BF7C61B9A96C900F0FAC6 /* MATopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MATopViewController.m; sourceTree = "<group>"; };
+		176BF7CB1B9A991D00F0FAC6 /* MACustomUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACustomUIButton.h; sourceTree = "<group>"; };
+		176BF7CC1B9A991D00F0FAC6 /* MACustomUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACustomUIButton.m; sourceTree = "<group>"; };
+		176BF7CE1B9A99F300F0FAC6 /* MAUserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAUserTableViewController.h; sourceTree = "<group>"; };
+		176BF7CF1B9A99F300F0FAC6 /* MAUserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAUserTableViewController.m; sourceTree = "<group>"; };
+		176BF7D11B9A9A1D00F0FAC6 /* MABattoleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MABattoleViewController.h; sourceTree = "<group>"; };
+		176BF7D21B9A9A1D00F0FAC6 /* MABattoleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MABattoleViewController.m; sourceTree = "<group>"; };
+		176BF7D41B9A9A2D00F0FAC6 /* MAResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAResultViewController.h; sourceTree = "<group>"; };
+		176BF7D51B9A9A2D00F0FAC6 /* MAResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAResultViewController.m; sourceTree = "<group>"; };
+		176BF7D71B9A9A8200F0FAC6 /* MAUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAUser.h; sourceTree = "<group>"; };
+		176BF7D81B9A9A8200F0FAC6 /* MAUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAUser.m; sourceTree = "<group>"; };
+		176BF7DC1B9A9B9400F0FAC6 /* MAUserTableViewControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAUserTableViewControllerDataSource.h; sourceTree = "<group>"; };
+		176BF7DD1B9A9B9400F0FAC6 /* MAUserTableViewControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAUserTableViewControllerDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,11 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				176BF7BB1B9A915B00F0FAC6 /* AppDelegate */,
-				176BF79C1B9A912900F0FAC6 /* ViewController.h */,
 				176BF7BC1B9A916C00F0FAC6 /* Classes */,
-				176BF79D1B9A912900F0FAC6 /* ViewController.m */,
 				176BF7BD1B9A917600F0FAC6 /* Resouces */,
-				176BF79F1B9A912900F0FAC6 /* Main.storyboard */,
 				176BF7A21B9A912900F0FAC6 /* Images.xcassets */,
 				176BF7A41B9A912900F0FAC6 /* LaunchScreen.xib */,
 				176BF7991B9A912900F0FAC6 /* Magic.xcdatamodeld */,
@@ -136,9 +151,9 @@
 		176BF7BC1B9A916C00F0FAC6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				176BF7C01B9A919700F0FAC6 /* Controllers */,
-				176BF7BF1B9A919100F0FAC6 /* Views */,
 				176BF7BE1B9A918B00F0FAC6 /* Models */,
+				176BF7BF1B9A919100F0FAC6 /* Views */,
+				176BF7C01B9A919700F0FAC6 /* Controllers */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -146,6 +161,9 @@
 		176BF7BD1B9A917600F0FAC6 /* Resouces */ = {
 			isa = PBXGroup;
 			children = (
+				176BF7C31B9A91D200F0FAC6 /* Images */,
+				176BF7C21B9A91C400F0FAC6 /* Sounds */,
+				176BF7C11B9A91BD00F0FAC6 /* lib */,
 			);
 			name = Resouces;
 			sourceTree = "<group>";
@@ -153,9 +171,8 @@
 		176BF7BE1B9A918B00F0FAC6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				176BF7C31B9A91D200F0FAC6 /* Images */,
-				176BF7C21B9A91C400F0FAC6 /* Sounds */,
-				176BF7C11B9A91BD00F0FAC6 /* lib */,
+				176BF7DA1B9A9A8900F0FAC6 /* User */,
+				176BF7DB1B9A9AAE00F0FAC6 /* Datasouce */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -163,6 +180,9 @@
 		176BF7BF1B9A919100F0FAC6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				176BF79F1B9A912900F0FAC6 /* Main.storyboard */,
+				176BF7CB1B9A991D00F0FAC6 /* MACustomUIButton.h */,
+				176BF7CC1B9A991D00F0FAC6 /* MACustomUIButton.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -170,6 +190,14 @@
 		176BF7C01B9A919700F0FAC6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				176BF7D11B9A9A1D00F0FAC6 /* MABattoleViewController.h */,
+				176BF7D21B9A9A1D00F0FAC6 /* MABattoleViewController.m */,
+				176BF7D41B9A9A2D00F0FAC6 /* MAResultViewController.h */,
+				176BF7D51B9A9A2D00F0FAC6 /* MAResultViewController.m */,
+				176BF7C51B9A96C900F0FAC6 /* MATopViewController.h */,
+				176BF7C61B9A96C900F0FAC6 /* MATopViewController.m */,
+				176BF7CE1B9A99F300F0FAC6 /* MAUserTableViewController.h */,
+				176BF7CF1B9A99F300F0FAC6 /* MAUserTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -194,6 +222,24 @@
 			children = (
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		176BF7DA1B9A9A8900F0FAC6 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				176BF7D71B9A9A8200F0FAC6 /* MAUser.h */,
+				176BF7D81B9A9A8200F0FAC6 /* MAUser.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		176BF7DB1B9A9AAE00F0FAC6 /* Datasouce */ = {
+			isa = PBXGroup;
+			children = (
+				176BF7DC1B9A9B9400F0FAC6 /* MAUserTableViewControllerDataSource.h */,
+				176BF7DD1B9A9B9400F0FAC6 /* MAUserTableViewControllerDataSource.m */,
+			);
+			name = Datasouce;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,10 +342,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				176BF7C81B9A96C900F0FAC6 /* MATopViewController.m in Sources */,
+				176BF7DE1B9A9B9400F0FAC6 /* MAUserTableViewControllerDataSource.m in Sources */,
 				176BF79B1B9A912900F0FAC6 /* Magic.xcdatamodeld in Sources */,
+				176BF7D01B9A99F300F0FAC6 /* MAUserTableViewController.m in Sources */,
 				176BF7981B9A912900F0FAC6 /* AppDelegate.m in Sources */,
-				176BF79E1B9A912900F0FAC6 /* ViewController.m in Sources */,
 				176BF7951B9A912900F0FAC6 /* main.m in Sources */,
+				176BF7CD1B9A991D00F0FAC6 /* MACustomUIButton.m in Sources */,
+				176BF7D31B9A9A1D00F0FAC6 /* MABattoleViewController.m in Sources */,
+				176BF7D91B9A9A8200F0FAC6 /* MAUser.m in Sources */,
+				176BF7D61B9A9A2D00F0FAC6 /* MAResultViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +546,7 @@
 				176BF7B71B9A912900F0FAC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		176BF7B81B9A912900F0FAC6 /* Build configuration list for PBXNativeTarget "MagicTests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +555,7 @@
 				176BF7BA1B9A912900F0FAC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
