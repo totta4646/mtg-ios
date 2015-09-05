@@ -1,0 +1,28 @@
+//
+//  RTPrefixHeader.pch
+//  Route
+//
+//  Created by totta on 2015/07/08.
+//  Copyright (c) 2015年 totta. All rights reserved.
+//
+
+#ifndef Route_RTPrefixHeader_pch
+#define Route_RTPrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif
+
+
+//DLogでデバッグログ確認
+#ifdef DEBUG
+#define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define DLog(...)
+#endif
+
+// ALog always displays output regardless of the DEBUG alarm
+#define ALog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+
+#import "UIColor+Hex.h"
