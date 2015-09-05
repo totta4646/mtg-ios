@@ -21,6 +21,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.98431378599999997" blue="0.96078437569999997" alpha="1" colorSpace="deviceRGB"/>
                                 <state key="normal" title="対戦"/>
                                 <connections>
+                                    <action selector="selectBattle:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zD5-om-1So"/>
                                     <segue destination="yNx-pQ-yJ1" kind="push" id="UzI-Jl-5zW"/>
                                 </connections>
                             </button>

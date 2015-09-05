@@ -10,4 +10,8 @@
 
 @interface MATopViewController : UIViewController
 
+@property (nonatomic) MAApiManager *api;
+
+- (IBAction)selectBattle:(id)sender;
+
 @end
