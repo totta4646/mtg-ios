@@ -1,14 +1,14 @@
 //
-//  MATableViewCell.m
+//  MTTableViewCell.m
 //  Magic
 //
 //  Created by totta on 2015/09/06.
 //  Copyright (c) 2015年 totta. All rights reserved.
 //
 
-#import "MATableViewCell.h"
+#import "MTTableViewCell.h"
 
-@implementation MATableViewCell
+@implementation MTTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code

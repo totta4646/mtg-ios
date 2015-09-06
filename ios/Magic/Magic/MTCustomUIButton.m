@@ -1,7 +1,7 @@
 // MACustomUIButton.m
-#import "MACustomUIButton.h"
+#import "MTCustomUIButton.h"
 
-@implementation MACustomUIButton
+@implementation MTCustomUIButton
 
 - (void)awakeFromNib
 {

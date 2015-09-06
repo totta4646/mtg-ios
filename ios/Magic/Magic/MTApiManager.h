@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MAApiManager : NSObject
--(NSArray *) apiConnection;
+@interface MTApiManager : NSObject
+-(NSDictionary *) getAllUser;
 @end

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MAUserTableViewControllerDataSource : NSObject
+@interface MTUserTableViewControllerDataSource : NSObject
 
 @property (nonatomic) NSMutableArray *dataSource;
 @property (nonatomic) NSDictionary *userData;

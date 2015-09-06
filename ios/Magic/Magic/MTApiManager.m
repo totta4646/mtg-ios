@@ -6,13 +6,13 @@
 //  Copyright (c) 2015年 totta. All rights reserved.
 //
 
-#import "MAApiManager.h"
+#import "MTApiManager.h"
 
-@implementation MAApiManager
+@implementation MTApiManager
 
 # pragma mark grobal method
 
--(NSArray *) apiConnection {
+-(NSDictionary *) getAllUser {
     NSString *url = @"http://dev.totta.click/get_user.php";
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
@@ -22,7 +22,7 @@
 
 # pragma mark private method
 
--(NSArray *) post:(NSURLRequest *) request {
+-(NSDictionary *) post:(NSURLRequest *) request {
     
     NSData *json = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     return [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingAllowFragments error:nil];

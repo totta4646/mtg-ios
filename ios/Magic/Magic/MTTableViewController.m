@@ -1,32 +1,25 @@
 //
-//  MAUserTableViewController.m
+//  MTTableViewController.m
 //  Magic
 //
-//  Created by totta on 2015/09/05.
+//  Created by totta on 2015/09/06.
 //  Copyright (c) 2015年 totta. All rights reserved.
 //
 
-#import "MAUserTableViewController.h"
+#import "MTTableViewController.h"
 
-@interface MAUserTableViewController ()
+@interface MTTableViewController ()
 
 @end
 
-@implementation MAUserTableViewController
+@implementation MTTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -37,7 +30,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return [_dataSource count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -49,8 +42,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    cell.textLabel.text = @"hoge";
-    
+    cell.textLabel.text = [[_dataSource objectAtIndex:indexPath.row] objectForKey:@"name"];
     return cell;
 }
 
@@ -95,6 +87,22 @@
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
+}
+*/
+
+/*
+#pragma mark - Table view delegate
+
+// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Navigation logic may go here, for example:
+    // Create the next view controller.
+    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
+    
+    // Pass the selected object to the new view controller.
+    
+    // Push the view controller.
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 */
 

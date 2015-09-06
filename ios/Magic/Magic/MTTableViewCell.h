@@ -1,5 +1,5 @@
 //
-//  MATableViewCell.h
+//  MTTableViewCell.h
 //  Magic
 //
 //  Created by totta on 2015/09/06.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MATableViewCell : UITableViewCell
+@interface MTTableViewCell : UITableViewCell
 
 @end

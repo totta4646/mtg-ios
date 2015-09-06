@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 totta. All rights reserved.
 //
 
-#import "MAUserTableViewControllerDataSource.h"
+#import "MTUserTableViewControllerDataSource.h"
 
-@implementation MAUserTableViewControllerDataSource
+@implementation MTUserTableViewControllerDataSource
 
 - (id) init {
     if (self = [super init]) {
