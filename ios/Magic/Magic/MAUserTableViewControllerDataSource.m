@@ -10,4 +10,19 @@
 
 @implementation MAUserTableViewControllerDataSource
 
+- (id) init {
+    if (self = [super init]) {
+        _dataSource = [[NSMutableArray alloc] init];
+        
+    }
+    return self;
+}
+
+-(void) createDatasource:(NSDictionary *) dic {
+    
+    
+    
+}
+
+
 @end

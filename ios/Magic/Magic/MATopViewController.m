@@ -16,7 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _api = [[MAApiManager alloc] init];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,20 +25,8 @@
 }
 
 - (IBAction)selectBattle:(id)sender {
-    NSString *url = @"http://dev.totta.click/get_user.php";
+
+    [_api apiConnection];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    NSData *json = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSArray *res = [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingAllowFragments error:nil];
-    NSLog(@"%@",res);
-}
-
-# pragma mark setter
-
--(MAApiManager *) api {
-    if (!_api) {
-        _api = [[MAApiManager alloc] init];
-    }
-    return _api;
 }
 @end

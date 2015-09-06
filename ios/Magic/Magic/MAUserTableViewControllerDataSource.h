@@ -10,4 +10,7 @@
 
 @interface MAUserTableViewControllerDataSource : NSObject
 
+@property (nonatomic) NSMutableArray *dataSource;
+@property (nonatomic) NSDictionary *userData;
+
 @end

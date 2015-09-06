@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1748370B1B9BEB1200EEC54D /* MATableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 174837091B9BEB1200EEC54D /* MATableViewCell.m */; };
+		1748370C1B9BEB1200EEC54D /* MATableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1748370A1B9BEB1200EEC54D /* MATableViewCell.xib */; };
 		17619F6D1B9AA18500E16915 /* MAApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17619F6C1B9AA18500E16915 /* MAApiManager.m */; };
 		176BF7951B9A912900F0FAC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7941B9A912900F0FAC6 /* main.m */; };
 		176BF7981B9A912900F0FAC6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7971B9A912900F0FAC6 /* AppDelegate.m */; };
@@ -35,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		174837081B9BEB1200EEC54D /* MATableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MATableViewCell.h; path = ../MATableViewCell.h; sourceTree = "<group>"; };
+		174837091B9BEB1200EEC54D /* MATableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MATableViewCell.m; path = ../MATableViewCell.m; sourceTree = "<group>"; };
+		1748370A1B9BEB1200EEC54D /* MATableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MATableViewCell.xib; path = ../MATableViewCell.xib; sourceTree = "<group>"; };
 		17619F6B1B9AA18500E16915 /* MAApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAApiManager.h; sourceTree = "<group>"; };
 		17619F6C1B9AA18500E16915 /* MAApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAApiManager.m; sourceTree = "<group>"; };
 		176BF78F1B9A912900F0FAC6 /* Magic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Magic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,6 +198,9 @@
 		176BF7BF1B9A919100F0FAC6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				174837081B9BEB1200EEC54D /* MATableViewCell.h */,
+				174837091B9BEB1200EEC54D /* MATableViewCell.m */,
+				1748370A1B9BEB1200EEC54D /* MATableViewCell.xib */,
 				176BF79F1B9A912900F0FAC6 /* Main.storyboard */,
 				176BF7CB1B9A991D00F0FAC6 /* MACustomUIButton.h */,
 				176BF7CC1B9A991D00F0FAC6 /* MACustomUIButton.m */,
@@ -336,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				176BF7A11B9A912900F0FAC6 /* Main.storyboard in Resources */,
+				1748370C1B9BEB1200EEC54D /* MATableViewCell.xib in Resources */,
 				176BF7A61B9A912900F0FAC6 /* LaunchScreen.xib in Resources */,
 				176BF7A31B9A912900F0FAC6 /* Images.xcassets in Resources */,
 			);
@@ -364,6 +373,7 @@
 				176BF7951B9A912900F0FAC6 /* main.m in Sources */,
 				176BF7CD1B9A991D00F0FAC6 /* MACustomUIButton.m in Sources */,
 				176BF7D31B9A9A1D00F0FAC6 /* MABattoleViewController.m in Sources */,
+				1748370B1B9BEB1200EEC54D /* MATableViewCell.m in Sources */,
 				176BF7D91B9A9A8200F0FAC6 /* MAUser.m in Sources */,
 				176BF7D61B9A9A2D00F0FAC6 /* MAResultViewController.m in Sources */,
 			);
