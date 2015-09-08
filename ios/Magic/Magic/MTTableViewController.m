@@ -16,10 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+    
+    _dataSource = [[NSMutableArray alloc] init];
+    _dataSource = [_userData.userList mutableCopy];
+    
+    
 }
 
 #pragma mark - Table view data source
@@ -30,7 +31,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_dataSource count];
+    return [self.dataSource count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -42,7 +43,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    cell.textLabel.text = [[_dataSource objectAtIndex:indexPath.row] objectForKey:@"name"];
+    cell.textLabel.text = [[self.dataSource objectAtIndex:indexPath.row] objectForKey:@"name"];
     return cell;
 }
 
@@ -90,21 +91,12 @@
 }
 */
 
-/*
 #pragma mark - Table view delegate
 
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
-    
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    NSLog(@"hoge");
+
 }
-*/
 
 /*
 #pragma mark - Navigation
@@ -115,5 +107,21 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+# pragma mark setter
+-(MTUserTableViewControllerDataSource *) userData {
+    if (!_userData) {
+        _userData = [[MTUserTableViewControllerDataSource alloc] init];
+    }
+    
+    return _userData;
+}
+
+-(NSMutableArray *) dataSource {
+    if (!_dataSource) {
+        _dataSource = [[NSMutableArray alloc] init];
+    }
+    return _dataSource;
+}
 
 @end

@@ -13,6 +13,8 @@
 		174837181B9C322D00EEC54D /* MTTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174837161B9C322D00EEC54D /* MTTableViewController.xib */; };
 		1748371D1B9C32F100EEC54D /* MTTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1748371B1B9C32F100EEC54D /* MTTableViewCell.m */; };
 		1748371E1B9C32F100EEC54D /* MTTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1748371C1B9C32F100EEC54D /* MTTableViewCell.xib */; };
+		174837221B9C3B5A00EEC54D /* BattleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 174837201B9C3B5A00EEC54D /* BattleViewController.m */; };
+		174837231B9C3B5A00EEC54D /* BattleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174837211B9C3B5A00EEC54D /* BattleViewController.xib */; };
 		17619F6D1B9AA18500E16915 /* MTApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17619F6C1B9AA18500E16915 /* MTApiManager.m */; };
 		176BF7951B9A912900F0FAC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7941B9A912900F0FAC6 /* main.m */; };
 		176BF7981B9A912900F0FAC6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7971B9A912900F0FAC6 /* AppDelegate.m */; };
@@ -45,6 +47,9 @@
 		1748371A1B9C32F100EEC54D /* MTTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTableViewCell.h; sourceTree = "<group>"; };
 		1748371B1B9C32F100EEC54D /* MTTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTableViewCell.m; sourceTree = "<group>"; };
 		1748371C1B9C32F100EEC54D /* MTTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTTableViewCell.xib; sourceTree = "<group>"; };
+		1748371F1B9C3B5A00EEC54D /* BattleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleViewController.h; sourceTree = "<group>"; };
+		174837201B9C3B5A00EEC54D /* BattleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BattleViewController.m; sourceTree = "<group>"; };
+		174837211B9C3B5A00EEC54D /* BattleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BattleViewController.xib; sourceTree = "<group>"; };
 		17619F6B1B9AA18500E16915 /* MTApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTApiManager.h; sourceTree = "<group>"; };
 		17619F6C1B9AA18500E16915 /* MTApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTApiManager.m; sourceTree = "<group>"; };
 		176BF78F1B9A912900F0FAC6 /* Magic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Magic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +93,7 @@
 		174837191B9C326600EEC54D /* xib */ = {
 			isa = PBXGroup;
 			children = (
+				174837211B9C3B5A00EEC54D /* BattleViewController.xib */,
 				174837111B9C31CB00EEC54D /* MTTopViewController.xib */,
 				1748371C1B9C32F100EEC54D /* MTTableViewCell.xib */,
 				174837161B9C322D00EEC54D /* MTTableViewController.xib */,
@@ -220,6 +226,8 @@
 				174837101B9C31CB00EEC54D /* MTTopViewController.m */,
 				174837141B9C322D00EEC54D /* MTTableViewController.h */,
 				174837151B9C322D00EEC54D /* MTTableViewController.m */,
+				1748371F1B9C3B5A00EEC54D /* BattleViewController.h */,
+				174837201B9C3B5A00EEC54D /* BattleViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -344,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				174837231B9C3B5A00EEC54D /* BattleViewController.xib in Resources */,
 				174837181B9C322D00EEC54D /* MTTableViewController.xib in Resources */,
 				1748371E1B9C32F100EEC54D /* MTTableViewCell.xib in Resources */,
 				174837131B9C31CB00EEC54D /* MTTopViewController.xib in Resources */,
@@ -370,6 +379,7 @@
 				17619F6D1B9AA18500E16915 /* MTApiManager.m in Sources */,
 				176BF7DE1B9A9B9400F0FAC6 /* MTUserTableViewControllerDataSource.m in Sources */,
 				176BF79B1B9A912900F0FAC6 /* Magic.xcdatamodeld in Sources */,
+				174837221B9C3B5A00EEC54D /* BattleViewController.m in Sources */,
 				176BF7981B9A912900F0FAC6 /* AppDelegate.m in Sources */,
 				176BF7951B9A912900F0FAC6 /* main.m in Sources */,
 				176BF7CD1B9A991D00F0FAC6 /* MTCustomUIButton.m in Sources */,

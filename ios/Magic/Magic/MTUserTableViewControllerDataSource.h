@@ -10,7 +10,12 @@
 
 @interface MTUserTableViewControllerDataSource : NSObject
 
-@property (nonatomic) NSMutableArray *dataSource;
-@property (nonatomic) NSDictionary *userData;
+@property (nonatomic) NSArray       *userList;
+
+@property (nonatomic) int           selectUser;
+@property (nonatomic) int           selectUser2;
+
+
+-(void) saveSelectUser:(int)select;
 
 @end

@@ -12,17 +12,53 @@
 
 - (id) init {
     if (self = [super init]) {
-        _dataSource = [[NSMutableArray alloc] init];
         
     }
     return self;
 }
 
--(void) createDatasource:(NSDictionary *) dic {
-    
-    
-    
+# pragma mark private method
+/**
+ *  選択されたユーザー情報を保持
+ *
+ *  @param select 選択されたユーザーID
+ */
+
+-(void) saveSelectUser:(int) select {
+    if (_selectUser != -1 && _selectUser2 == -1) {
+        _selectUser2 = select;
+    } else {
+        _selectUser = select;
+        _selectUser2 = -1;
+    }
 }
 
+
+# pragma mark setter
+
+-(NSArray *) userList {
+    if (_userList) {
+        _userList = [[NSArray alloc] init];
+    }
+
+    return _userList;
+
+}
+
+-(int) selectUser {
+    if (_selectUser) {
+        _selectUser = -1;
+    }
+    
+    return _selectUser;
+}
+
+-(int) selectUser2 {
+    if (_selectUser2) {
+        _selectUser2 = -1;
+    }
+    
+    return _selectUser2;
+}
 
 @end

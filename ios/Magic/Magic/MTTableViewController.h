@@ -10,6 +10,7 @@
 
 @interface MTTableViewController : UITableViewController
 
-@property (nonatomic) NSArray *dataSource;
+@property (strong, nonatomic) MTUserTableViewControllerDataSource *userData;
+@property (strong, nonatomic) NSMutableArray                      *dataSource;
 
 @end
