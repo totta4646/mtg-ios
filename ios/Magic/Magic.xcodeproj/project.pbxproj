@@ -24,7 +24,7 @@
 		176BF7B21B9A912900F0FAC6 /* MagicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7B11B9A912900F0FAC6 /* MagicTests.m */; };
 		176BF7CD1B9A991D00F0FAC6 /* MTCustomUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7CC1B9A991D00F0FAC6 /* MTCustomUIButton.m */; };
 		176BF7D91B9A9A8200F0FAC6 /* MTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7D81B9A9A8200F0FAC6 /* MTUser.m */; };
-		176BF7DE1B9A9B9400F0FAC6 /* MTUserSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7DD1B9A9B9400F0FAC6 /* MTUserSource.m */; };
+		176BF7DE1B9A9B9400F0FAC6 /* MTUserDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7DD1B9A9B9400F0FAC6 /* MTUserDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +69,7 @@
 		176BF7D71B9A9A8200F0FAC6 /* MTUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTUser.h; sourceTree = "<group>"; };
 		176BF7D81B9A9A8200F0FAC6 /* MTUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTUser.m; sourceTree = "<group>"; };
 		176BF7DC1B9A9B9400F0FAC6 /* MTUserDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTUserDataSource.h; sourceTree = "<group>"; };
-		176BF7DD1B9A9B9400F0FAC6 /* MTUserSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTUserSource.m; sourceTree = "<group>"; };
+		176BF7DD1B9A9B9400F0FAC6 /* MTUserDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTUserDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,7 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				176BF7DC1B9A9B9400F0FAC6 /* MTUserDataSource.h */,
-				176BF7DD1B9A9B9400F0FAC6 /* MTUserSource.m */,
+				176BF7DD1B9A9B9400F0FAC6 /* MTUserDataSource.m */,
 			);
 			name = Datasouce;
 			sourceTree = "<group>";
@@ -377,7 +377,7 @@
 			files = (
 				174837171B9C322D00EEC54D /* MTTableViewController.m in Sources */,
 				17619F6D1B9AA18500E16915 /* MTApiManager.m in Sources */,
-				176BF7DE1B9A9B9400F0FAC6 /* MTUserSource.m in Sources */,
+				176BF7DE1B9A9B9400F0FAC6 /* MTUserDataSource.m in Sources */,
 				176BF79B1B9A912900F0FAC6 /* Magic.xcdatamodeld in Sources */,
 				174837221B9C3B5A00EEC54D /* BattleViewController.m in Sources */,
 				176BF7981B9A912900F0FAC6 /* AppDelegate.m in Sources */,

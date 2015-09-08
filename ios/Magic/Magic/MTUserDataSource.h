@@ -7,15 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MTUser.h"
 
 @interface MTUserDataSource : NSObject
 
 @property (nonatomic) NSArray       *userList;
+@property (nonatomic) MTUser        *user1;
+@property (nonatomic) MTUser        *user2;
 
-@property (nonatomic) int           selectUser;
-@property (nonatomic) int           selectUser2;
+-(BOOL) setUser:(NSArray *)data
+               :(int)number;
 
-
--(void) saveSelectUser:(int)select;
 
 @end

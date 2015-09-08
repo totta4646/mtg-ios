@@ -93,8 +93,12 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"hoge");
+    int corrent = (int)indexPath.row;
 
+    if ([_userData setUser:_dataSource
+                          :corrent]) {
+        NSLog(@"hoge");
+    }
 }
 
 /*

@@ -10,4 +10,27 @@
 
 @implementation MTUser
 
+# pragma mark private action
+
+/**
+ *  体力を一つ増やす
+ */
+-(void) incriment {
+    self.life++;
+}
+
+/**
+ *  体力を一つ減らす
+ */
+-(void) decrementLite {
+    self.life--;
+}
+/**
+ *  ライフを20に戻す
+ */
+
+-(void) resetLife {
+    self.life = 20;
+}
+
 @end
