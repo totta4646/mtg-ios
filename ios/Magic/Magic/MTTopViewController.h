@@ -11,7 +11,7 @@
 @interface MTTopViewController : UIViewController
 
 @property (nonatomic) MTApiManager *api;
-@property (nonatomic) MTUserTableViewControllerDataSource *userData;
+@property (nonatomic) MTUserDataSource *userData;
 
 - (IBAction)selectUser:(id)sender;
 @end

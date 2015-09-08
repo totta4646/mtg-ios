@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 totta. All rights reserved.
 //
 
-#import "MTUserTableViewControllerDataSource.h"
+#import "MTUserDataSource.h"
 
-@implementation MTUserTableViewControllerDataSource
+@implementation MTUserDataSource
 
 - (id) init {
     if (self = [super init]) {
@@ -37,7 +37,7 @@
 # pragma mark setter
 
 -(NSArray *) userList {
-    if (_userList) {
+    if (!_userList) {
         _userList = [[NSArray alloc] init];
     }
 
@@ -46,7 +46,7 @@
 }
 
 -(int) selectUser {
-    if (_selectUser) {
+    if (!_selectUser) {
         _selectUser = -1;
     }
     
@@ -54,7 +54,7 @@
 }
 
 -(int) selectUser2 {
-    if (_selectUser2) {
+    if (!_selectUser2) {
         _selectUser2 = -1;
     }
     

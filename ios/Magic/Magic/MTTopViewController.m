@@ -29,21 +29,23 @@
 
 - (IBAction)selectUser:(id)sender {
     MTTableViewController *vc = [[MTTableViewController alloc] init];
-    _userData = [[MTUserTableViewControllerDataSource alloc] init];
+    _userData = [[MTUserDataSource alloc] init];
     
 
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
-//        @autoreleasepool{
-            [_userData setUserList:[[_api getAllUser] objectForKey:@"data"]];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
+        @autoreleasepool{
 
-//            dispatch_sync(dispatch_get_main_queue(), ^{
-                [vc setUserData:_userData];
-//    [vc setDataSource:_userData.userList];
+            [vc setUserData:_userData];
+            [vc setDataSource:_userData.userList];
+
+            dispatch_sync(dispatch_get_main_queue(), ^{
+
+                [_userData setUserList:[[_api getAllUser] objectForKey:@"data"]];
+
+            });
+        }
+    });
     
-//            });
-//        }
-//    });
-//    
     
     [self.navigationController pushViewController:vc animated:YES];
 }

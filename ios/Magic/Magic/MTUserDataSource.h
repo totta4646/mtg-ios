@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MTUserTableViewControllerDataSource : NSObject
+@interface MTUserDataSource : NSObject
 
 @property (nonatomic) NSArray       *userList;
 

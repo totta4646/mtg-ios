@@ -17,8 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _dataSource = [[NSMutableArray alloc] init];
-    _dataSource = [_userData.userList mutableCopy];
+    _dataSource = _userData.userList;
     
     
 }
@@ -109,17 +108,17 @@
 */
 
 # pragma mark setter
--(MTUserTableViewControllerDataSource *) userData {
+-(MTUserDataSource *) userData {
     if (!_userData) {
-        _userData = [[MTUserTableViewControllerDataSource alloc] init];
+        _userData = [[MTUserDataSource alloc] init];
     }
     
     return _userData;
 }
 
--(NSMutableArray *) dataSource {
+-(NSArray *) dataSource {
     if (!_dataSource) {
-        _dataSource = [[NSMutableArray alloc] init];
+        _dataSource = [[NSArray alloc] init];
     }
     return _dataSource;
 }
