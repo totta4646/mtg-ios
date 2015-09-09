@@ -33,8 +33,9 @@
  */
 -(BOOL) setUser:(NSArray *)data
                :(int)number {
-        
-    if(_user1.userID != 0 && _user2.userID == 0) {
+    
+    if(( _user1.userID != -1 && _user2.userID == -1) ) {
+
         [_user2 setUserID:number];
         [_user2 setName:[[data objectAtIndex:number] objectForKey:@"name"]];
         [_user2 resetLife];
@@ -43,7 +44,7 @@
 
     } else {
 
-        [_user2 setUserID:0];
+        [_user2 setUserID:-1];
         
         [_user1 setUserID:number];
         [_user1 setName:[[data objectAtIndex:number] objectForKey:@"name"]];

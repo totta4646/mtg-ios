@@ -10,9 +10,9 @@
 
 @interface MTUser : NSObject
 
-@property int      userID;
-@property int      life;
-@property NSString *name;
+@property (nonatomic) int      userID;
+@property (nonatomic) int      life;
+@property (nonatomic) NSString *name;
 
 -(void) incriment;
 -(void) decrementLite;

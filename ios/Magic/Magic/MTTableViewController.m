@@ -7,6 +7,8 @@
 //
 
 #import "MTTableViewController.h"
+#import "BattleViewController.h"
+
 
 @interface MTTableViewController ()
 
@@ -97,9 +99,36 @@
 
     if ([_userData setUser:_dataSource
                           :corrent]) {
-        NSLog(@"hoge");
+
+        NSString *title = [NSString stringWithFormat:@"%@ vs %@",_userData.user1.name ,_userData.user2.name];
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                                 message:@"対戦を始めますか？"
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alertController addAction:[UIAlertAction actionWithTitle:@"はい"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction *action) {
+                                                              [self otherButtonPushed];
+                                                          }]];
+        
+        [alertController addAction:[UIAlertAction actionWithTitle:@"いいえ"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction *action) {
+                                                              nil;
+                                                          }]];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+        
     }
 }
+
+
+- (void)otherButtonPushed {
+    BattleViewController *vc = [[BattleViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (void)cancelButtonPushed {}
 
 /*
 #pragma mark - Navigation
