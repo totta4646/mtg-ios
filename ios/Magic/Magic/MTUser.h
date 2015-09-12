@@ -15,7 +15,8 @@
 @property (nonatomic) NSString *name;
 
 -(void) incriment;
--(void) decrementLite;
--(void) resetLife;
+-(void) decrement;
+-(void) setLife;
+-(void) setGuest;
 
 @end

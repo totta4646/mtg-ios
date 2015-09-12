@@ -15,12 +15,21 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1a-M0-6on">
-                    <rect key="frame" x="164" y="319" width="46" height="30"/>
-                    <state key="normal" title="Button">
+                    <rect key="frame" x="88" y="174" width="199" height="67"/>
+                    <state key="normal" title="いつものメンバー">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="selectUser:" destination="-1" eventType="touchUpInside" id="eXN-W6-lM1"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJZ-KA-4CB">
+                    <rect key="frame" x="88" y="306" width="199" height="67"/>
+                    <state key="normal" title="ゲストさん">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="guestBattle:" destination="-1" eventType="touchUpInside" id="D40-BN-hnh"/>
                     </connections>
                 </button>
             </subviews>

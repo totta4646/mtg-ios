@@ -8,6 +8,7 @@
 
 #import "MTTopViewController.h"
 #import "MTTableViewController.h"
+#import "BattleViewController.h"
 
 @interface MTTopViewController ()
 
@@ -18,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.navigationItem.title = @"Magic: The Gathering";
     _api = [[MTApiManager alloc] init];
 
 }
@@ -37,16 +39,27 @@
 
             [vc setUserData:_userData];
             [vc setDataSource:_userData.userList];
+            vc.navigationItem.title = @"対戦相手を選んでください。";
+            [_userData setUserList:[[_api getAllUser] objectForKey:@"data"]];
 
             dispatch_sync(dispatch_get_main_queue(), ^{
 
-                [_userData setUserList:[[_api getAllUser] objectForKey:@"data"]];
+                [self.navigationController pushViewController:vc animated:YES];
 
             });
         }
     });
     
     
+}
+
+- (IBAction)guestBattle:(id)sender {
+    BattleViewController *vc = [[BattleViewController alloc] init];
+    _userData = [[MTUserDataSource alloc] init];
+    [_userData makeGuestUserData];
+
+    [vc setUserData:_userData];
     [self.navigationController pushViewController:vc animated:YES];
+
 }
 @end

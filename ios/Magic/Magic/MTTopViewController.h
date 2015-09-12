@@ -14,4 +14,5 @@
 @property (nonatomic) MTUserDataSource *userData;
 
 - (IBAction)selectUser:(id)sender;
+- (IBAction)guestBattle:(id)sender;
 @end

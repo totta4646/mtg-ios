@@ -13,12 +13,23 @@
 # pragma mark grobal method
 
 -(NSDictionary *) getAllUser {
-    NSString *url = @"http://dev.totta.click/get_user.php";
+    NSString *url = [NSString stringWithFormat:@"%@%@",MY_HOST ,@"get_user.php" ];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    return [self post:request];
+    
+}
+
+-(NSDictionary *) postResultData:(int)winUserId
+                                :(int)loseUserId {
+    
+    NSString *param = [NSString stringWithFormat:@"winner=%d&loser=%d",winUserId, loseUserId];
+    NSString *url = [NSString stringWithFormat:@"%@post.php?%@",MY_HOST ,param];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     return [self post:request];
     
 }
+
 
 # pragma mark private method
 

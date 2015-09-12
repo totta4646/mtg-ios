@@ -10,4 +10,7 @@
 
 @interface MTApiManager : NSObject
 -(NSDictionary *) getAllUser;
+-(NSDictionary *) postResultData:(int)winUserId
+                                :(int)loseUserId;
+
 @end

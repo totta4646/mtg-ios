@@ -34,11 +34,15 @@
 -(BOOL) setUser:(NSArray *)data
                :(int)number {
     
-    if(( _user1.userID != -1 && _user2.userID == -1) ) {
+    if (_user1.userID == number) {
+        return false;
+    }
+    
+    if( _user1.userID != -1 && _user2.userID == -1) {
 
         [_user2 setUserID:number];
         [_user2 setName:[[data objectAtIndex:number] objectForKey:@"name"]];
-        [_user2 resetLife];
+        [_user2 setLife];
         
         return true;
 
@@ -48,11 +52,21 @@
         
         [_user1 setUserID:number];
         [_user1 setName:[[data objectAtIndex:number] objectForKey:@"name"]];
-        [_user1 resetLife];
+        [_user1 setLife];
 
         return false;
         
     }
+}
+/**
+ *  ゲストモードで情報を初期化
+ */
+-(void) makeGuestUserData {
+    [_user1 setGuest];
+    [_user2 setGuest];
+    [_user1 setLife];
+    [_user2 setLife];
+
 }
 
 # pragma mark setter

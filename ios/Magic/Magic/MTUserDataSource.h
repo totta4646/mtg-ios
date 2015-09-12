@@ -17,6 +17,6 @@
 
 -(BOOL) setUser:(NSArray *)data
                :(int)number;
-
+-(void) makeGuestUserData;
 
 @end

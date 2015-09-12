@@ -16,5 +16,8 @@
 // ALog always displays output regardless of the DEBUG alarm
 #define ALog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 
+#define MY_HOST @"http://dev.totta.click/"
+
+
 #import "MTApiManager.h"
 #import "MTUserDataSource.h"

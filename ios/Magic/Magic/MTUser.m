@@ -10,7 +10,7 @@
 
 @implementation MTUser
  
-# pragma mark private action
+# pragma mark action
 
 /**
  *  体力を一つ増やす
@@ -22,15 +22,23 @@
 /**
  *  体力を一つ減らす
  */
--(void) decrementLite {
+-(void) decrement {
     self.life--;
 }
+
+#pragma mark setter
+
 /**
  *  ライフを20に戻す
  */
-
--(void) resetLife {
+-(void) setLife {
     self.life = 20;
+}
+
+
+-(void) setGuest {
+    _name = @"player";
+    _userID = -10;
 }
 
 @end

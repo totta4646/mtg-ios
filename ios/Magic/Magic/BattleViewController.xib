@@ -6,6 +6,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BattleViewController">
             <connections>
+                <outlet property="user1Life" destination="RhA-4Y-FyI" id="EKX-KU-mU4"/>
+                <outlet property="user1Name" destination="Inw-eJ-9Nv" id="uIg-ab-oF6"/>
+                <outlet property="user2Life" destination="wDT-Ut-OnO" id="V30-if-Hiv"/>
+                <outlet property="user2Name" destination="L1b-sB-GTg" id="Avf-U8-qDl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,81 +19,105 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Msv-Fr-1O8">
-                    <rect key="frame" x="112" y="69" width="100" height="100"/>
+                    <rect key="frame" x="77" y="60" width="100" height="100"/>
                     <fontDescription key="fontDescription" type="system" pointSize="27"/>
                     <state key="normal" title="+5">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="user1up5:" destination="-1" eventType="touchUpInside" id="B3u-YR-N5c"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqU-3C-x7m">
-                    <rect key="frame" x="224" y="167" width="100" height="80"/>
+                    <rect key="frame" x="189" y="158" width="80" height="80"/>
                     <fontDescription key="fontDescription" type="system" pointSize="27"/>
                     <state key="normal" title="+1">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="user1up1:" destination="-1" eventType="touchUpInside" id="Hzt-dQ-Utu"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riJ-nI-sfb">
-                    <rect key="frame" x="112" y="245" width="100" height="100"/>
+                    <rect key="frame" x="77" y="236" width="100" height="100"/>
                     <fontDescription key="fontDescription" type="system" pointSize="27"/>
                     <state key="normal" title="-5">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="user1down5:" destination="-1" eventType="touchUpInside" id="g0L-Kp-Z2G"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Rx-DD-QCF">
-                    <rect key="frame" x="8" y="167" width="100" height="80"/>
+                    <rect key="frame" x="8" y="158" width="80" height="80"/>
                     <fontDescription key="fontDescription" type="system" pointSize="27"/>
                     <state key="normal" title="-1">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="user1down1:" destination="-1" eventType="touchUpInside" id="h9N-bd-KDu"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="user1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Inw-eJ-9Nv">
-                    <rect key="frame" x="72" y="30" width="180" height="48"/>
+                    <rect key="frame" x="37" y="21" width="180" height="48"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LIFE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhA-4Y-FyI">
-                    <rect key="frame" x="116" y="177" width="100" height="60"/>
+                    <rect key="frame" x="81" y="168" width="100" height="60"/>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MxL-3e-7g7">
-                    <rect key="frame" x="447" y="69" width="100" height="100"/>
+                    <rect key="frame" x="355" y="60" width="100" height="100"/>
                     <fontDescription key="fontDescription" type="system" pointSize="27"/>
                     <state key="normal" title="+5">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="user2up5:" destination="-1" eventType="touchUpInside" id="cDn-3h-ua5"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7Q-vX-skg">
-                    <rect key="frame" x="559" y="167" width="100" height="80"/>
+                    <rect key="frame" x="467" y="158" width="80" height="80"/>
                     <fontDescription key="fontDescription" type="system" pointSize="27"/>
                     <state key="normal" title="+1">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="user2up1:" destination="-1" eventType="touchUpInside" id="epm-HD-2NV"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzM-BV-CYM">
-                    <rect key="frame" x="447" y="245" width="100" height="100"/>
+                    <rect key="frame" x="355" y="236" width="100" height="100"/>
                     <fontDescription key="fontDescription" type="system" pointSize="27"/>
                     <state key="normal" title="-5">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="user2down5:" destination="-1" eventType="touchUpInside" id="12C-ra-cro"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUH-et-g8K">
-                    <rect key="frame" x="343" y="167" width="100" height="80"/>
+                    <rect key="frame" x="277" y="158" width="80" height="80"/>
                     <fontDescription key="fontDescription" type="system" pointSize="27"/>
                     <state key="normal" title="-1">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="user2down1:" destination="-1" eventType="touchUpInside" id="fWw-E8-q75"/>
+                    </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="user1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1b-sB-GTg">
-                    <rect key="frame" x="407" y="30" width="180" height="48"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="user2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1b-sB-GTg">
+                    <rect key="frame" x="315" y="21" width="180" height="48"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LIFE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDT-Ut-OnO">
-                    <rect key="frame" x="451" y="177" width="100" height="60"/>
+                    <rect key="frame" x="359" y="168" width="100" height="60"/>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -98,7 +126,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="264.5" y="-159.5"/>
+            <point key="canvasLocation" x="256.5" y="-251.5"/>
         </view>
     </objects>
 </document>
