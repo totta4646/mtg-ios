@@ -21,6 +21,19 @@
 
     self.navigationItem.title = @"Magic: The Gathering";
     _api = [[MTApiManager alloc] init];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
+        @autoreleasepool{
+            NSDictionary *res = [_api rePostDatas];
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                if([res count] != 0) {
+                    [_api deleteTempData];
+
+                }
+            });
+        }
+    });
+
 
 }
 
@@ -35,26 +48,36 @@
                       :(BOOL)resultMode {
     MTTableViewController *vc = [[MTTableViewController alloc] init];
     _userData = [[MTUserDataSource alloc] init];
-    
+    [SVProgressHUD showWithStatus:@"now loading"];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
         @autoreleasepool{
             [_userData setUserList:[[_api getAllUser] objectForKey:@"data"]];
             
             dispatch_sync(dispatch_get_main_queue(), ^{
+                
                 [vc setUserData:_userData];
                 [vc setDataSource:_userData.userList];
                 [vc setResult:resultMode];
                 
                 vc.navigationItem.title = navTitle;
 
-                [self.navigationController pushViewController:vc animated:YES];
+                if([_userData.userList count] != 0) {
+                    [SVProgressHUD showWithStatus:@"success"];
+                    [SVProgressHUD dismissWithDelay:.5f];
+                    [self.navigationController pushViewController:vc animated:YES];
+                } else {
+                    [SVProgressHUD showWithStatus:@"failed"];
+                    [SVProgressHUD dismissWithDelay:.5f];
+                    
+                }
                 
             });
         }
     });
     
 }
+
 
 #pragma mark action
 

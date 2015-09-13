@@ -9,11 +9,19 @@
 #import <Foundation/Foundation.h>
 
 @interface MTApiManager : NSObject
+
+@property (strong, nonatomic) NSMutableArray *tempData;
+
 -(NSDictionary *) getAllUser;
 -(NSDictionary *) postResultData:(int)winUserId
                                 :(int)loseUserId;
-
+-(NSDictionary *) rePostDatas;
 -(NSDictionary *) getResultData:(int) userID
                                :(int)rivalID;
+
+
+-(void) setTempData:(int) winner
+                   :(int) loser;
+-(void) deleteTempData;
 
 @end

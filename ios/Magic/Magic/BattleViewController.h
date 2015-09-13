@@ -10,7 +10,8 @@
 
 @interface BattleViewController : UIViewController
 
-@property MTUserDataSource *userData;
+@property MTUserDataSource                   *userData;
+@property MTApiManager                       *api;
 @property (weak, nonatomic) IBOutlet UILabel *user1Name;
 @property (weak, nonatomic) IBOutlet UILabel *user1Life;
 @property (weak, nonatomic) IBOutlet UILabel *user2Name;

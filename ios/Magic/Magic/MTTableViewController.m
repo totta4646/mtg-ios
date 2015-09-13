@@ -60,21 +60,30 @@
         if (_result) {
             
             _api = [[MTApiManager alloc] init];
+            [SVProgressHUD showWithStatus:@"now loading"];
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
                 @autoreleasepool{
                     NSDictionary *res = [[_api getResultData:_userData.user1.userID
                                                        :_userData.user2.userID] objectForKey:@"data"];
                     
                     dispatch_sync(dispatch_get_main_queue(), ^{
-                        
-                        NSString *messagea = [NSString stringWithFormat:@"%@の勝ち : %@\n%@の勝ち : %@",
-                                              _userData.user1.name ,
-                                              [self castNilData:[res objectForKey:@"win_sum"]],
-                                              _userData.user2.name ,
-                                              [self castNilData:[res objectForKey:@"lose_sum"]]];
-                        [self showAlert:messagea
-                                       :@"OK"];
-                        
+
+                        if([res count] != 0) {
+                            
+                            [SVProgressHUD dismiss];
+                            
+                            NSString *messagea = [NSString stringWithFormat:@"%@の勝ち : %@\n%@の勝ち : %@",
+                                                  _userData.user1.name ,
+                                                  [self castNilData:[res objectForKey:@"win_sum"]],
+                                                  _userData.user2.name ,
+                                                  [self castNilData:[res objectForKey:@"lose_sum"]]];
+                            [self showAlert:messagea
+                                           :@"OK"];
+                        } else {
+                            [SVProgressHUD showWithStatus:@"failed"];
+                            [SVProgressHUD dismissWithDelay:.5f];
+
+                        }
                     });
                 }
             });

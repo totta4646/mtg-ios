@@ -13,7 +13,6 @@
 @end
 
 @implementation BattleViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setLayout];
@@ -68,20 +67,22 @@
 
 -(void) checkLife {
     if (_userData.user1.life <= 0) {
-        [self alert:_userData.user2.name];
-        
         if (_userData.user1.userID != -10) {
-            [[[MTApiManager alloc] init] postResultData:_userData.user2.userID
-                                                       :_userData.user1.userID];
+            [self sendResultData:_userData.user2
+                                :_userData.user1];
+        } else {
+            [self alert:_userData.user1.name];
+
         }
     } else if(_userData.user2.life <= 0) {
-        [self alert:_userData.user1.name];
-        
         if (_userData.user1.userID != -10) {
-            [[[MTApiManager alloc] init] postResultData:_userData.user2.userID
-                                                   :_userData.user1.userID];
+            [self sendResultData:_userData.user1
+                                :_userData.user2];
+
+        } else {
+            [self alert:_userData.user1.name];
+
         }
-        
     }
     [self rewriteLifes];
 
@@ -93,6 +94,30 @@
     
 }
 
+-(void) sendResultData:(MTUser *) winner
+                      :(MTUser *) loser {
+    
+    _api = [[MTApiManager alloc] init];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
+        @autoreleasepool{
+            NSDictionary *res = [_api postResultData:winner.userID
+                                                    :loser.userID];
+            
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                if([res count] == 0) {
+                  [_api setTempData:winner.userID
+                                   :loser.userID];
+                }
+
+                [self alert:winner.name];
+
+            });
+        }
+    });
+
+    
+}
 
 #pragma mark action
 
