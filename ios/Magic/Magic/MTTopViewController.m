@@ -83,7 +83,7 @@
 
 - (IBAction)selectUser:(id)sender {
     [self modalTableView:@"対戦相手を選んでください。"
-                        :NO];
+                        :false];
 }
 
 
@@ -99,6 +99,6 @@
 
 - (IBAction)resultSelectUser:(id)sender {
     [self modalTableView:@"ユーザーを選んでください。"
-                        :YES];
+                        :true];
 }
 @end
