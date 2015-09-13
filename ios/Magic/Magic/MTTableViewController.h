@@ -13,6 +13,6 @@
 @property (strong, nonatomic) MTUserDataSource             *userData;
 @property (nonatomic) MTApiManager                         *api;
 @property (strong, nonatomic) NSArray                      *dataSource;
-@property (nonatomic) bool                                 *result;
+@property (nonatomic) BOOL                                 result;
 
 @end
