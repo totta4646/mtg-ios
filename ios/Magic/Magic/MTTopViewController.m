@@ -29,29 +29,40 @@
 }
 
 
-- (IBAction)selectUser:(id)sender {
+#pragma mark private method
+
+-(void) modalTableView:(NSString *)navTitle
+                      :(BOOL)resultMode {
     MTTableViewController *vc = [[MTTableViewController alloc] init];
     _userData = [[MTUserDataSource alloc] init];
     
-
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
         @autoreleasepool{
-
-            [vc setUserData:_userData];
-            [vc setDataSource:_userData.userList];
-            vc.navigationItem.title = @"対戦相手を選んでください。";
             [_userData setUserList:[[_api getAllUser] objectForKey:@"data"]];
-
+            
             dispatch_sync(dispatch_get_main_queue(), ^{
+                [vc setUserData:_userData];
+                [vc setDataSource:_userData.userList];
+                [vc setResult:resultMode];
+                
+                vc.navigationItem.title = navTitle;
 
                 [self.navigationController pushViewController:vc animated:YES];
-
+                
             });
         }
     });
     
-    
 }
+
+#pragma mark action
+
+- (IBAction)selectUser:(id)sender {
+    [self modalTableView:@"対戦相手を選んでください。"
+                        :NO];
+}
+
 
 - (IBAction)guestBattle:(id)sender {
     BattleViewController *vc = [[BattleViewController alloc] init];
@@ -61,5 +72,10 @@
     [vc setUserData:_userData];
     [self.navigationController pushViewController:vc animated:YES];
 
+}
+
+- (IBAction)resultSelectUser:(id)sender {
+    [self modalTableView:@"ユーザーを選んでください。"
+                        :YES];
 }
 @end

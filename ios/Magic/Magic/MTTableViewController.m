@@ -57,19 +57,30 @@
     if ([_userData setUser:_dataSource
                           :corrent]) {
 
-        NSString *title = [NSString stringWithFormat:@"%@ vs %@",_userData.user1.name ,_userData.user2.name];
+        NSString *message = @"対戦を始めますか？";
+        NSString *btnTitle = @"いいえ";
         
+        if (_result) {
+            message = @"結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示";
+            btnTitle = @"OK";
+        }
+        
+        NSString *title = [NSString stringWithFormat:@"%@ vs %@",_userData.user1.name ,_userData.user2.name];
+
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
-                                                                                 message:@"対戦を始めますか？"
+                                                                                 message:message
                                                                           preferredStyle:UIAlertControllerStyleAlert];
         
-        [alertController addAction:[UIAlertAction actionWithTitle:@"はい"
-                                                            style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction *action) {
-                                                              [self otherButtonPushed];
-                                                          }]];
         
-        [alertController addAction:[UIAlertAction actionWithTitle:@"いいえ"
+        if (!_result) {
+            [alertController addAction:[UIAlertAction actionWithTitle:@"はい"
+                                                                style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction *action) {
+                                                                  [self otherButtonPushed];
+                                                              }]];
+        }
+        
+        [alertController addAction:[UIAlertAction actionWithTitle:btnTitle
                                                             style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction *action) {
                                                               nil;

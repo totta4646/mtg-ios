@@ -15,4 +15,5 @@
 
 - (IBAction)selectUser:(id)sender;
 - (IBAction)guestBattle:(id)sender;
+- (IBAction)resultSelectUser:(id)sender;
 @end

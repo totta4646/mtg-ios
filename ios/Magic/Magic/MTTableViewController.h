@@ -12,5 +12,6 @@
 
 @property (strong, nonatomic) MTUserDataSource             *userData;
 @property (strong, nonatomic) NSArray                      *dataSource;
+@property (nonatomic) BOOL                                 *result;
 
 @end
