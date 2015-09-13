@@ -30,6 +30,19 @@
     
 }
 
+-(NSDictionary *) getResultData:(int)userID
+                               :(int)rivalID {
+    userID++;
+    rivalID++;
+    NSString *param = [NSString stringWithFormat:@"user=%d&rival=%d",userID, rivalID];
+    NSString *url = [NSString stringWithFormat:@"%@get_result.php?%@",MY_HOST ,param];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+
+    return [self post:request];
+    
+}
+
 
 # pragma mark private method
 

@@ -12,6 +12,16 @@
  
 # pragma mark action
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _userID = -1;
+    }
+    
+    return self;
+}
+
 /**
  *  体力を一つ増やす
  */
@@ -35,7 +45,9 @@
     self.life = 20;
 }
 
-
+/**
+ *  ゲストモードのダミーの値
+ */
 -(void) setGuest {
     _name = @"player";
     _userID = -10;

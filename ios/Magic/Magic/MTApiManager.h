@@ -13,4 +13,7 @@
 -(NSDictionary *) postResultData:(int)winUserId
                                 :(int)loseUserId;
 
+-(NSDictionary *) getResultData:(int) userID
+                               :(int)rivalID;
+
 @end

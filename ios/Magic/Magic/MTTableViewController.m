@@ -57,40 +57,80 @@
     if ([_userData setUser:_dataSource
                           :corrent]) {
 
-        NSString *message = @"対戦を始めますか？";
-        NSString *btnTitle = @"いいえ";
-        
         if (_result) {
-            message = @"結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示結果を表示";
-            btnTitle = @"OK";
-        }
-        
-        NSString *title = [NSString stringWithFormat:@"%@ vs %@",_userData.user1.name ,_userData.user2.name];
+            
+            _api = [[MTApiManager alloc] init];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
+                @autoreleasepool{
+                    NSDictionary *res = [[_api getResultData:_userData.user1.userID
+                                                       :_userData.user2.userID] objectForKey:@"data"];
+                    
+                    dispatch_sync(dispatch_get_main_queue(), ^{
+                        
+                        NSString *messagea = [NSString stringWithFormat:@"%@の勝ち : %@\n%@の勝ち : %@",
+                                              _userData.user1.name ,
+                                              [self castNilData:[res objectForKey:@"win_sum"]],
+                                              _userData.user2.name ,
+                                              [self castNilData:[res objectForKey:@"lose_sum"]]];
+                        [self showAlert:messagea
+                                       :@"OK"];
+                        
+                    });
+                }
+            });
+            
+            
+            
+            
+            
 
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
-                                                                                 message:message
-                                                                          preferredStyle:UIAlertControllerStyleAlert];
-        
-        
-        if (!_result) {
-            [alertController addAction:[UIAlertAction actionWithTitle:@"はい"
-                                                                style:UIAlertActionStyleDefault
-                                                              handler:^(UIAlertAction *action) {
-                                                                  [self otherButtonPushed];
-                                                              }]];
+
+        } else {
+            [self showAlert:@"対戦を始めますか？"
+                           :@"いいえ"];
+            
         }
-        
-        [alertController addAction:[UIAlertAction actionWithTitle:btnTitle
-                                                            style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction *action) {
-                                                              nil;
-                                                          }]];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
-        
     }
 }
 
+-(NSString *) castNilData:(NSString *) value {
+    if(value == nil || [value isEqual:[NSNull null]] ) {
+        return @"0";
+    }
+    return value;
+}
+
+#pragma mark alert
+
+-(void) showAlert:(NSString *) message
+                 :(NSString *) btnTitle {
+    
+    NSString *title = [NSString stringWithFormat:@"%@ vs %@",_userData.user1.name ,_userData.user2.name];
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                             message:message
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    
+    
+    if (!_result) {
+        [alertController addAction:[UIAlertAction actionWithTitle:@"はい"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction *action) {
+                                                              [self otherButtonPushed];
+                                                          }]];
+    }
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:btnTitle
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:^(UIAlertAction *action) {
+                                                          nil;
+                                                      }]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+
+}
+
+#pragma mark action
 
 - (void)otherButtonPushed {
     BattleViewController *vc = [[BattleViewController alloc] init];

@@ -34,6 +34,7 @@
 -(BOOL) setUser:(NSArray *)data
                :(int)number {
     
+    
     if (_user1.userID == number) {
         return false;
     }
