@@ -6,7 +6,7 @@ try {
     $pdo = new PDO('mysql:host=' . $host . ';dbname=' . $db . ';charset=utf8' , $user , $pass,
     array(PDO::ATTR_EMULATE_PREPARES => false));
 
-    $parameter = $_GET['user'];
+    $param = $_GET['user'];
 
     // 保存
     $user_table = "USER";
@@ -21,14 +21,20 @@ try {
         $user_sum = $data["row_cnt"];
 
         for ($i = 1; $i <= $user_sum; $i++) {
-            $stmt = $pdo-> prepare("SELECT *,count( * ) as win_cnt FROM $result_table RIGHT JOIN $user_table ON $result_table.LOSER = $user_table.ID where WINNER=$parameter AND LOSER=$i");
+            $stmt = $pdo-> prepare("SELECT *,count(*) as cnt
+            FROM RESULT LEFT JOIN USER ON RESULT.LOSER = USER.ID
+            where WINNER=$param AND LOSER=$i or WINNER=$i AND LOSER=$param
+            group by WINNER, LOSER");
+
             $stmt->execute();
-            $data = $stmt->fetch(PDO::FETCH_ASSOC);
-            $success = $stmt->execute();
+            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            // var_dump($data);
+            // exit();
             $result = [
-                'win_sum'=> $data["win_cnt"],
                 'rival_id'=> $i,
-                'rival_name'=>$data["NAME"]
+                'win_sum'=> $data[0]["cnt"],
+                'lose_sum'=> $data[1]["cnt"],
+                'rival_name'=>$data[0]["NAME"]
                 ];
             array_push( $res, $result );
 
