@@ -85,8 +85,10 @@
             [self alert:_userData.user1.name];
 
         }
+    } else {
+        [self rewriteLifes];
+        
     }
-    [self rewriteLifes];
 
 }
 
