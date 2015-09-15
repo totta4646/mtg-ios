@@ -67,6 +67,7 @@
 
 -(void) checkLife {
     if (_userData.user1.life <= 0) {
+        _userData.user1.life = 1000;
         if (_userData.user1.userID != -10) {
             [self sendResultData:_userData.user2
                                 :_userData.user1];
@@ -75,6 +76,7 @@
 
         }
     } else if(_userData.user2.life <= 0) {
+        _userData.user2.life = 1000;
         if (_userData.user1.userID != -10) {
             [self sendResultData:_userData.user1
                                 :_userData.user2];
