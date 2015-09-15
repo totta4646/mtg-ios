@@ -20,6 +20,7 @@
 #define MY_HOST @"http://mtg:gizmo@mtg.totta.click/"
 
 #define TEMP_ARRAY @"tempArrayKey"
+#define DISABLE_PUSH_NOTIFICATIONS
 
 
 #import "MTApiManager.h"
