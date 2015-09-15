@@ -73,9 +73,9 @@
                             [SVProgressHUD dismiss];
                             
                             NSString *messagea = [NSString stringWithFormat:@"%@の勝ち : %@\n%@の勝ち : %@",
-                                                  _userData.user1.name ,
+                                                  [self castNilData:[res objectForKey:@"my_name"]],
                                                   [self castNilData:[res objectForKey:@"win_sum"]],
-                                                  _userData.user2.name ,
+                                                  [self castNilData:[res objectForKey:@"rival_name"]],
                                                   [self castNilData:[res objectForKey:@"lose_sum"]]];
                             [self showAlert:messagea
                                            :@"OK"];
