@@ -47,24 +47,58 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 
 }
+/**
+ *  試合終了のアラート
+ *
+ *  @param user 勝ったユーザーの情報
+ */
 
--(void) alert:(NSString *)userName {
+-(void) alert:(MTUser *) user {
     
+    NSString *userName = user.name;
+    user.win++;
+    BOOL gameSet = false;
+    if (user.win == 3 || user.userID == -10) {
+        gameSet = true;
+    }
+
     NSString *title = [NSString stringWithFormat:@"%@の勝ち",userName];
+    NSString *message = [NSString stringWithFormat:@"%d勝",user.win];
+    if (gameSet) {
+        message = @"おめでとー";
+    }
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
-                                                                             message:@"おめでとー"
+                                                                             message:message
                                                                       preferredStyle:UIAlertControllerStyleAlert];
+
     
     [alertController addAction:[UIAlertAction actionWithTitle:@"OK"
                                                         style:UIAlertActionStyleDefault
                                                       handler:^(UIAlertAction *action) {
-                                                          [self backToTop];
+                                                          if (gameSet) {
+                                                              [self backToTop];
+                                                          } else {
+                                                              [self reset];
+                                                          }
                                                       }]];
 
     [self presentViewController:alertController animated:YES completion:nil];
 }
+/**
+ *  ライフなどの試合情報をリセットする
+ */
+-(void) reset {
+    
+    [_userData.user1 setLife];
+    [_userData.user2 setLife];
 
+    [self rewriteLifes];
+}
+
+/**
+ *  ライフが1以下になっていないかチェック
+ */
 -(void) checkLife {
     if (_userData.user1.life <= 0) {
         _userData.user1.life = 1000;
@@ -72,7 +106,7 @@
             [self sendResultData:_userData.user2
                                 :_userData.user1];
         } else {
-            [self alert:_userData.user1.name];
+            [self alert:_userData.user1];
 
         }
     } else if(_userData.user2.life <= 0) {
@@ -82,7 +116,7 @@
                                 :_userData.user2];
 
         } else {
-            [self alert:_userData.user1.name];
+            [self alert:_userData.user1];
 
         }
     } else {
@@ -92,6 +126,9 @@
 
 }
 
+/**
+ *  ライフを書き換える
+ */
 -(void) rewriteLifes {
     _user1Life.text = [NSString stringWithFormat:@"%d",_userData.user1.life];
     _user2Life.text = [NSString stringWithFormat:@"%d",_userData.user2.life];
@@ -114,7 +151,7 @@
                                    :loser.userID];
                 }
 
-                [self alert:winner.name];
+                [self alert:winner];
 
             });
         }

@@ -12,6 +12,8 @@
 
 @property (nonatomic) int      userID;
 @property (nonatomic) int      life;
+@property (nonatomic) int      win;
+
 @property (nonatomic) NSString *name;
 
 -(void) incriment;

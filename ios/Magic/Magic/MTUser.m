@@ -17,6 +17,7 @@
     self = [super init];
     if (self) {
         _userID = -1;
+        _win = 0;
     }
     
     return self;
