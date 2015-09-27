@@ -34,6 +34,8 @@
 -(BOOL) setUser:(NSArray *)data
                :(int)number {
     
+    int userID = [[[data objectAtIndex:number] objectForKey:@"id"] integerValue];
+    NSString *userName = [[data objectAtIndex:number] objectForKey:@"name"];
     
     if (_user1.userID == number) {
         return false;
@@ -41,8 +43,8 @@
     
     if( _user1.userID != -1 && _user2.userID == -1) {
 
-        [_user2 setUserID:number];
-        [_user2 setName:[[data objectAtIndex:number] objectForKey:@"name"]];
+        [_user2 setUserID:userID];
+        [_user2 setName:userName];
         [_user2 setLife];
         
         return true;
@@ -51,8 +53,8 @@
 
         [_user2 setUserID:-1];
         
-        [_user1 setUserID:number];
-        [_user1 setName:[[data objectAtIndex:number] objectForKey:@"name"]];
+        [_user1 setUserID:userID];
+        [_user1 setName:userName];
         [_user1 setLife];
 
         return false;
