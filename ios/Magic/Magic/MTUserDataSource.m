@@ -18,6 +18,7 @@
     if (self) {
         _user1 = [[MTUser alloc] init];
         _user2 = [[MTUser alloc] init];
+        _gameSet = false;
     }
     
     return self;

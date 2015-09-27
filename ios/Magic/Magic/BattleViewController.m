@@ -47,25 +47,28 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 
 }
+
 /**
  *  試合終了のアラート
  *
  *  @param user 勝ったユーザーの情報
  */
 
--(void) alert:(MTUser *) user {
+-(void) alert:(MTUser *) winner
+             :(MTUser *) loser {
     
-    NSString *userName = user.name;
-    user.win++;
+    NSString *userName = winner.name;
+    winner.win++;
     BOOL gameSet = false;
-    if (user.win == 3 || user.userID == -10) {
+    if (winner.win == 2 || winner.userID == -10) {
         gameSet = true;
     }
 
-    NSString *title = [NSString stringWithFormat:@"%@の勝ち",userName];
-    NSString *message = [NSString stringWithFormat:@"%d勝",user.win];
+    NSString *title = [NSString stringWithFormat:@"%@ win",userName];
+    NSString *message = [NSString stringWithFormat:@"%@:%d勝 %@:%d勝",winner.name,winner.win,loser.name,loser.win];
     if (gameSet) {
         message = @"おめでとー";
+        [self sendResultData:winner :loser];
     }
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
@@ -93,6 +96,8 @@
     [_userData.user1 setLife];
     [_userData.user2 setLife];
 
+    _userData.gameSet = false;
+    
     [self rewriteLifes];
 }
 
@@ -100,25 +105,16 @@
  *  ライフが1以下になっていないかチェック
  */
 -(void) checkLife {
-    if (_userData.user1.life <= 0) {
-        _userData.user1.life = 1000;
-        if (_userData.user1.userID != -10) {
-            [self sendResultData:_userData.user2
-                                :_userData.user1];
-        } else {
-            [self alert:_userData.user1];
+    if (_userData.user1.life <= 0 && !_userData.gameSet) {
+        _userData.gameSet = true;
+        [self alert:_userData.user2
+                   :_userData.user1];
 
-        }
-    } else if(_userData.user2.life <= 0) {
-        _userData.user2.life = 1000;
-        if (_userData.user1.userID != -10) {
-            [self sendResultData:_userData.user1
-                                :_userData.user2];
+    } else if(_userData.user2.life <= 0 && !_userData.gameSet) {
+        _userData.gameSet = true;
+        [self alert:_userData.user1
+                   :_userData.user2];
 
-        } else {
-            [self alert:_userData.user1];
-
-        }
     } else {
         [self rewriteLifes];
         
@@ -150,9 +146,6 @@
                   [_api setTempData:winner.userID
                                    :loser.userID];
                 }
-
-                [self alert:winner];
-
             });
         }
     });

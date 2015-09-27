@@ -14,6 +14,7 @@
 @property (nonatomic) NSArray       *userList;
 @property (nonatomic) MTUser        *user1;
 @property (nonatomic) MTUser        *user2;
+@property (nonatomic) BOOL          gameSet;
 
 -(BOOL) setUser:(NSArray *)data
                :(int)number;
