@@ -72,12 +72,12 @@
                             
                             [SVProgressHUD dismiss];
                             
-                            NSString *messagea = [NSString stringWithFormat:@"%@の勝ち : %@\n%@の勝ち : %@",
+                            NSString *message = [NSString stringWithFormat:@"%@の勝ち : %@\n%@の勝ち : %@",
                                                   [self castNilData:[res objectForKey:@"my_name"]],
                                                   [self castNilData:[res objectForKey:@"win_sum"]],
                                                   [self castNilData:[res objectForKey:@"rival_name"]],
                                                   [self castNilData:[res objectForKey:@"lose_sum"]]];
-                            [self showAlert:messagea
+                            [self showAlert:message
                                            :@"OK"];
                         } else {
                             [SVProgressHUD showWithStatus:@"failed"];
