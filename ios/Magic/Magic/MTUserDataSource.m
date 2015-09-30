@@ -35,7 +35,7 @@
 -(BOOL) setUser:(NSArray *)data
                :(int)number {
     
-    int userID = (int)[[data objectAtIndex:number] objectForKey:@"id"];
+    int userID = (int)[[[data objectAtIndex:number] objectForKey:@"id"] integerValue];
     NSString *userName = [[data objectAtIndex:number] objectForKey:@"name"];
     
     if (_user1.userID == number) {
