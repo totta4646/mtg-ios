@@ -95,6 +95,8 @@
     
     [_userData.user1 setLife];
     [_userData.user2 setLife];
+    [_userData.user1 setPoison];
+    [_userData.user2 setPoison];
 
     _userData.gameSet = false;
     
@@ -105,12 +107,12 @@
  *  ライフが1以下になっていないかチェック
  */
 -(void) checkLife {
-    if (_userData.user1.life <= 0 && !_userData.gameSet) {
+    if ((_userData.user1.life <= 0  || _userData.user1.poison == 10 ) && !_userData.gameSet) {
         _userData.gameSet = true;
         [self alert:_userData.user2
                    :_userData.user1];
 
-    } else if(_userData.user2.life <= 0 && !_userData.gameSet) {
+    } else if((_userData.user2.life <= 0 || _userData.user2.poison == 10 ) && !_userData.gameSet) {
         _userData.gameSet = true;
         [self alert:_userData.user1
                    :_userData.user2];
@@ -128,6 +130,8 @@
 -(void) rewriteLifes {
     _user1Life.text = [NSString stringWithFormat:@"%d",_userData.user1.life];
     _user2Life.text = [NSString stringWithFormat:@"%d",_userData.user2.life];
+    _user1Poison.text = [NSString stringWithFormat:@"%d",_userData.user1.poison];
+    _user2Poison.text = [NSString stringWithFormat:@"%d",_userData.user2.poison];
     
 }
 
@@ -154,6 +158,18 @@
 }
 
 #pragma mark action
+
+- (IBAction)user1PoisonUp:(id)sender {
+    [_userData.user1 poisonIncriment];
+    [self checkLife];
+
+}
+
+- (IBAction)user2PoisonUp:(id)sender {
+    [_userData.user2 poisonIncriment];
+    [self checkLife];
+
+}
 
 - (IBAction)user1up5:(id)sender {
     for (int i = 0; i < 5; i++) {

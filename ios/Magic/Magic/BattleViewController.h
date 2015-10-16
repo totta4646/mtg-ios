@@ -12,14 +12,19 @@
 
 @property MTUserDataSource                   *userData;
 @property MTApiManager                       *api;
+
 @property (weak, nonatomic) IBOutlet UILabel *user1Name;
 @property (weak, nonatomic) IBOutlet UILabel *user1Life;
 @property (weak, nonatomic) IBOutlet UILabel *user2Name;
 @property (weak, nonatomic) IBOutlet UILabel *user2Life;
+@property (weak, nonatomic) IBOutlet UILabel *user1Poison;
+@property (weak, nonatomic) IBOutlet UILabel *user2Poison;
 
-@property (nonatomic)        UIBarButtonItem *backButton;
-@property (nonatomic)      UIAlertController *alert;
+@property (nonatomic) UIBarButtonItem        *backButton;
+@property (nonatomic) UIAlertController      *alert;
 
+- (IBAction)user1PoisonUp:(id)sender;
+- (IBAction)user2PoisonUp:(id)sender;
 
 - (IBAction)user1up5:(id)sender;
 - (IBAction)user1up1:(id)sender;
