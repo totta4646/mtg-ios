@@ -13,12 +13,15 @@
 @property (nonatomic) int      userID;
 @property (nonatomic) int      life;
 @property (nonatomic) int      win;
+@property (nonatomic) int      poison;
 
 @property (nonatomic) NSString *name;
 
 -(void) incriment;
 -(void) decrement;
+-(void) poisonIncriment;
 -(void) setLife;
+-(void) setPoison;
 -(void) setGuest;
 
 @end

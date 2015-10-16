@@ -37,6 +37,13 @@
     self.life--;
 }
 
+/**
+ *  毒カウンターを増やす
+ */
+-(void) poisonIncriment {
+    self.poison++;
+}
+
 #pragma mark setter
 
 /**
@@ -44,6 +51,13 @@
  */
 -(void) setLife {
     self.life = 20;
+}
+/**
+ *  毒カウンターを初期化
+ */
+
+-(void) setPoison {
+    self.poison = 0;
 }
 
 /**
@@ -53,5 +67,6 @@
     _name = @"player";
     _userID = -10;
 }
+
 
 @end
