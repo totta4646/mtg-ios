@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1706417A1BD6ADDD00E749C0 /* skal.png in Resources */ = {isa = PBXBuildFile; fileRef = 170641791BD6ADDD00E749C0 /* skal.png */; settings = {ASSET_TAGS = (); }; };
 		17255BA31BA558410081C4EE /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17255B9C1BA558410081C4EE /* SVIndefiniteAnimatedView.m */; };
 		17255BA41BA558410081C4EE /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17255B9E1BA558410081C4EE /* SVProgressHUD.bundle */; };
 		17255BA51BA558410081C4EE /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 17255BA01BA558410081C4EE /* SVProgressHUD.m */; };
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		170641791BD6ADDD00E749C0 /* skal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skal.png; sourceTree = "<group>"; };
 		17255B9B1BA558410081C4EE /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
 		17255B9C1BA558410081C4EE /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		17255B9D1BA558410081C4EE /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 		176BF7C31B9A91D200F0FAC6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				170641791BD6ADDD00E749C0 /* skal.png */,
 				17B4827A1BA5DB8D00904A81 /* mtg_logo.jpeg */,
 				17B482571BA5D83B00904A81 /* ios */,
 			);
@@ -460,6 +463,7 @@
 				17B482711BA5D83B00904A81 /* appicon-Small-50.png in Resources */,
 				17B482701BA5D83B00904A81 /* appicon-Small-40@2x.png in Resources */,
 				17B482761BA5D83B00904A81 /* appicon.png in Resources */,
+				1706417A1BD6ADDD00E749C0 /* skal.png in Resources */,
 				176BF7A61B9A912900F0FAC6 /* LaunchScreen.xib in Resources */,
 				17B4826D1BA5D83B00904A81 /* appicon-76.png in Resources */,
 				176BF7A31B9A912900F0FAC6 /* Images.xcassets in Resources */,
