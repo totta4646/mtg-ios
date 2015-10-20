@@ -14,6 +14,7 @@
                 <outlet property="user2Life" destination="wDT-Ut-OnO" id="V30-if-Hiv"/>
                 <outlet property="user2Name" destination="L1b-sB-GTg" id="Avf-U8-qDl"/>
                 <outlet property="user2Poison" destination="Ldq-ZM-b4W" id="GjQ-5D-QDa"/>
+                <outlet property="user2View" destination="uek-gu-4n0" id="Zzp-hx-1FE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

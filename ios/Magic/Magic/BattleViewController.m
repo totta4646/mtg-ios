@@ -16,6 +16,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setLayout];
+    
+    CGFloat angle = 180.0 * M_PI / 180.0;
+    _user1View.transform = CGAffineTransformMakeRotation(angle);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,8 +28,6 @@
 
 #pragma mark private method
 -(void) setLayout {
-    
-    self.view.transform = CGAffineTransformMakeRotation(M_PI/2 * 3);
     
     _user1Name.text = _userData.user1.name;
     _user2Name.text = _userData.user2.name;
@@ -128,11 +129,18 @@
  *  ライフを書き換える
  */
 -(void) rewriteLifes {
+    NSString *user1Life = nil;
+    NSString *user2Life = nil;
     _user1Life.text = [NSString stringWithFormat:@"%d",_userData.user1.life];
     _user2Life.text = [NSString stringWithFormat:@"%d",_userData.user2.life];
-    _user1Poison.text = [NSString stringWithFormat:@"%d",_userData.user1.poison];
-    _user2Poison.text = [NSString stringWithFormat:@"%d",_userData.user2.poison];
-    
+    if (_userData.user1.poison) {
+        user1Life = [NSString stringWithFormat:@"%d",_userData.user1.poison];
+    }
+    if (_userData.user2.poison) {
+        user2Life = [NSString stringWithFormat:@"%d",_userData.user2.poison];
+    }
+    _user1Poison.text = user1Life;
+    _user2Poison.text = user2Life;
 }
 
 -(void) sendResultData:(MTUser *) winner

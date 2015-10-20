@@ -20,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *user1Poison;
 @property (weak, nonatomic) IBOutlet UILabel *user2Poison;
 
+@property (weak, nonatomic) IBOutlet UIView  *user1View;
+@property (weak, nonatomic) IBOutlet UIView  *user2View;
+
 @property (nonatomic) UIBarButtonItem        *backButton;
 @property (nonatomic) UIAlertController      *alert;
 
