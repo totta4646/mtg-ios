@@ -19,6 +19,8 @@
     
     CGFloat angle = 180.0 * M_PI / 180.0;
     _user1View.transform = CGAffineTransformMakeRotation(angle);
+    
+    [[MTLayoutView sharedInstance] makeBalloon:_user2Poison];
 }
 
 - (void)didReceiveMemoryWarning {
