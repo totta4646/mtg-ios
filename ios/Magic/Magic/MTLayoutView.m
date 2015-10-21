@@ -22,8 +22,14 @@
 
 - (UILabel *) makeBalloon:(UILabel *) view {
     view.layer.borderColor = [[UIColor grayColor] CGColor];
-    view.layer.borderWidth = 1.0f;
+    view.layer.borderWidth = 2.0f;
     view.layer.cornerRadius = 5.0f;
+    
+    return view;
+}
+
+- (UIButton *) colorPallet:(UIButton *) view {
+    view.layer.cornerRadius = 10.0f;
     
     return view;
 }

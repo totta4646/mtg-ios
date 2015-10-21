@@ -11,5 +11,6 @@
 @interface MTLayoutView : NSObject
 + (instancetype) sharedInstance;
 - (UILabel *) makeBalloon:(UILabel *) view;
+- (UIButton *) colorPallet:(UIButton *) view;
 
 @end

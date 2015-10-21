@@ -19,8 +19,6 @@
     
     CGFloat angle = 180.0 * M_PI / 180.0;
     _user1View.transform = CGAffineTransformMakeRotation(angle);
-    
-    [[MTLayoutView sharedInstance] makeBalloon:_user2Poison];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -136,9 +134,11 @@
     _user1Life.text = [NSString stringWithFormat:@"%d",_userData.user1.life];
     _user2Life.text = [NSString stringWithFormat:@"%d",_userData.user2.life];
     if (_userData.user1.poison) {
+        [[MTLayoutView sharedInstance] makeBalloon:_user1Poison];
         user1Life = [NSString stringWithFormat:@"%d",_userData.user1.poison];
     }
     if (_userData.user2.poison) {
+        [[MTLayoutView sharedInstance] makeBalloon:_user2Poison];
         user2Life = [NSString stringWithFormat:@"%d",_userData.user2.poison];
     }
     _user1Poison.text = user1Life;
@@ -228,6 +228,32 @@
 - (IBAction)user2down1:(id)sender {
     [_userData.user2 decrement];
     [self checkLife];
+}
+
+
+- (IBAction)user2pallet:(id)sender {
+    
+    [[MTAnimation sharedInstance] palletAnimation:_user2color1
+                                        positionX:0
+                                        positionY:60];
+    
+    [[MTAnimation sharedInstance] palletAnimation:_user2color2
+                                        positionX:45
+                                        positionY:45];
+    
+    [[MTAnimation sharedInstance] palletAnimation:_user2color3
+                                        positionX:60
+                                        positionY:0];
+
+    [[MTAnimation sharedInstance] palletAnimation:_user2color4
+                                        positionX:45
+                                        positionY:-45];
+
+    [[MTAnimation sharedInstance] palletAnimation:_user2color5
+                                        positionX:0
+                                        positionY:-60];
+
+
 }
 
 #pragma mark setter

@@ -49,6 +49,10 @@
 		17B4827B1BA5DB8D00904A81 /* mtg_logo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 17B4827A1BA5DB8D00904A81 /* mtg_logo.jpeg */; };
 		3B137CBA1BD7D10300E59F70 /* MTCustomUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B137CB91BD7D10300E59F70 /* MTCustomUIButton.m */; };
 		3B137CC01BD7D21F00E59F70 /* MTLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B137CBF1BD7D21F00E59F70 /* MTLayoutView.m */; };
+		3B24ED1C1BD7E3CE0002DF09 /* reset.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B24ED1B1BD7E3CE0002DF09 /* reset.png */; };
+		3B24ED1E1BD7E49E0002DF09 /* pallet.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B24ED1D1BD7E49E0002DF09 /* pallet.png */; };
+		3B24ED201BD7E5DA0002DF09 /* dice.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B24ED1F1BD7E5DA0002DF09 /* dice.png */; };
+		3B24ED231BD7E8B60002DF09 /* MTAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B24ED221BD7E8B60002DF09 /* MTAnimation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +127,11 @@
 		3B137CB91BD7D10300E59F70 /* MTCustomUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCustomUIButton.m; sourceTree = "<group>"; };
 		3B137CBE1BD7D21F00E59F70 /* MTLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTLayoutView.h; sourceTree = "<group>"; };
 		3B137CBF1BD7D21F00E59F70 /* MTLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTLayoutView.m; sourceTree = "<group>"; };
+		3B24ED1B1BD7E3CE0002DF09 /* reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reset.png; sourceTree = "<group>"; };
+		3B24ED1D1BD7E49E0002DF09 /* pallet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pallet.png; sourceTree = "<group>"; };
+		3B24ED1F1BD7E5DA0002DF09 /* dice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dice.png; sourceTree = "<group>"; };
+		3B24ED211BD7E8B60002DF09 /* MTAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAnimation.h; sourceTree = "<group>"; };
+		3B24ED221BD7E8B60002DF09 /* MTAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAnimation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +292,8 @@
 				1748371B1B9C32F100EEC54D /* MTTableViewCell.m */,
 				3B137CB81BD7D10300E59F70 /* MTCustomUIButton.h */,
 				3B137CB91BD7D10300E59F70 /* MTCustomUIButton.m */,
+				3B24ED211BD7E8B60002DF09 /* MTAnimation.h */,
+				3B24ED221BD7E8B60002DF09 /* MTAnimation.m */,
 				3B137CBE1BD7D21F00E59F70 /* MTLayoutView.h */,
 				3B137CBF1BD7D21F00E59F70 /* MTLayoutView.m */,
 			);
@@ -321,7 +332,10 @@
 		176BF7C31B9A91D200F0FAC6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3B24ED1D1BD7E49E0002DF09 /* pallet.png */,
+				3B24ED1B1BD7E3CE0002DF09 /* reset.png */,
 				170641791BD6ADDD00E749C0 /* skal.png */,
+				3B24ED1F1BD7E5DA0002DF09 /* dice.png */,
 				17B4827A1BA5DB8D00904A81 /* mtg_logo.jpeg */,
 				17B482571BA5D83B00904A81 /* ios */,
 			);
@@ -453,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17255BA41BA558410081C4EE /* SVProgressHUD.bundle in Resources */,
+				3B24ED1C1BD7E3CE0002DF09 /* reset.png in Resources */,
 				174837231B9C3B5A00EEC54D /* BattleViewController.xib in Resources */,
 				174837181B9C322D00EEC54D /* MTTableViewController.xib in Resources */,
 				17B4826E1BA5D83B00904A81 /* appicon-76@2x.png in Resources */,
@@ -470,12 +485,14 @@
 				17B482761BA5D83B00904A81 /* appicon.png in Resources */,
 				1706417A1BD6ADDD00E749C0 /* skal.png in Resources */,
 				176BF7A61B9A912900F0FAC6 /* LaunchScreen.xib in Resources */,
+				3B24ED1E1BD7E49E0002DF09 /* pallet.png in Resources */,
 				17B4826D1BA5D83B00904A81 /* appicon-76.png in Resources */,
 				176BF7A31B9A912900F0FAC6 /* Images.xcassets in Resources */,
 				17B4826F1BA5D83B00904A81 /* appicon-Small-40.png in Resources */,
 				17B482731BA5D83B00904A81 /* appicon-Small.png in Resources */,
 				17B482781BA5D83B00904A81 /* iTunesArtwork in Resources */,
 				17B482751BA5D83B00904A81 /* appicon-Small@3x.png in Resources */,
+				3B24ED201BD7E5DA0002DF09 /* dice.png in Resources */,
 				17B4827B1BA5DB8D00904A81 /* mtg_logo.jpeg in Resources */,
 				17B4826B1BA5D83B00904A81 /* appicon-72.png in Resources */,
 			);
@@ -504,6 +521,7 @@
 				176BF7951B9A912900F0FAC6 /* main.m in Sources */,
 				3B137CC01BD7D21F00E59F70 /* MTLayoutView.m in Sources */,
 				17255BA61BA558410081C4EE /* SVRadialGradientLayer.m in Sources */,
+				3B24ED231BD7E8B60002DF09 /* MTAnimation.m in Sources */,
 				174837121B9C31CB00EEC54D /* MTTopViewController.m in Sources */,
 				17255BA51BA558410081C4EE /* SVProgressHUD.m in Sources */,
 				176BF7D91B9A9A8200F0FAC6 /* MTUser.m in Sources */,

@@ -26,6 +26,12 @@
 @property (nonatomic) UIBarButtonItem        *backButton;
 @property (nonatomic) UIAlertController      *alert;
 
+@property (weak, nonatomic) IBOutlet UIButton *user2color1;
+@property (weak, nonatomic) IBOutlet UIButton *user2color2;
+@property (weak, nonatomic) IBOutlet UIButton *user2color3;
+@property (weak, nonatomic) IBOutlet UIButton *user2color4;
+@property (weak, nonatomic) IBOutlet UIButton *user2color5;
+
 - (IBAction)user1PoisonUp:(id)sender;
 - (IBAction)user2PoisonUp:(id)sender;
 
@@ -39,4 +45,5 @@
 - (IBAction)user2down5:(id)sender;
 - (IBAction)user2down1:(id)sender;
 
+- (IBAction)user2pallet:(id)sender;
 @end
