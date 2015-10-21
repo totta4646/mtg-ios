@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1706417A1BD6ADDD00E749C0 /* skal.png in Resources */ = {isa = PBXBuildFile; fileRef = 170641791BD6ADDD00E749C0 /* skal.png */; settings = {ASSET_TAGS = (); }; };
+		1706417A1BD6ADDD00E749C0 /* skal.png in Resources */ = {isa = PBXBuildFile; fileRef = 170641791BD6ADDD00E749C0 /* skal.png */; };
 		17255BA31BA558410081C4EE /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17255B9C1BA558410081C4EE /* SVIndefiniteAnimatedView.m */; };
 		17255BA41BA558410081C4EE /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17255B9E1BA558410081C4EE /* SVProgressHUD.bundle */; };
 		17255BA51BA558410081C4EE /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 17255BA01BA558410081C4EE /* SVProgressHUD.m */; };
@@ -27,7 +27,6 @@
 		176BF7A31B9A912900F0FAC6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 176BF7A21B9A912900F0FAC6 /* Images.xcassets */; };
 		176BF7A61B9A912900F0FAC6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 176BF7A41B9A912900F0FAC6 /* LaunchScreen.xib */; };
 		176BF7B21B9A912900F0FAC6 /* MagicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7B11B9A912900F0FAC6 /* MagicTests.m */; };
-		176BF7CD1B9A991D00F0FAC6 /* MTCustomUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7CC1B9A991D00F0FAC6 /* MTCustomUIButton.m */; };
 		176BF7D91B9A9A8200F0FAC6 /* MTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7D81B9A9A8200F0FAC6 /* MTUser.m */; };
 		176BF7DE1B9A9B9400F0FAC6 /* MTUserDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7DD1B9A9B9400F0FAC6 /* MTUserDataSource.m */; };
 		17B482691BA5D83B00904A81 /* appicon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B482581BA5D83B00904A81 /* appicon-60@2x.png */; };
@@ -48,6 +47,8 @@
 		17B482781BA5D83B00904A81 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 17B482671BA5D83B00904A81 /* iTunesArtwork */; };
 		17B482791BA5D83B00904A81 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 17B482681BA5D83B00904A81 /* iTunesArtwork@2x */; };
 		17B4827B1BA5DB8D00904A81 /* mtg_logo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 17B4827A1BA5DB8D00904A81 /* mtg_logo.jpeg */; };
+		3B137CBA1BD7D10300E59F70 /* MTCustomUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B137CB91BD7D10300E59F70 /* MTCustomUIButton.m */; };
+		3B137CC01BD7D21F00E59F70 /* MTLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B137CBF1BD7D21F00E59F70 /* MTLayoutView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,8 +97,6 @@
 		176BF7B01B9A912900F0FAC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		176BF7B11B9A912900F0FAC6 /* MagicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagicTests.m; sourceTree = "<group>"; };
 		176BF7C41B9A921800F0FAC6 /* MTPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTPrefixHeader.pch; sourceTree = "<group>"; };
-		176BF7CB1B9A991D00F0FAC6 /* MTCustomUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCustomUIButton.h; sourceTree = "<group>"; };
-		176BF7CC1B9A991D00F0FAC6 /* MTCustomUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCustomUIButton.m; sourceTree = "<group>"; };
 		176BF7D71B9A9A8200F0FAC6 /* MTUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTUser.h; sourceTree = "<group>"; };
 		176BF7D81B9A9A8200F0FAC6 /* MTUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTUser.m; sourceTree = "<group>"; };
 		176BF7DC1B9A9B9400F0FAC6 /* MTUserDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTUserDataSource.h; sourceTree = "<group>"; };
@@ -120,6 +119,10 @@
 		17B482671BA5D83B00904A81 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		17B482681BA5D83B00904A81 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		17B4827A1BA5DB8D00904A81 /* mtg_logo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mtg_logo.jpeg; sourceTree = "<group>"; };
+		3B137CB81BD7D10300E59F70 /* MTCustomUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCustomUIButton.h; sourceTree = "<group>"; };
+		3B137CB91BD7D10300E59F70 /* MTCustomUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCustomUIButton.m; sourceTree = "<group>"; };
+		3B137CBE1BD7D21F00E59F70 /* MTLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTLayoutView.h; sourceTree = "<group>"; };
+		3B137CBF1BD7D21F00E59F70 /* MTLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTLayoutView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,8 +281,10 @@
 				174837191B9C326600EEC54D /* xib */,
 				1748371A1B9C32F100EEC54D /* MTTableViewCell.h */,
 				1748371B1B9C32F100EEC54D /* MTTableViewCell.m */,
-				176BF7CB1B9A991D00F0FAC6 /* MTCustomUIButton.h */,
-				176BF7CC1B9A991D00F0FAC6 /* MTCustomUIButton.m */,
+				3B137CB81BD7D10300E59F70 /* MTCustomUIButton.h */,
+				3B137CB91BD7D10300E59F70 /* MTCustomUIButton.m */,
+				3B137CBE1BD7D21F00E59F70 /* MTLayoutView.h */,
+				3B137CBF1BD7D21F00E59F70 /* MTLayoutView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -497,11 +502,12 @@
 				174837221B9C3B5A00EEC54D /* BattleViewController.m in Sources */,
 				176BF7981B9A912900F0FAC6 /* AppDelegate.m in Sources */,
 				176BF7951B9A912900F0FAC6 /* main.m in Sources */,
+				3B137CC01BD7D21F00E59F70 /* MTLayoutView.m in Sources */,
 				17255BA61BA558410081C4EE /* SVRadialGradientLayer.m in Sources */,
-				176BF7CD1B9A991D00F0FAC6 /* MTCustomUIButton.m in Sources */,
 				174837121B9C31CB00EEC54D /* MTTopViewController.m in Sources */,
 				17255BA51BA558410081C4EE /* SVProgressHUD.m in Sources */,
 				176BF7D91B9A9A8200F0FAC6 /* MTUser.m in Sources */,
+				3B137CBA1BD7D10300E59F70 /* MTCustomUIButton.m in Sources */,
 				1748371D1B9C32F100EEC54D /* MTTableViewCell.m in Sources */,
 				17255BA31BA558410081C4EE /* SVIndefiniteAnimatedView.m in Sources */,
 			);
