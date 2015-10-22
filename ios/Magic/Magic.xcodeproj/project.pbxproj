@@ -12,6 +12,8 @@
 		17255BA41BA558410081C4EE /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17255B9E1BA558410081C4EE /* SVProgressHUD.bundle */; };
 		17255BA51BA558410081C4EE /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 17255BA01BA558410081C4EE /* SVProgressHUD.m */; };
 		17255BA61BA558410081C4EE /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 17255BA21BA558410081C4EE /* SVRadialGradientLayer.m */; };
+		17443E571BD94A3F00B77814 /* MTBattleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17443E561BD94A3F00B77814 /* MTBattleView.xib */; settings = {ASSET_TAGS = (); }; };
+		17443E5A1BD94C5400B77814 /* MTBattleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17443E591BD94C5400B77814 /* MTBattleView.m */; settings = {ASSET_TAGS = (); }; };
 		174837121B9C31CB00EEC54D /* MTTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 174837101B9C31CB00EEC54D /* MTTopViewController.m */; };
 		174837131B9C31CB00EEC54D /* MTTopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174837111B9C31CB00EEC54D /* MTTopViewController.xib */; };
 		174837171B9C322D00EEC54D /* MTTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 174837151B9C322D00EEC54D /* MTTableViewController.m */; };
@@ -75,6 +77,9 @@
 		17255BA01BA558410081C4EE /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		17255BA11BA558410081C4EE /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
 		17255BA21BA558410081C4EE /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		17443E561BD94A3F00B77814 /* MTBattleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTBattleView.xib; sourceTree = "<group>"; };
+		17443E581BD94C5400B77814 /* MTBattleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBattleView.h; sourceTree = "<group>"; };
+		17443E591BD94C5400B77814 /* MTBattleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBattleView.m; sourceTree = "<group>"; };
 		1748370F1B9C31CB00EEC54D /* MTTopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTopViewController.h; sourceTree = "<group>"; };
 		174837101B9C31CB00EEC54D /* MTTopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTopViewController.m; sourceTree = "<group>"; };
 		174837111B9C31CB00EEC54D /* MTTopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTTopViewController.xib; sourceTree = "<group>"; };
@@ -171,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				174837211B9C3B5A00EEC54D /* BattleViewController.xib */,
+				17443E561BD94A3F00B77814 /* MTBattleView.xib */,
 				174837111B9C31CB00EEC54D /* MTTopViewController.xib */,
 				1748371C1B9C32F100EEC54D /* MTTableViewCell.xib */,
 				174837161B9C322D00EEC54D /* MTTableViewController.xib */,
@@ -296,6 +302,10 @@
 				3B24ED221BD7E8B60002DF09 /* MTAnimation.m */,
 				3B137CBE1BD7D21F00E59F70 /* MTLayoutView.h */,
 				3B137CBF1BD7D21F00E59F70 /* MTLayoutView.m */,
+				176BF7CB1B9A991D00F0FAC6 /* MTCustomUIButton.h */,
+				176BF7CC1B9A991D00F0FAC6 /* MTCustomUIButton.m */,
+				17443E581BD94C5400B77814 /* MTBattleView.h */,
+				17443E591BD94C5400B77814 /* MTBattleView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -476,6 +486,7 @@
 				1748371E1B9C32F100EEC54D /* MTTableViewCell.xib in Resources */,
 				174837131B9C31CB00EEC54D /* MTTopViewController.xib in Resources */,
 				17B4826C1BA5D83B00904A81 /* appicon-72@2x.png in Resources */,
+				17443E571BD94A3F00B77814 /* MTBattleView.xib in Resources */,
 				17B482771BA5D83B00904A81 /* appicon@2x.png in Resources */,
 				17B482721BA5D83B00904A81 /* appicon-Small-50@2x.png in Resources */,
 				17B4826A1BA5D83B00904A81 /* appicon-60@3x.png in Resources */,
@@ -514,6 +525,7 @@
 			files = (
 				174837171B9C322D00EEC54D /* MTTableViewController.m in Sources */,
 				17619F6D1B9AA18500E16915 /* MTApiManager.m in Sources */,
+				17443E5A1BD94C5400B77814 /* MTBattleView.m in Sources */,
 				176BF7DE1B9A9B9400F0FAC6 /* MTUserDataSource.m in Sources */,
 				176BF79B1B9A912900F0FAC6 /* Magic.xcdatamodeld in Sources */,
 				174837221B9C3B5A00EEC54D /* BattleViewController.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "BattleViewController.h"
+#import "MTBattleView.h"
 
 @interface BattleViewController ()
 
@@ -18,11 +19,35 @@
     [self setLayout];
     
     CGFloat angle = 180.0 * M_PI / 180.0;
-    _user1View.transform = CGAffineTransformMakeRotation(angle);
+
+    MTBattleView *view1 = [MTBattleView view];
+    MTBattleView *view2 = [MTBattleView view];
+
+    view1.transform = CGAffineTransformMakeRotation(angle);
+    
+    view2.frame = CGRectMake(0,
+                             self.view.frame.size.height - 310,
+                             self.view.frame.size.width,
+                             310);
+    
+    [self.view addSubview:view1];
+    [self.view addSubview:view2];
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
 }
 
 
