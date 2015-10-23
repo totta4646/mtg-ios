@@ -12,12 +12,11 @@
 
 - (void)_init
 {
-    // initialize
 }
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
-    if (self) {
+    if (!self) {
         [self _init];
     }
     return self;
@@ -25,7 +24,7 @@
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) {
+    if (!self) {
         [self _init];
     }
     return self;
@@ -35,7 +34,6 @@
 {
     [super awakeFromNib];
     
-    // 初期設定など
 }
 
 + (instancetype) view
@@ -44,6 +42,5 @@
     MTBattleView *view = [nib instantiateWithOwner:self options:nil][0];
     return view;
 }
-
 
 @end

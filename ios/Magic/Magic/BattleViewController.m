@@ -7,7 +7,6 @@
 //
 
 #import "BattleViewController.h"
-#import "MTBattleView.h"
 
 @interface BattleViewController ()
 
@@ -16,24 +15,31 @@
 @implementation BattleViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    _view1 = [MTBattleView view];
+    _view2 = [MTBattleView view];
+
+    _view1.tag = 0;
+    _view2.tag = 1;
+    
+    [_view1.up addTarget:self action:@selector(changeLife:)forControlEvents:UIControlEventTouchUpInside];
+    [_view1.up5 addTarget:self action:@selector(changeLife:)forControlEvents:UIControlEventTouchUpInside];
+    [_view1.down addTarget:self action:@selector(changeLife:)forControlEvents:UIControlEventTouchUpInside];
+    [_view1.down5 addTarget:self action:@selector(changeLife:)forControlEvents:UIControlEventTouchUpInside];
+
+    [_view2.up addTarget:self action:@selector(changeLife:)forControlEvents:UIControlEventTouchUpInside];
+    [_view2.up5 addTarget:self action:@selector(changeLife:)forControlEvents:UIControlEventTouchUpInside];
+    [_view2.down addTarget:self action:@selector(changeLife:)forControlEvents:UIControlEventTouchUpInside];
+    [_view2.down5 addTarget:self action:@selector(changeLife:)forControlEvents:UIControlEventTouchUpInside];
+
+    [_view1.poisonButton addTarget:self action:@selector(changePoison:)forControlEvents:UIControlEventTouchUpInside];
+    [_view2.poisonButton addTarget:self action:@selector(changePoison:)forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:_view1];
+    [self.view addSubview:_view2];
+
     [self setLayout];
-    
-    CGFloat angle = 180.0 * M_PI / 180.0;
-
-    MTBattleView *view1 = [MTBattleView view];
-    MTBattleView *view2 = [MTBattleView view];
-
-    view1.transform = CGAffineTransformMakeRotation(angle);
-    
-    view2.frame = CGRectMake(0,
-                             self.view.frame.size.height - 310,
-                             self.view.frame.size.width,
-                             310);
-    
-    [self.view addSubview:view1];
-    [self.view addSubview:view2];
-
-    
+   
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,17 +59,17 @@
 
 #pragma mark private method
 -(void) setLayout {
+
+    CGFloat angle = 180.0 * M_PI / 180.0;
+    _view1.transform = CGAffineTransformMakeRotation(angle);
+    _view2.frame = CGRectMake(0,
+                              self.view.frame.size.height - 310,
+                              self.view.frame.size.width,
+                              310);
+
+    _view1.userName.text = _userData.user1.name;
+    _view2.userName.text = _userData.user2.name;
     
-    _user1Name.text = _userData.user1.name;
-    _user2Name.text = _userData.user2.name;
-    
-    _backButton = [[UIBarButtonItem alloc]initWithTitle:@"←"
-                                                  style:UIBarButtonItemStylePlain
-                                                 target:self
-                                                 action:@selector(backToTop)];
-    
-    
-    self.navigationItem.leftBarButtonItem =  _backButton;
     [self rewriteLifes];
     
 }
@@ -156,18 +162,19 @@
 -(void) rewriteLifes {
     NSString *user1Life = nil;
     NSString *user2Life = nil;
-    _user1Life.text = [NSString stringWithFormat:@"%d",_userData.user1.life];
-    _user2Life.text = [NSString stringWithFormat:@"%d",_userData.user2.life];
+
+    _view1.userLife.text = [NSString stringWithFormat:@"%d",_userData.user1.life];
+    _view2.userLife.text = [NSString stringWithFormat:@"%d",_userData.user2.life];
     if (_userData.user1.poison) {
-        [[MTLayoutView sharedInstance] makeBalloon:_user1Poison];
+        [[MTLayoutView sharedInstance] makeBalloon:_view1.poisonLabel];
         user1Life = [NSString stringWithFormat:@"%d",_userData.user1.poison];
     }
     if (_userData.user2.poison) {
-        [[MTLayoutView sharedInstance] makeBalloon:_user2Poison];
+        [[MTLayoutView sharedInstance] makeBalloon:_view2.poisonLabel];
         user2Life = [NSString stringWithFormat:@"%d",_userData.user2.poison];
     }
-    _user1Poison.text = user1Life;
-    _user2Poison.text = user2Life;
+    _view1.poisonLabel.text = user1Life;
+    _view2.poisonLabel.text = user2Life;
 }
 
 -(void) sendResultData:(MTUser *) winner
@@ -194,65 +201,25 @@
 
 #pragma mark action
 
-- (IBAction)user1PoisonUp:(id)sender {
-    [_userData.user1 poisonIncriment];
-    [self checkLife];
+- (void) changeLife:(id) sender {
+    int point = (int)[sender tag];
+    if (![sender superview].tag) {
+        _userData.user1.life += point;
+    } else {
+        _userData.user2.life += point;
+    }
 
+    [self checkLife];
 }
 
-- (IBAction)user2PoisonUp:(id)sender {
-    [_userData.user2 poisonIncriment];
-    [self checkLife];
-
-}
-
-- (IBAction)user1up5:(id)sender {
-    for (int i = 0; i < 5; i++) {
-        [_userData.user1 incriment];
+- (void) changePoison:(id) sender {
+    if (![sender superview].tag) {
+        _userData.user1.poison++;
+    } else {
+        _userData.user2.poison++;
     }
     [self checkLife];
-}
-
-- (IBAction)user1up1:(id)sender {
-    [_userData.user1 incriment];
-    [self checkLife];
-}
-
-- (IBAction)user1down1:(id)sender {
-    [_userData.user1 decrement];
-    [self checkLife];
-}
-
-- (IBAction)user1down5:(id)sender {
-    for (int i = 0; i < 5; i++) {
-        [_userData.user1 decrement];
-    }
-    [self checkLife];
-}
-
-- (IBAction)user2up5:(id)sender {
-    for (int i = 0; i < 5; i++) {
-        [_userData.user2 incriment];
-    }
-    [self checkLife];
-}
-
-- (IBAction)user2up1:(id)sender {
-    [_userData.user2 incriment];
-
-    [self checkLife];
-}
-
-- (IBAction)user2down5:(id)sender {
-    for (int i = 0; i < 5; i++) {
-        [_userData.user2 decrement];
-    }
-    [self checkLife];
-}
-
-- (IBAction)user2down1:(id)sender {
-    [_userData.user2 decrement];
-    [self checkLife];
+    
 }
 
 

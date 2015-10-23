@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MTBattleView.h"
 
 @interface BattleViewController : UIViewController
 
 @property MTUserDataSource                   *userData;
 @property MTApiManager                       *api;
+
+@property MTBattleView                       *view1;
+@property MTBattleView                       *view2;
 
 @property (weak, nonatomic) IBOutlet UILabel *user1Name;
 @property (weak, nonatomic) IBOutlet UILabel *user1Life;
