@@ -28,6 +28,13 @@
     return view;
 }
 
+- (UILabel *) deleteBalloon:(UILabel *) view {
+    view.layer.borderColor = [[UIColor clearColor] CGColor];
+    
+    return view;
+}
+
+
 - (UIButton *) colorPallet:(UIButton *) view {
     view.layer.cornerRadius = 10.0f;
     

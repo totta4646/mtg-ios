@@ -28,3 +28,4 @@
 #import "SVProgressHUD.h"
 #import "MTLayoutView.h"
 #import "MTAnimation.h"
+#import "HexColors.h"

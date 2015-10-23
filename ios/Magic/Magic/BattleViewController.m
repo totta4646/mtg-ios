@@ -34,9 +34,59 @@
 
     [_view1.poisonButton addTarget:self action:@selector(changePoison:)forControlEvents:UIControlEventTouchUpInside];
     [_view2.poisonButton addTarget:self action:@selector(changePoison:)forControlEvents:UIControlEventTouchUpInside];
+
+    
+    UIView *optionView = [UIView new];
+    CGRect sc = [UIScreen mainScreen].bounds;
+
+    optionView.frame = CGRectMake(0,
+                                  self.view1.bounds.size.height,
+                                  sc.size.width,
+                                  sc.size.height - (2 * self.view1.bounds.size.height));
+
+    optionView.backgroundColor = [UIColor hx_colorWithHexString:@"f7f7f7"];
+    static int imageSize = 30;
+
+    CGRect returnFrame = CGRectMake(sc.size.width / 3 - imageSize / 2 * 3,
+                                    (optionView.bounds.size.height - imageSize) / 2 ,
+                                    imageSize,
+                                    imageSize);
+    
+    CGRect diceFrame = CGRectMake((sc.size.width - imageSize) / 2 ,
+                                  (optionView.bounds.size.height - imageSize) / 2 ,
+                                  imageSize,
+                                  imageSize);
+
+    CGRect resetFrame = CGRectMake(sc.size.width / 3 * 2 - imageSize / 2 + imageSize,
+                                   (optionView.bounds.size.height - imageSize) / 2 ,
+                                   imageSize,
+                                   imageSize);
+    
+    
+    _returnButton = [[UIButton alloc] initWithFrame:returnFrame];
+    _diceButton = [[UIButton alloc] initWithFrame:diceFrame];
+    _resetButton = [[UIButton alloc] initWithFrame:resetFrame];
+    
+    UIImage *returnImage = [UIImage imageNamed:@"return.png"];
+    UIImage *diceImage = [UIImage imageNamed:@"dice.png"];
+    UIImage *resetImage = [UIImage imageNamed:@"reset.png"];
+    
+    [_returnButton setBackgroundImage:returnImage forState:UIControlStateNormal];
+    [_diceButton setBackgroundImage:diceImage forState:UIControlStateNormal];
+    [_resetButton setBackgroundImage:resetImage forState:UIControlStateNormal];
+    
+    [_returnButton addTarget:self action:@selector(returnAction:)forControlEvents:UIControlEventTouchUpInside];
+    [_diceButton addTarget:self action:@selector(diceAction:)forControlEvents:UIControlEventTouchUpInside];
+    [_resetButton addTarget:self action:@selector(resetAction:)forControlEvents:UIControlEventTouchUpInside];
+
+    
+    [optionView addSubview:_returnButton];
+    [optionView addSubview:_diceButton];
+    [optionView addSubview:_resetButton];
     
     [self.view addSubview:_view1];
     [self.view addSubview:_view2];
+    [self.view addSubview:optionView];
 
     [self setLayout];
    
@@ -129,6 +179,9 @@
     [_userData.user2 setLife];
     [_userData.user1 setPoison];
     [_userData.user2 setPoison];
+    
+    [[MTLayoutView sharedInstance] deleteBalloon:_view1.poisonLabel];
+    [[MTLayoutView sharedInstance] deleteBalloon:_view2.poisonLabel];
 
     _userData.gameSet = false;
     
@@ -222,31 +275,45 @@
     
 }
 
-
-- (IBAction)user2pallet:(id)sender {
-    
-    [[MTAnimation sharedInstance] palletAnimation:_user2color1
-                                        positionX:0
-                                        positionY:60];
-    
-    [[MTAnimation sharedInstance] palletAnimation:_user2color2
-                                        positionX:45
-                                        positionY:45];
-    
-    [[MTAnimation sharedInstance] palletAnimation:_user2color3
-                                        positionX:60
-                                        positionY:0];
-
-    [[MTAnimation sharedInstance] palletAnimation:_user2color4
-                                        positionX:45
-                                        positionY:-45];
-
-    [[MTAnimation sharedInstance] palletAnimation:_user2color5
-                                        positionX:0
-                                        positionY:-60];
-
-
+- (void) returnAction:(id) sender {
+    [self backToTop];
 }
+
+- (void) diceAction:(id) sender {
+    
+}
+
+- (void) resetAction:(id) sender {
+    [self reset];
+    
+}
+
+//
+//
+//- (IBAction)user2pallet:(id)sender {
+//    
+//    [[MTAnimation sharedInstance] palletAnimation:_user2color1
+//                                        positionX:0
+//                                        positionY:60];
+//    
+//    [[MTAnimation sharedInstance] palletAnimation:_user2color2
+//                                        positionX:45
+//                                        positionY:45];
+//    
+//    [[MTAnimation sharedInstance] palletAnimation:_user2color3
+//                                        positionX:60
+//                                        positionY:0];
+//
+//    [[MTAnimation sharedInstance] palletAnimation:_user2color4
+//                                        positionX:45
+//                                        positionY:-45];
+//
+//    [[MTAnimation sharedInstance] palletAnimation:_user2color5
+//                                        positionX:0
+//                                        positionY:-60];
+//
+//
+//}
 
 #pragma mark setter
 

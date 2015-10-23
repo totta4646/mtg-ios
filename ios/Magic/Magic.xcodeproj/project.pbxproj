@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1706417A1BD6ADDD00E749C0 /* skal.png in Resources */ = {isa = PBXBuildFile; fileRef = 170641791BD6ADDD00E749C0 /* skal.png */; };
+		171B04D91BDA8BB1005410FE /* return.png in Resources */ = {isa = PBXBuildFile; fileRef = 171B04D81BDA8BB1005410FE /* return.png */; settings = {ASSET_TAGS = (); }; };
+		171B04DD1BDA8E77005410FE /* HexColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 171B04DC1BDA8E77005410FE /* HexColors.m */; settings = {ASSET_TAGS = (); }; };
 		17255BA31BA558410081C4EE /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17255B9C1BA558410081C4EE /* SVIndefiniteAnimatedView.m */; };
 		17255BA41BA558410081C4EE /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17255B9E1BA558410081C4EE /* SVProgressHUD.bundle */; };
 		17255BA51BA558410081C4EE /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 17255BA01BA558410081C4EE /* SVProgressHUD.m */; };
@@ -69,6 +71,9 @@
 
 /* Begin PBXFileReference section */
 		170641791BD6ADDD00E749C0 /* skal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skal.png; sourceTree = "<group>"; };
+		171B04D81BDA8BB1005410FE /* return.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = return.png; sourceTree = "<group>"; };
+		171B04DB1BDA8E77005410FE /* HexColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColors.h; sourceTree = "<group>"; };
+		171B04DC1BDA8E77005410FE /* HexColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColors.m; sourceTree = "<group>"; };
 		17255B9B1BA558410081C4EE /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
 		17255B9C1BA558410081C4EE /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		17255B9D1BA558410081C4EE /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
@@ -157,6 +162,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		171B04DA1BDA8E77005410FE /* HexColor */ = {
+			isa = PBXGroup;
+			children = (
+				171B04DB1BDA8E77005410FE /* HexColors.h */,
+				171B04DC1BDA8E77005410FE /* HexColors.m */,
+			);
+			path = HexColor;
+			sourceTree = "<group>";
+		};
 		17255B9A1BA558410081C4EE /* SVProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,8 +316,6 @@
 				3B24ED221BD7E8B60002DF09 /* MTAnimation.m */,
 				3B137CBE1BD7D21F00E59F70 /* MTLayoutView.h */,
 				3B137CBF1BD7D21F00E59F70 /* MTLayoutView.m */,
-				176BF7CB1B9A991D00F0FAC6 /* MTCustomUIButton.h */,
-				176BF7CC1B9A991D00F0FAC6 /* MTCustomUIButton.m */,
 				17443E581BD94C5400B77814 /* MTBattleView.h */,
 				17443E591BD94C5400B77814 /* MTBattleView.m */,
 			);
@@ -326,6 +338,7 @@
 		176BF7C11B9A91BD00F0FAC6 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				171B04DA1BDA8E77005410FE /* HexColor */,
 				17255B9A1BA558410081C4EE /* SVProgressHUD */,
 				176BF7C41B9A921800F0FAC6 /* MTPrefixHeader.pch */,
 			);
@@ -344,6 +357,7 @@
 			children = (
 				3B24ED1D1BD7E49E0002DF09 /* pallet.png */,
 				3B24ED1B1BD7E3CE0002DF09 /* reset.png */,
+				171B04D81BDA8BB1005410FE /* return.png */,
 				170641791BD6ADDD00E749C0 /* skal.png */,
 				3B24ED1F1BD7E5DA0002DF09 /* dice.png */,
 				17B4827A1BA5DB8D00904A81 /* mtg_logo.jpeg */,
@@ -477,6 +491,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17255BA41BA558410081C4EE /* SVProgressHUD.bundle in Resources */,
+				171B04D91BDA8BB1005410FE /* return.png in Resources */,
 				3B24ED1C1BD7E3CE0002DF09 /* reset.png in Resources */,
 				174837231B9C3B5A00EEC54D /* BattleViewController.xib in Resources */,
 				174837181B9C322D00EEC54D /* MTTableViewController.xib in Resources */,
@@ -526,6 +541,7 @@
 				174837171B9C322D00EEC54D /* MTTableViewController.m in Sources */,
 				17619F6D1B9AA18500E16915 /* MTApiManager.m in Sources */,
 				17443E5A1BD94C5400B77814 /* MTBattleView.m in Sources */,
+				171B04DD1BDA8E77005410FE /* HexColors.m in Sources */,
 				176BF7DE1B9A9B9400F0FAC6 /* MTUserDataSource.m in Sources */,
 				176BF79B1B9A912900F0FAC6 /* Magic.xcdatamodeld in Sources */,
 				174837221B9C3B5A00EEC54D /* BattleViewController.m in Sources */,
