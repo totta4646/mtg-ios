@@ -14,8 +14,8 @@
 @property MTUserDataSource                   *userData;
 @property MTApiManager                       *api;
 
-@property MTBattleView                       *view1;
-@property MTBattleView                       *view2;
+@property MTBattleView                       *myView;
+@property MTBattleView                       *rivalView;
 
 @property UIButton                           *diceButton;
 @property UIButton                           *returnButton;

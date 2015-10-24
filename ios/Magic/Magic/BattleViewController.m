@@ -16,44 +16,53 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self setBattleViews];
+    [self setOptionView];
+    [self setLayout];
+   
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
+}
+
+
+#pragma mark private method
+
+- (void) setBattleViews {
+    _myView = [MTBattleView view];
+    _rivalView = [MTBattleView view];
     
-    _view1 = [MTBattleView view];
-    _view2 = [MTBattleView view];
-
-    _view1.delegate = self;
-    _view2.delegate = self;
+    _myView.delegate = self;
+    _rivalView.delegate = self;
     
-    _view1.tag = 0;
-    _view2.tag = 1;
+    _myView.tag = 0;
+    _rivalView.tag = 1;
     
-    [_view1.up addTarget:self action:@selector(changeLife:)forControlEvents:UIControlEventTouchUpInside];
-    [_view1.up5 addTarget:self action:@selector(changeLife:)forControlEvents:UIControlEventTouchUpInside];
-    [_view1.down addTarget:self action:@selector(changeLife:)forControlEvents:UIControlEventTouchUpInside];
-    [_view1.down5 addTarget:self action:@selector(changeLife:)forControlEvents:UIControlEventTouchUpInside];
+}
 
-    [_view2.up addTarget:self action:@selector(changeLife:)forControlEvents:UIControlEventTouchUpInside];
-    [_view2.up5 addTarget:self action:@selector(changeLife:)forControlEvents:UIControlEventTouchUpInside];
-    [_view2.down addTarget:self action:@selector(changeLife:)forControlEvents:UIControlEventTouchUpInside];
-    [_view2.down5 addTarget:self action:@selector(changeLife:)forControlEvents:UIControlEventTouchUpInside];
-
-    [_view1.poisonButton addTarget:self action:@selector(changePoison:)forControlEvents:UIControlEventTouchUpInside];
-    [_view2.poisonButton addTarget:self action:@selector(changePoison:)forControlEvents:UIControlEventTouchUpInside];
-
-    [_view1.colorPallet addTarget:self action:@selector(selectAimation:)forControlEvents:UIControlEventTouchUpInside];
-    [_view2.colorPallet addTarget:self action:@selector(selectAimation:)forControlEvents:UIControlEventTouchUpInside];
-
-    
+-(void) setOptionView {
     UIView *optionView = [UIView new];
     CGRect sc = [UIScreen mainScreen].bounds;
-
+    
     optionView.frame = CGRectMake(0,
-                                  self.view1.bounds.size.height,
+                                  _myView.bounds.size.height,
                                   sc.size.width,
-                                  sc.size.height - (2 * self.view1.bounds.size.height));
-
+                                  sc.size.height - (2 * _myView.bounds.size.height));
+    
     optionView.backgroundColor = [UIColor hx_colorWithHexString:@"f7f7f7"];
     static int imageSize = 30;
-
+    
     CGRect returnFrame = CGRectMake(sc.size.width / 3 - imageSize / 2 * 3,
                                     (optionView.bounds.size.height - imageSize) / 2 ,
                                     imageSize,
@@ -63,7 +72,7 @@
                                   (optionView.bounds.size.height - imageSize) / 2 ,
                                   imageSize,
                                   imageSize);
-
+    
     CGRect resetFrame = CGRectMake(sc.size.width / 3 * 2 - imageSize / 2 + imageSize,
                                    (optionView.bounds.size.height - imageSize) / 2 ,
                                    imageSize,
@@ -85,53 +94,36 @@
     [_returnButton addTarget:self action:@selector(returnAction:)forControlEvents:UIControlEventTouchUpInside];
     [_diceButton addTarget:self action:@selector(diceAction:)forControlEvents:UIControlEventTouchUpInside];
     [_resetButton addTarget:self action:@selector(resetAction:)forControlEvents:UIControlEventTouchUpInside];
-
+    
     
     [optionView addSubview:_returnButton];
     [optionView addSubview:_diceButton];
     [optionView addSubview:_resetButton];
     
-    [self.view addSubview:_view1];
-    [self.view addSubview:_view2];
+    [self.view addSubview:_myView];
+    [self.view addSubview:_rivalView];
     [self.view addSubview:optionView];
-
-    [self setLayout];
    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-    [super viewWillAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-    [super viewWillDisappear:animated];
-}
-
-
-#pragma mark private method
 -(void) setLayout {
 
     CGFloat angle = 180.0 * M_PI / 180.0;
-    _view1.transform = CGAffineTransformMakeRotation(angle);
-    _view2.frame = CGRectMake(0,
+    _myView.transform = CGAffineTransformMakeRotation(angle);
+    _rivalView.frame = CGRectMake(0,
                               self.view.frame.size.height - 310,
                               self.view.frame.size.width,
                               310);
 
-    _view1.userName.text = _userData.user1.name;
-    _view2.userName.text = _userData.user2.name;
+    _myView.userName.text = _userData.user1.name;
+    _rivalView.userName.text = _userData.user2.name;
     
     [self rewriteLifes];
     
 }
 
 #pragma mark private action
+
 -(void) backToTop {
     [self.navigationController popToRootViewControllerAnimated:YES];
 
@@ -187,8 +179,8 @@
     [_userData.user1 setPoison];
     [_userData.user2 setPoison];
     
-    [[MTLayoutView sharedInstance] deleteBalloon:_view1.poisonLabel];
-    [[MTLayoutView sharedInstance] deleteBalloon:_view2.poisonLabel];
+    [[MTLayoutView sharedInstance] deleteBalloon:_myView.poisonLabel];
+    [[MTLayoutView sharedInstance] deleteBalloon:_rivalView.poisonLabel];
 
     _userData.gameSet = false;
     
@@ -223,18 +215,18 @@
     NSString *user1Life = nil;
     NSString *user2Life = nil;
 
-    _view1.userLife.text = [NSString stringWithFormat:@"%d",_userData.user1.life];
-    _view2.userLife.text = [NSString stringWithFormat:@"%d",_userData.user2.life];
+    _myView.userLife.text = [NSString stringWithFormat:@"%d",_userData.user1.life];
+    _rivalView.userLife.text = [NSString stringWithFormat:@"%d",_userData.user2.life];
     if (_userData.user1.poison) {
-        [[MTLayoutView sharedInstance] makeBalloon:_view1.poisonLabel];
+        [[MTLayoutView sharedInstance] makeBalloon:_myView.poisonLabel];
         user1Life = [NSString stringWithFormat:@"%d",_userData.user1.poison];
     }
     if (_userData.user2.poison) {
-        [[MTLayoutView sharedInstance] makeBalloon:_view2.poisonLabel];
+        [[MTLayoutView sharedInstance] makeBalloon:_rivalView.poisonLabel];
         user2Life = [NSString stringWithFormat:@"%d",_userData.user2.poison];
     }
-    _view1.poisonLabel.text = user1Life;
-    _view2.poisonLabel.text = user2Life;
+    _myView.poisonLabel.text = user1Life;
+    _rivalView.poisonLabel.text = user2Life;
 }
 
 -(void) sendResultData:(MTUser *) winner
@@ -261,35 +253,6 @@
 
 #pragma mark action
 /**
- *  ライフの書き換え
- *
- *  @param sender 押されたボタンの情報
- */
-- (void) changeLife:(id) sender {
-    int point = (int)[sender tag];
-    if (![sender superview].tag) {
-        _userData.user1.life += point;
-    } else {
-        _userData.user2.life += point;
-    }
-
-    [self checkLife];
-}
-/**
- *  毒カウンターの書き換え
- *
- *  @param sender 押されたボタンの情報
- */
-- (void) changePoison:(id) sender {
-    if (![sender superview].tag) {
-        _userData.user1.poison++;
-    } else {
-        _userData.user2.poison++;
-    }
-    [self checkLife];
-    
-}
-/**
  *  戻るボタン
  *
  *  @param sender 押されたボタンの情報
@@ -310,44 +273,39 @@
     [self reset];
     
 }
-/**
- *  パレットボタン
- *
- *  @param sender 押されたボタンの情報
- */
-- (void) selectAimation:(id) sender {
-    MTBattleView *parentView;
-    if (![sender superview].tag) {
-        parentView = _view1;
-    } else {
-        parentView = _view2;
-        
-    }
-    [[MTAnimation sharedInstance] palletAnimation:parentView.color1
-                                        positionX:0
-                                        positionY:60];
-    
-    [[MTAnimation sharedInstance] palletAnimation:parentView.color2
-                                        positionX:45
-                                        positionY:45];
-    
-    [[MTAnimation sharedInstance] palletAnimation:parentView.color3
-                                        positionX:60
-                                        positionY:0];
-    
-    [[MTAnimation sharedInstance] palletAnimation:parentView.color4
-                                        positionX:45
-                                        positionY:-45];
-    
-    [[MTAnimation sharedInstance] palletAnimation:parentView.color5
-                                        positionX:0
-                                        positionY:-60];
-}
+
 
 #pragma mark setter
 
-- (void) hoge {
-    NSLog(@"hohge");
+#pragma mark delegate
+/**
+ *  ライフの書き換え
+ *
+ *  @param sender 押されたボタンの情報
+ */
+- (void) changeLife:(id) sender {
+    int point = (int)[sender tag];
+    if (![sender superview].tag) {
+        _userData.user1.life += point;
+    } else {
+        _userData.user2.life += point;
+    }
+    
+    [self checkLife];
+}
+/**
+ *  毒カウンターの書き換え
+ *
+ *  @param sender 押されたボタンの情報
+ */
+- (void) changePoison:(id) sender {
+    if (![sender superview].tag) {
+        _userData.user1.poison++;
+    } else {
+        _userData.user2.poison++;
+    }
+    [self checkLife];
+    
 }
 
 @end

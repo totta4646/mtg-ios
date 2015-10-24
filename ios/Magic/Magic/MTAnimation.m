@@ -18,6 +18,19 @@
     return instance;
 }
 
+- (void) moveCenter:(UIButton *) pallet {
+    CGRect parent = [pallet superview].frame;
+    CGRect palletFrame = pallet.frame;
+    palletFrame.origin.x = (parent.size.width - palletFrame.size.width) / 2;
+    palletFrame.origin.y = (parent.size.height - palletFrame.size.height) / 2;
+    
+    [UIView animateWithDuration:0.5f
+                     animations:^{
+                         pallet.frame = palletFrame;
+                     }];
+
+}
+
 - (void) palletAnimation:(UIButton *) color
                positionX: (float) x
                positionY: (float) y {

@@ -14,7 +14,10 @@
 
 @optional
 
-- (void) hoge;
+- (void) changeColor:(id) sender;
+- (void) changeLife:(id) sender;
+- (void) changePoison:(id) sender;
+
 
 @end
 

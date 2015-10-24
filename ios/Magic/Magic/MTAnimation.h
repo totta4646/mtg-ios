@@ -14,5 +14,6 @@
                positionX: (float) x
                positionY: (float) y;
 
+- (void) moveCenter:(UIButton *) pallet;
 
 @end
