@@ -8,7 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class SampleViewController;
+
+@protocol SampleViewDelegate <NSObject>
+
+@optional
+
+- (void) hoge;
+
+@end
+
 @interface MTBattleView : UIView
+
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *userLife;
 @property (weak, nonatomic) IBOutlet UILabel *poisonLabel;
@@ -28,6 +39,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *color5;
 
 
+
 + (instancetype) view;
+@property (nonatomic, weak) id<SampleViewDelegate> delegate;
 
 @end

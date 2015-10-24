@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MTBattleView.h"
 
-@interface BattleViewController : UIViewController
+@interface BattleViewController : UIViewController <SampleViewDelegate>
 
 @property MTUserDataSource                   *userData;
 @property MTApiManager                       *api;

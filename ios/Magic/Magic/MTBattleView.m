@@ -12,6 +12,7 @@
 
 - (void)_init
 {
+
 }
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -33,6 +34,7 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    [_colorPallet addTarget:self action:@selector(aaa:)forControlEvents:UIControlEventTouchUpInside];
     
 }
 
@@ -41,6 +43,10 @@
     UINib *nib = [UINib nibWithNibName:@"MTBattleView" bundle:nil];
     MTBattleView *view = [nib instantiateWithOwner:self options:nil][0];
     return view;
+}
+
+- (void) aaa:(UIButton *) sender {
+    [self.delegate hoge];
 }
 
 @end

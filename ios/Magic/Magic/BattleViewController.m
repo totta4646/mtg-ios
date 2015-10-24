@@ -16,9 +16,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    
     _view1 = [MTBattleView view];
     _view2 = [MTBattleView view];
 
+    _view1.delegate = self;
+    _view2.delegate = self;
+    
     _view1.tag = 0;
     _view2.tag = 1;
     
@@ -342,5 +346,8 @@
 
 #pragma mark setter
 
+- (void) hoge {
+    NSLog(@"hohge");
+}
 
 @end
