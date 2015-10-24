@@ -35,6 +35,9 @@
     [_view1.poisonButton addTarget:self action:@selector(changePoison:)forControlEvents:UIControlEventTouchUpInside];
     [_view2.poisonButton addTarget:self action:@selector(changePoison:)forControlEvents:UIControlEventTouchUpInside];
 
+    [_view1.colorPallet addTarget:self action:@selector(selectAimation:)forControlEvents:UIControlEventTouchUpInside];
+    [_view2.colorPallet addTarget:self action:@selector(selectAimation:)forControlEvents:UIControlEventTouchUpInside];
+
     
     UIView *optionView = [UIView new];
     CGRect sc = [UIScreen mainScreen].bounds;
@@ -287,33 +290,34 @@
     [self reset];
     
 }
-
-//
-//
-//- (IBAction)user2pallet:(id)sender {
-//    
-//    [[MTAnimation sharedInstance] palletAnimation:_user2color1
-//                                        positionX:0
-//                                        positionY:60];
-//    
-//    [[MTAnimation sharedInstance] palletAnimation:_user2color2
-//                                        positionX:45
-//                                        positionY:45];
-//    
-//    [[MTAnimation sharedInstance] palletAnimation:_user2color3
-//                                        positionX:60
-//                                        positionY:0];
-//
-//    [[MTAnimation sharedInstance] palletAnimation:_user2color4
-//                                        positionX:45
-//                                        positionY:-45];
-//
-//    [[MTAnimation sharedInstance] palletAnimation:_user2color5
-//                                        positionX:0
-//                                        positionY:-60];
-//
-//
-//}
+- (void) selectAimation:(id) sender {
+    MTBattleView *parentView;
+    if (![sender superview].tag) {
+        parentView = _view1;
+    } else {
+        parentView = _view2;
+        
+    }
+    [[MTAnimation sharedInstance] palletAnimation:parentView.color1
+                                        positionX:0
+                                        positionY:60];
+    
+    [[MTAnimation sharedInstance] palletAnimation:parentView.color2
+                                        positionX:45
+                                        positionY:45];
+    
+    [[MTAnimation sharedInstance] palletAnimation:parentView.color3
+                                        positionX:60
+                                        positionY:0];
+    
+    [[MTAnimation sharedInstance] palletAnimation:parentView.color4
+                                        positionX:45
+                                        positionY:-45];
+    
+    [[MTAnimation sharedInstance] palletAnimation:parentView.color5
+                                        positionX:0
+                                        positionY:-60];
+}
 
 #pragma mark setter
 

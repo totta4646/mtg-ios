@@ -28,6 +28,7 @@
                                  color.frame.origin.y + y,
                                  color.frame.size.width,
                                  color.frame.size.height);
+    color.layer.opacity = 0.1;
     
     [UIView animateWithDuration:0.5f
                      animations:^{

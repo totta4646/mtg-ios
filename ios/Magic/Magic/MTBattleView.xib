@@ -47,14 +47,6 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nLJ-BJ-EmZ" userLabel="user2color">
-                    <rect key="frame" x="34" y="40" width="40" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <animations/>
-                    <state key="normal" backgroundImage="pallet.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OYl-MK-olA">
                     <rect key="frame" x="294" y="193" width="60" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -137,6 +129,14 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nLJ-BJ-EmZ" userLabel="pallet">
+                    <rect key="frame" x="34" y="40" width="40" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                    <state key="normal" image="pallet.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -147,7 +147,7 @@
                 <outlet property="color3" destination="3Y9-KJ-76q" id="j8F-aK-IRJ"/>
                 <outlet property="color4" destination="6cQ-nC-MYx" id="SId-Na-IOZ"/>
                 <outlet property="color5" destination="cEq-GE-rlu" id="1Ya-SK-5Yh"/>
-                <outlet property="colorPallet" destination="cEq-GE-rlu" id="ehh-kw-hmq"/>
+                <outlet property="colorPallet" destination="nLJ-BJ-EmZ" id="Lz0-vm-nFD"/>
                 <outlet property="down" destination="nCP-zM-RuJ" id="i0J-a2-7US"/>
                 <outlet property="down5" destination="U0f-w5-a1G" id="CnV-Yn-MUv"/>
                 <outlet property="poisonButton" destination="hGe-Pw-M4g" id="Vkh-0L-HFU"/>
