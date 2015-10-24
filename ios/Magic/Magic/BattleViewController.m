@@ -256,7 +256,11 @@
 }
 
 #pragma mark action
-
+/**
+ *  ライフの書き換え
+ *
+ *  @param sender 押されたボタンの情報
+ */
 - (void) changeLife:(id) sender {
     int point = (int)[sender tag];
     if (![sender superview].tag) {
@@ -267,7 +271,11 @@
 
     [self checkLife];
 }
-
+/**
+ *  毒カウンターの書き換え
+ *
+ *  @param sender 押されたボタンの情報
+ */
 - (void) changePoison:(id) sender {
     if (![sender superview].tag) {
         _userData.user1.poison++;
@@ -277,7 +285,11 @@
     [self checkLife];
     
 }
-
+/**
+ *  戻るボタン
+ *
+ *  @param sender 押されたボタンの情報
+ */
 - (void) returnAction:(id) sender {
     [self backToTop];
 }
@@ -285,11 +297,20 @@
 - (void) diceAction:(id) sender {
     
 }
-
+/**
+ *  リセットボタン
+ *
+ *  @param sender 押されたボタンの情報
+ */
 - (void) resetAction:(id) sender {
     [self reset];
     
 }
+/**
+ *  パレットボタン
+ *
+ *  @param sender 押されたボタンの情報
+ */
 - (void) selectAimation:(id) sender {
     MTBattleView *parentView;
     if (![sender superview].tag) {
