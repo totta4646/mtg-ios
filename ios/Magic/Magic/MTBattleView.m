@@ -70,9 +70,8 @@
 
 #pragma mark provate action
 /**
- *  パレットボタン
+ *  パレットのアニメーション管理メソッド
  *
- *  @param sender 押されたボタンの情報
  */
 - (void) selectpallet {
     [[MTAnimation sharedInstance] moveCenter:_colorPallet];
@@ -114,7 +113,11 @@
 }
 
 #pragma mark method
-
+/*
+ *  背景の色を変える
+ *
+ *  @param param 色
+ */
 - (void) selectColor:(int) param {
     UIColor *color = nil;
     if (param == 0) {
@@ -133,7 +136,11 @@
     self.backgroundColor = color;
     
 }
-
+/*
+ *  フィルター表示非表示のメソッド
+ *
+ *  @param selected 選択されたかどうか
+ */
 - (BOOL) setAlphaFilter:(BOOL) selected {
     int filterZindex = (int)[self.subviews indexOfObject:_filter];
     int palletZindex = (int)[self.subviews indexOfObject:_colorPallet];

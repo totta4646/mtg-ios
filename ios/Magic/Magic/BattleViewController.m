@@ -241,7 +241,12 @@
     _myView.poisonLabel.text = user1Life;
     _rivalView.poisonLabel.text = user2Life;
 }
-
+/**
+ *  戦績を送信
+ *
+ *  @param winner 勝ったユーザーの情報
+ *  @param loser 負けたユーザーの情報
+ */
 -(void) sendResultData:(MTUser *) winner
                       :(MTUser *) loser {
     
@@ -320,9 +325,12 @@
     [self checkLife];
     
 }
-
+/**
+ *  カラーパレットをタップ
+ *
+ *  @param sender 押されたボタンの情報
+ */
 - (void) changeColor:(id) sender {
-    
     if (![sender superview].tag) {
 
         if ([_myView setAlphaFilter:YES]) {
