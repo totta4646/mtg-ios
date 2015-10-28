@@ -297,7 +297,6 @@
 		176BF7BE1B9A918B00F0FAC6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				173455391BE12F21000DAB26 /* Pallet */,
 				17619F6A1B9AA16700E16915 /* Connection */,
 				176BF7DA1B9A9A8900F0FAC6 /* User */,
 				176BF7DB1B9A9AAE00F0FAC6 /* Datasouce */,
@@ -453,7 +452,7 @@
 		176BF7871B9A912900F0FAC6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = totta;
 				TargetAttributes = {
 					176BF78E1B9A912900F0FAC6 = {
@@ -611,6 +610,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -683,6 +683,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/${PRODUCT_NAME}/MTPrefixHeader.pch";
 				INFOPLIST_FILE = Magic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = MagicManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -697,6 +698,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/${PRODUCT_NAME}/MTPrefixHeader.pch";
 				INFOPLIST_FILE = Magic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = MagicManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -718,6 +720,7 @@
 				);
 				INFOPLIST_FILE = MagicTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "personal-Project.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Magic.app/Magic";
@@ -736,6 +739,7 @@
 				);
 				INFOPLIST_FILE = MagicTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "personal-Project.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Magic.app/Magic";
