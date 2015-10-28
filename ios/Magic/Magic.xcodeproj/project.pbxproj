@@ -14,7 +14,6 @@
 		17255BA41BA558410081C4EE /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17255B9E1BA558410081C4EE /* SVProgressHUD.bundle */; };
 		17255BA51BA558410081C4EE /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 17255BA01BA558410081C4EE /* SVProgressHUD.m */; };
 		17255BA61BA558410081C4EE /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 17255BA21BA558410081C4EE /* SVRadialGradientLayer.m */; };
-		173455381BE12E81000DAB26 /* MTColorPalletColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 173455371BE12E81000DAB26 /* MTColorPalletColorView.m */; };
 		17443E571BD94A3F00B77814 /* MTBattleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17443E561BD94A3F00B77814 /* MTBattleView.xib */; };
 		17443E5A1BD94C5400B77814 /* MTBattleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17443E591BD94C5400B77814 /* MTBattleView.m */; };
 		174837121B9C31CB00EEC54D /* MTTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 174837101B9C31CB00EEC54D /* MTTopViewController.m */; };
@@ -83,8 +82,6 @@
 		17255BA01BA558410081C4EE /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		17255BA11BA558410081C4EE /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
 		17255BA21BA558410081C4EE /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
-		173455361BE12E81000DAB26 /* MTColorPalletColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTColorPalletColorView.h; sourceTree = "<group>"; };
-		173455371BE12E81000DAB26 /* MTColorPalletColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTColorPalletColorView.m; sourceTree = "<group>"; };
 		17443E561BD94A3F00B77814 /* MTBattleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTBattleView.xib; sourceTree = "<group>"; };
 		17443E581BD94C5400B77814 /* MTBattleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBattleView.h; sourceTree = "<group>"; };
 		17443E591BD94C5400B77814 /* MTBattleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBattleView.m; sourceTree = "<group>"; };
@@ -187,15 +184,6 @@
 				17255BA21BA558410081C4EE /* SVRadialGradientLayer.m */,
 			);
 			path = SVProgressHUD;
-			sourceTree = "<group>";
-		};
-		173455391BE12F21000DAB26 /* Pallet */ = {
-			isa = PBXGroup;
-			children = (
-				173455361BE12E81000DAB26 /* MTColorPalletColorView.h */,
-				173455371BE12E81000DAB26 /* MTColorPalletColorView.m */,
-			);
-			name = Pallet;
 			sourceTree = "<group>";
 		};
 		174837191B9C326600EEC54D /* xib */ = {
@@ -563,7 +551,6 @@
 				3B137CC01BD7D21F00E59F70 /* MTLayoutView.m in Sources */,
 				17255BA61BA558410081C4EE /* SVRadialGradientLayer.m in Sources */,
 				3B24ED231BD7E8B60002DF09 /* MTAnimation.m in Sources */,
-				173455381BE12E81000DAB26 /* MTColorPalletColorView.m in Sources */,
 				174837121B9C31CB00EEC54D /* MTTopViewController.m in Sources */,
 				17255BA51BA558410081C4EE /* SVProgressHUD.m in Sources */,
 				176BF7D91B9A9A8200F0FAC6 /* MTUser.m in Sources */,

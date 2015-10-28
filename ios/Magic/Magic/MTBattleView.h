@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MTColorPalletColorView.h"
 
 
 @class BattleViewDelegate;
