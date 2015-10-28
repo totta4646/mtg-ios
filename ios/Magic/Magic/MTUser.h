@@ -14,6 +14,7 @@
 @property (nonatomic) int      life;
 @property (nonatomic) int      win;
 @property (nonatomic) int      poison;
+@property (nonatomic) int      color;
 
 @property (nonatomic) NSString *name;
 

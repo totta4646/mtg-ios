@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class SampleViewController;
 
-@protocol SampleViewDelegate <NSObject>
+@class BattleViewDelegate;
+
+@protocol BattleViewDelegate <NSObject>
 
 @optional
 
@@ -23,27 +24,33 @@
 
 @interface MTBattleView : UIView
 
-@property (weak, nonatomic) IBOutlet UILabel *userName;
-@property (weak, nonatomic) IBOutlet UILabel *userLife;
-@property (weak, nonatomic) IBOutlet UILabel *poisonLabel;
+@property (weak, nonatomic) IBOutlet UILabel        *userName;
+@property (weak, nonatomic) IBOutlet UILabel        *userLife;
+@property (weak, nonatomic) IBOutlet UILabel        *poisonLabel;
 
-@property (weak, nonatomic) IBOutlet UIButton *poisonButton;
-@property (weak, nonatomic) IBOutlet UIButton *colorPallet;
+@property (weak, nonatomic) IBOutlet UIButton       *poisonButton;
+@property (weak, nonatomic) IBOutlet UIButton       *colorPallet;
 
-@property (weak, nonatomic) IBOutlet UIButton *up;
-@property (weak, nonatomic) IBOutlet UIButton *down;
-@property (weak, nonatomic) IBOutlet UIButton *up5;
-@property (weak, nonatomic) IBOutlet UIButton *down5;
+@property (weak, nonatomic) IBOutlet UIButton       *up;
+@property (weak, nonatomic) IBOutlet UIButton       *down;
+@property (weak, nonatomic) IBOutlet UIButton       *up5;
+@property (weak, nonatomic) IBOutlet UIButton       *down5;
 
-@property (weak, nonatomic) IBOutlet UIButton *color1;
-@property (weak, nonatomic) IBOutlet UIButton *color2;
-@property (weak, nonatomic) IBOutlet UIButton *color3;
-@property (weak, nonatomic) IBOutlet UIButton *color4;
-@property (weak, nonatomic) IBOutlet UIButton *color5;
+@property (weak, nonatomic) IBOutlet UIButton       *color1;
+@property (weak, nonatomic) IBOutlet UIButton       *color2;
+@property (weak, nonatomic) IBOutlet UIButton       *color3;
+@property (weak, nonatomic) IBOutlet UIButton       *color4;
+@property (weak, nonatomic) IBOutlet UIButton       *color5;
 
+@property (weak, nonatomic) IBOutlet UIView         *filter;
 
+@property (nonatomic) BOOL                          disappearFilter;
+@property (nonatomic) BOOL                          selectedView;
 
 + (instancetype) view;
-@property (nonatomic, weak) id<SampleViewDelegate> delegate;
+- (void) selectColor:(int) param;
+- (BOOL) setAlphaFilter:(BOOL) selected;
+
+@property (nonatomic, weak) id<BattleViewDelegate> delegate;
 
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MTBattleView.h"
 
-@interface BattleViewController : UIViewController <SampleViewDelegate>
+@interface BattleViewController : UIViewController <BattleViewDelegate>
 
 @property MTUserDataSource                   *userData;
 @property MTApiManager                       *api;
@@ -21,7 +21,11 @@
 @property UIButton                           *returnButton;
 @property UIButton                           *resetButton;
 
+
+@property (nonatomic) UIView                 *filter;
+
 @property (nonatomic) UIBarButtonItem        *backButton;
 @property (nonatomic) UIAlertController      *alert;
+
 
 @end

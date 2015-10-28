@@ -41,6 +41,10 @@
     [self setLifeButtons];
     [self setColorPallets];
     [self setPoisonButtons];
+    
+    _filter.backgroundColor = [UIColor redColor];
+
+    _disappearFilter = YES;
 
 }
 
@@ -48,7 +52,7 @@
 #pragma mark setAction
 
 - (void) setColorPallets {
-    [_colorPallet addTarget:self action:@selector(selectColor:)forControlEvents:UIControlEventTouchUpInside];
+    [_colorPallet addTarget:self action:@selector(changePallet:)forControlEvents:UIControlEventTouchUpInside];
     
 }
 
@@ -70,8 +74,8 @@
  *
  *  @param sender 押されたボタンの情報
  */
-- (void) selectColor:(id) sender {
-    [[MTAnimation sharedInstance] moveCenter:sender];
+- (void) selectpallet {
+    [[MTAnimation sharedInstance] moveCenter:_colorPallet];
     
     [[MTAnimation sharedInstance] palletAnimation:_color1
                                         positionX:-60
@@ -96,9 +100,9 @@
 
 #pragma mark delegate
 
-//- (void) selectColor:(UIButton *) sender {
-//    [self.delegate changeColor:sender];
-//}
+- (void) changePallet:(UIButton *) sender {
+    [self.delegate changeColor:sender];
+}
 
 - (void) changeLife:(UIButton *) sender {
     [self.delegate changeLife:sender];
@@ -107,7 +111,64 @@
 
 - (void) changePoison:(UIButton *) sender {
     [self.delegate changePoison:sender];
+}
+
+#pragma mark method
+
+- (void) selectColor:(int) param {
+    UIColor *color = nil;
+    if (param == 0) {
+        color = [UIColor hx_colorWithHexString:@"4D4B57"];
+    } else if (param == 1) {
+        color = [UIColor hx_colorWithHexString:@"ED584B"];
+    } else if (param == 2) {
+        color = [UIColor hx_colorWithHexString:@"45D16E"];
+    } else if (param == 3) {
+        color = [UIColor hx_colorWithHexString:@"F0D529"];
+    } else if (param == 4) {
+        color = [UIColor hx_colorWithHexString:@"4197F5"];
+    
+    }
+    
+    self.backgroundColor = color;
     
 }
 
+- (BOOL) setAlphaFilter:(BOOL) selected {
+    int filterZindex = (int)[self.subviews indexOfObject:_filter];
+    int palletZindex = (int)[self.subviews indexOfObject:_colorPallet];
+
+    if (selected == YES && _selectedView == YES) {
+        return false;
+    }
+    
+    
+    if (_disappearFilter) {
+        _filter.alpha = 0.3;
+        _disappearFilter = NO;
+
+        if (!selected) {
+            [self exchangeSubviewAtIndex:filterZindex withSubviewAtIndex:palletZindex];
+            
+        } else {
+            [self selectpallet];
+
+        }
+
+        _selectedView = selected;
+
+    } else  {
+        _filter.alpha = 0;
+        _disappearFilter = YES;
+
+        if (!_selectedView){
+            [self exchangeSubviewAtIndex:filterZindex withSubviewAtIndex:palletZindex];
+            _selectedView = !selected;
+            
+        }
+
+    }
+    
+    return true;
+}
 @end

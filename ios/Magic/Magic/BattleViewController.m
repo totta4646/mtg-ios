@@ -49,6 +49,8 @@
     _myView.tag = 0;
     _rivalView.tag = 1;
     
+    [_myView selectColor:3];
+    [_rivalView selectColor:1];
 }
 
 -(void) setOptionView {
@@ -60,7 +62,7 @@
                                   sc.size.width,
                                   sc.size.height - (2 * _myView.bounds.size.height));
     
-    optionView.backgroundColor = [UIColor hx_colorWithHexString:@"f7f7f7"];
+    optionView.backgroundColor = [UIColor hx_colorWithHexString:@"fff"];
     static int imageSize = 30;
     
     CGRect returnFrame = CGRectMake(sc.size.width / 3 - imageSize / 2 * 3,
@@ -103,7 +105,18 @@
     [self.view addSubview:_myView];
     [self.view addSubview:_rivalView];
     [self.view addSubview:optionView];
-   
+//    _filter = [[UIView alloc] init];
+//    CGRect viewSize = CGRectMake(0,
+//                                 0,
+//                                 self.view.bounds.size.width,
+//                                 self.view.bounds.size.height);
+//    
+//    _filter.backgroundColor = [UIColor redColor];
+//    _filter.alpha = 0;
+//    
+//    _filter.frame = viewSize;
+//    [self.view addSubview:_filter];
+
 }
 
 -(void) setLayout {
@@ -306,6 +319,23 @@
     }
     [self checkLife];
     
+}
+
+- (void) changeColor:(id) sender {
+    
+    if (![sender superview].tag) {
+
+        if ([_myView setAlphaFilter:YES]) {
+            [_rivalView setAlphaFilter:NO];
+        };
+
+    } else {
+    
+        if ([_rivalView setAlphaFilter:YES]) {
+            [_myView setAlphaFilter:NO];            
+        };
+    }
+
 }
 
 @end
