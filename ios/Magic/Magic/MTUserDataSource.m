@@ -36,6 +36,7 @@
                :(int)number {
     
     int userID = (int)[[[data objectAtIndex:number] objectForKey:@"id"] integerValue];
+    int userColor = (int)[[[data objectAtIndex:number] objectForKey:@"color"] integerValue];
     NSString *userName = [[data objectAtIndex:number] objectForKey:@"name"];
     
     if (_user1.userID == number) {
@@ -47,6 +48,7 @@
         [_user2 setUserID:userID];
         [_user2 setName:userName];
         [_user2 setLife];
+        [_user2 setColor:userColor];
         
         return true;
 
@@ -56,6 +58,7 @@
         
         [_user1 setUserID:userID];
         [_user1 setName:userName];
+        [_user1 setColor:userColor];
         [_user1 setLife];
 
         return false;

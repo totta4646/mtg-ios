@@ -49,8 +49,8 @@
     _myView.tag = 0;
     _rivalView.tag = 1;
     
-    [_myView selectColor:3];
-    [_rivalView selectColor:1];
+    [_myView selectColor:_userData.user1.color];
+    [_rivalView selectColor:_userData.user2.color];
 }
 
 -(void) setOptionView {
@@ -105,17 +105,6 @@
     [self.view addSubview:_myView];
     [self.view addSubview:_rivalView];
     [self.view addSubview:optionView];
-//    _filter = [[UIView alloc] init];
-//    CGRect viewSize = CGRectMake(0,
-//                                 0,
-//                                 self.view.bounds.size.width,
-//                                 self.view.bounds.size.height);
-//    
-//    _filter.backgroundColor = [UIColor redColor];
-//    _filter.alpha = 0;
-//    
-//    _filter.frame = viewSize;
-//    [self.view addSubview:_filter];
 
 }
 
@@ -345,5 +334,31 @@
     }
 
 }
+
+/**
+ *  カラーパレットの色をタップ
+ *
+ *  @param sender 押されたボタンの情報
+ */
+- (void) selectPalletColor:(id) sender {
+
+    int selectColor = (int) [sender tag];
+    
+    if (![sender superview].tag) {
+        [_myView selectColor:selectColor];
+        [_myView selectColor];
+        
+    } else {
+        [_rivalView selectColor:selectColor];
+        [_rivalView selectColor];
+
+    }
+
+    [_myView setAlphaFilter:NO];
+    [_rivalView setAlphaFilter:NO];
+    
+}
+
+
 
 @end

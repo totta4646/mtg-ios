@@ -41,11 +41,9 @@
     [self setLifeButtons];
     [self setColorPallets];
     [self setPoisonButtons];
-    
-    _filter.backgroundColor = [UIColor redColor];
+    [self setPalletViews];
 
     _disappearFilter = YES;
-
 }
 
 
@@ -68,34 +66,40 @@
     [_poisonButton addTarget:self action:@selector(changePoison:)forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void) setPalletViews {
+    
+    [_color addTarget:self action:@selector(changeColor:)forControlEvents:UIControlEventTouchUpInside];
+    [_color1 addTarget:self action:@selector(changeColor:)forControlEvents:UIControlEventTouchUpInside];
+    [_color2 addTarget:self action:@selector(changeColor:)forControlEvents:UIControlEventTouchUpInside];
+    [_color3 addTarget:self action:@selector(changeColor:)forControlEvents:UIControlEventTouchUpInside];
+    [_color4 addTarget:self action:@selector(changeColor:)forControlEvents:UIControlEventTouchUpInside];
+
+    
+    _palletViews = [[MTPalletColorView alloc] init];
+    _palletViews.color.view = _color;
+    _palletViews.color1.view = _color1;
+    _palletViews.color2.view = _color2;
+    _palletViews.color3.view = _color3;
+    _palletViews.color4.view = _color4;
+    
+    _palletViews.pallet.currentPosition = _colorPallet.frame;
+    _palletViews.pallet.view = _colorPallet;
+    
+}
+
 #pragma mark provate action
 /**
  *  パレットのアニメーション管理メソッド
  *
  */
 - (void) selectpallet {
-    [[MTAnimation sharedInstance] moveCenter:_colorPallet];
-    
-    [[MTAnimation sharedInstance] palletAnimation:_color1
-                                        positionX:-60
-                                        positionY:-30];
-    
-    [[MTAnimation sharedInstance] palletAnimation:_color2
-                                        positionX:-45
-                                        positionY:45];
-    
-    [[MTAnimation sharedInstance] palletAnimation:_color3
-                                        positionX:45
-                                        positionY:45];
-    
-    [[MTAnimation sharedInstance] palletAnimation:_color4
-                                        positionX:60
-                                        positionY:-30];
-    
-    [[MTAnimation sharedInstance] palletAnimation:_color5
-                                        positionX:0
-                                        positionY:-90];
+    [[MTAnimation sharedInstance] startPalletButtonAnimation:_palletViews];
 }
+
+- (void) selectColor {
+    [[MTAnimation sharedInstance] backPalletButtons:_palletViews];
+}
+
 
 #pragma mark delegate
 
@@ -112,6 +116,12 @@
     [self.delegate changePoison:sender];
 }
 
+-(void) changeColor:(UIButton *) sender {
+    [self.delegate selectPalletColor:sender];
+    
+}
+
+
 #pragma mark method
 /*
  *  背景の色を変える
@@ -121,15 +131,15 @@
 - (void) selectColor:(int) param {
     UIColor *color = nil;
     if (param == 0) {
-        color = [UIColor hx_colorWithHexString:@"4D4B57"];
+        color = COLOR;
     } else if (param == 1) {
-        color = [UIColor hx_colorWithHexString:@"ED584B"];
+        color = COLOR1;
     } else if (param == 2) {
-        color = [UIColor hx_colorWithHexString:@"45D16E"];
+        color = COLOR2;
     } else if (param == 3) {
-        color = [UIColor hx_colorWithHexString:@"F0D529"];
+        color = COLOR3;
     } else if (param == 4) {
-        color = [UIColor hx_colorWithHexString:@"4197F5"];
+        color = COLOR4;
     
     }
     
@@ -144,11 +154,6 @@
 - (BOOL) setAlphaFilter:(BOOL) selected {
     int filterZindex = (int)[self.subviews indexOfObject:_filter];
     int palletZindex = (int)[self.subviews indexOfObject:_colorPallet];
-
-    if (selected == YES && _selectedView == YES) {
-        return false;
-    }
-    
     
     if (_disappearFilter) {
         _filter.alpha = 0.3;
@@ -170,7 +175,7 @@
 
         if (!_selectedView){
             [self exchangeSubviewAtIndex:filterZindex withSubviewAtIndex:palletZindex];
-            _selectedView = !selected;
+            _selectedView = selected;
             
         }
 

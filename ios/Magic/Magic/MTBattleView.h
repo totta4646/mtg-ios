@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MTPalletColorView.h"
 
 @class BattleViewDelegate;
 
@@ -16,6 +16,7 @@
 @optional
 
 - (void) changeColor:(id) sender;
+- (void) selectPalletColor:(id) sender;
 - (void) changeLife:(id) sender;
 - (void) changePoison:(id) sender;
 
@@ -36,20 +37,24 @@
 @property (weak, nonatomic) IBOutlet UIButton       *up5;
 @property (weak, nonatomic) IBOutlet UIButton       *down5;
 
+@property (weak, nonatomic) IBOutlet UIButton       *color;
 @property (weak, nonatomic) IBOutlet UIButton       *color1;
 @property (weak, nonatomic) IBOutlet UIButton       *color2;
 @property (weak, nonatomic) IBOutlet UIButton       *color3;
 @property (weak, nonatomic) IBOutlet UIButton       *color4;
-@property (weak, nonatomic) IBOutlet UIButton       *color5;
 
 @property (weak, nonatomic) IBOutlet UIView         *filter;
 
 @property (nonatomic) BOOL                          disappearFilter;
 @property (nonatomic) BOOL                          selectedView;
 
+@property (nonatomic) MTPalletColorView             *palletViews;
+
+
 + (instancetype) view;
 - (void) selectColor:(int) param;
 - (BOOL) setAlphaFilter:(BOOL) selected;
+- (void) selectColor;
 
 @property (nonatomic, weak) id<BattleViewDelegate> delegate;
 

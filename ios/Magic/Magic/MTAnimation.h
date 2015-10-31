@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MTPalletColorView.h"
 
 @interface MTAnimation : NSObject
 + (instancetype) sharedInstance;
@@ -15,5 +16,7 @@
                positionY: (float) y;
 
 - (void) moveCenter:(UIButton *) pallet;
+- (void) startPalletButtonAnimation:(MTPalletColorView *) color;
+- (void) backPalletButtons:(MTPalletColorView *) color;
 
 @end
