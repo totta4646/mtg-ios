@@ -6,23 +6,29 @@ try {
     $pdo = new PDO('mysql:host=' . $host . ';dbname=' . $db . ';charset=utf8' , $user , $pass,
     array(PDO::ATTR_EMULATE_PREPARES => false));
 
+    $user_param = $_GET['user'];
+    $color_param = $_GET['color'];
+    $stasus = 400;
 
     // 保存
-    $table = "USER";
-    $stmt = $pdo-> prepare("SELECT ID as id , NAME as name, COLOR as color FROM $table");
+    $user_table = "USER";
+    $res = array();
+
+    $stmt = $pdo-> prepare("UPDATE USER SET COLOR = $color_param WHERE ID = $user_param");
     $success = $stmt->execute();
+
+
     if ($success) {
-        $sql = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stasus = 200;
-        $data = $sql;
-        $res =  array('status'=>$stasus, 'data'=>$data);
-        header('Content-type: application/json');
-
-    } else {
-        $stasus = 400;
-        $res =  array('status'=> $stasus);
-
     }
+
+    // $user_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+    $data = $sql;
+    $res =  array('status'=>$stasus);
+
+    header('Content-type: application/json');
 
     echo json_encode( $res );
 
