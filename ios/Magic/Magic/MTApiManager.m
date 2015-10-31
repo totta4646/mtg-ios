@@ -25,6 +25,23 @@
 }
 
 /**
+ *  ユーザーの色を変えるAPIを叩く
+ *
+ *  @param userId        色を変えるユーザーのID
+ *  @param selectColorId 色のID
+ *
+ */
+-(void) updateUserColor:(int) userId
+                  color:(int) selectColorId {
+    
+    NSString *param = [NSString stringWithFormat:@"user=%d&color=%d",userId, selectColorId];
+    NSString *url = [NSString stringWithFormat:@"%@update_user.php?%@",MY_HOST ,param];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+
+    [self post:request];
+}
+
+/**
  *  対戦結果を送信するAPIを叩く
  *
  *  @param winUserId  勝ったユーザーのユーザーID

@@ -19,7 +19,9 @@
     [self setBattleViews];
     [self setOptionView];
     [self setLayout];
-   
+
+    _api = [[MTApiManager alloc] init];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -239,8 +241,6 @@
 -(void) sendResultData:(MTUser *) winner
                       :(MTUser *) loser {
     
-    _api = [[MTApiManager alloc] init];
-    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
         @autoreleasepool{
             NSDictionary *res = [_api postResultData:winner.userID
@@ -332,7 +332,6 @@
             [_myView setAlphaFilter:NO];            
         };
     }
-
 }
 
 /**
@@ -347,11 +346,20 @@
     if (![sender superview].tag) {
         [_myView selectColor:selectColor];
         [_myView selectColor];
-        
+
+        if (_userData.user1.userID != -1) {
+            [_api updateUserColor:_userData.user1.userID
+                            color:selectColor];
+        }
+            
     } else {
         [_rivalView selectColor:selectColor];
         [_rivalView selectColor];
 
+        if (_userData.user2.userID != -1) {
+            [_api updateUserColor:_userData.user2.userID
+                            color:selectColor];
+        }        
     }
 
     [_myView setAlphaFilter:NO];

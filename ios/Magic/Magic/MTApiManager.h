@@ -18,6 +18,8 @@
 -(NSDictionary *) rePostDatas;
 -(NSDictionary *) getResultData:(int) userID
                                :(int)rivalID;
+-(void) updateUserColor:(int) userId
+                  color:(int) selectColorId;
 
 
 -(void) setTempData:(int) winner
