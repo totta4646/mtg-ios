@@ -116,12 +116,12 @@
                     <rect key="frame" x="167" y="135" width="40" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <animations/>
-                    <color key="backgroundColor" red="0.59607843137254901" green="1" blue="0.19215686274509805" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.27058823529411763" green="0.81960784313725488" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" alpha="0.0" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Bqg-SW-sJ4" userLabel="color3">
+                <button opaque="NO" alpha="0.0" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Bqg-SW-sJ4" userLabel="color3">
                     <rect key="frame" x="167" y="135" width="40" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <animations/>
