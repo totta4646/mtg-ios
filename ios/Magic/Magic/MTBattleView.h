@@ -53,7 +53,7 @@
 
 + (instancetype) view;
 - (void) selectColor:(int) param;
-- (BOOL) setAlphaFilter:(BOOL) selected;
+- (void) setAlphaFilter:(BOOL) selected;
 - (void) selectColor;
 
 @property (nonatomic, weak) id<BattleViewDelegate> delegate;

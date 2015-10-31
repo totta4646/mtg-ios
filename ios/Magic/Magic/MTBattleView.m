@@ -151,9 +151,11 @@
  *
  *  @param selected 選択されたかどうか
  */
-- (BOOL) setAlphaFilter:(BOOL) selected {
+- (void) setAlphaFilter:(BOOL) selected {
     int filterZindex = (int)[self.subviews indexOfObject:_filter];
     int palletZindex = (int)[self.subviews indexOfObject:_colorPallet];
+    
+    
     
     if (_disappearFilter) {
         _filter.alpha = 0.3;
@@ -181,6 +183,5 @@
 
     }
     
-    return true;
 }
 @end

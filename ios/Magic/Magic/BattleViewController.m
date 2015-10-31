@@ -50,6 +50,9 @@
     
     _myView.tag = 0;
     _rivalView.tag = 1;
+
+    _myView.colorPallet.adjustsImageWhenDisabled = NO;
+    _rivalView.colorPallet.adjustsImageWhenDisabled = NO;
     
     [_myView selectColor:_userData.user1.color];
     [_rivalView selectColor:_userData.user2.color];
@@ -322,15 +325,16 @@
 - (void) changeColor:(id) sender {
     if (![sender superview].tag) {
 
-        if ([_myView setAlphaFilter:YES]) {
-            [_rivalView setAlphaFilter:NO];
-        };
+        [_myView setAlphaFilter:YES];
+        [_rivalView setAlphaFilter:NO];
+        
+        _myView.colorPallet.enabled = NO;
 
     } else {
-    
-        if ([_rivalView setAlphaFilter:YES]) {
-            [_myView setAlphaFilter:NO];            
-        };
+
+        [_rivalView setAlphaFilter:YES];
+        [_myView setAlphaFilter:NO];
+        _rivalView.colorPallet.enabled = NO;
     }
 }
 
@@ -342,12 +346,15 @@
 - (void) selectPalletColor:(id) sender {
 
     int selectColor = (int) [sender tag];
+    _myView.colorPallet.enabled = YES;
+    _rivalView.colorPallet.enabled = YES;
     
     if (![sender superview].tag) {
         [_myView selectColor:selectColor];
         [_myView selectColor];
 
         if (_userData.user1.userID != -1) {
+            _userData.user1.color = selectColor;
             [_api updateUserColor:_userData.user1.userID
                             color:selectColor];
         }
@@ -357,6 +364,7 @@
         [_rivalView selectColor];
 
         if (_userData.user2.userID != -1) {
+            _userData.user2.color = selectColor;
             [_api updateUserColor:_userData.user2.userID
                             color:selectColor];
         }        
