@@ -9,7 +9,7 @@ try {
 
     // 保存
     $table = "USER";
-    $stmt = $pdo-> prepare("SELECT ID as id , NAME as name FROM $table");
+    $stmt = $pdo-> prepare("SELECT ID as id , NAME as name, COLOR as color FROM $table");
     $success = $stmt->execute();
     if ($success) {
         $sql = $stmt->fetchAll(PDO::FETCH_ASSOC);
