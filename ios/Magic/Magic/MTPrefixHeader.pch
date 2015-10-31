@@ -24,7 +24,7 @@
 
 #define COLOR [UIColor hx_colorWithHexString:@"ED584B"]
 #define COLOR1 [UIColor hx_colorWithHexString:@"55C4DB"]
-#define COLOR2 [UIColor hx_colorWithHexString:@"98FF31"]
+#define COLOR2 [UIColor hx_colorWithHexString:@"45D16E"]
 #define COLOR3 [UIColor hx_colorWithHexString:@"FFCC66"]
 #define COLOR4 [UIColor hx_colorWithHexString:@"666666"]
 
