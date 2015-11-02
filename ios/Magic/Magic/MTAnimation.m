@@ -60,6 +60,7 @@
                                           animations:^{
                                               views.pallet.view.frame = views.pallet.currentPosition;
                                           }];
+                         views.pallet.view.enabled = YES;
                          
                      }];
 }

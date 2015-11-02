@@ -98,6 +98,7 @@
 
 - (void) selectColor {
     [[MTAnimation sharedInstance] backPalletButtons:_palletViews];
+    
 }
 
 
@@ -166,6 +167,7 @@
             
         } else {
             [self selectpallet];
+            _colorPallet.enabled = NO;
 
         }
 

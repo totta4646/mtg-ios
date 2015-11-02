@@ -328,13 +328,11 @@
         [_myView setAlphaFilter:YES];
         [_rivalView setAlphaFilter:NO];
         
-        _myView.colorPallet.enabled = NO;
 
     } else {
 
         [_rivalView setAlphaFilter:YES];
         [_myView setAlphaFilter:NO];
-        _rivalView.colorPallet.enabled = NO;
     }
 }
 
@@ -346,8 +344,6 @@
 - (void) selectPalletColor:(id) sender {
 
     int selectColor = (int) [sender tag];
-    _myView.colorPallet.enabled = YES;
-    _rivalView.colorPallet.enabled = YES;
     
     if (![sender superview].tag) {
         [_myView selectColor:selectColor];
