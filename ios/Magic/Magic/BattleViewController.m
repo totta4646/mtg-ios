@@ -20,6 +20,9 @@
     [self setOptionView];
     [self setLayout];
 
+    _me = _userData.user1;
+    _rival = _userData.user2;
+    
     _api = [[MTApiManager alloc] init];
 
 }
@@ -50,12 +53,9 @@
     
     _myView.tag = 0;
     _rivalView.tag = 1;
-
-    _myView.colorPallet.adjustsImageWhenDisabled = NO;
-    _rivalView.colorPallet.adjustsImageWhenDisabled = NO;
     
-    [_myView selectColor:_userData.user1.color];
-    [_rivalView selectColor:_userData.user2.color];
+    [_myView changeColor:_me.color];
+    [_rivalView changeColor:_rival.color];
 }
 
 -(void) setOptionView {
@@ -122,8 +122,8 @@
                               self.view.frame.size.width,
                               310);
 
-    _myView.userName.text = _userData.user1.name;
-    _rivalView.userName.text = _userData.user2.name;
+    _myView.userName.text = _me.name;
+    _rivalView.userName.text = _rival.name;
     
     [self rewriteLifes];
     
@@ -181,10 +181,10 @@
  */
 -(void) reset {
     
-    [_userData.user1 setLife];
-    [_userData.user2 setLife];
-    [_userData.user1 setPoison];
-    [_userData.user2 setPoison];
+    [_me setLife];
+    [_rival setLife];
+    [_me setPoison];
+    [_rival setPoison];
     
     [[MTLayoutView sharedInstance] deleteBalloon:_myView.poisonLabel];
     [[MTLayoutView sharedInstance] deleteBalloon:_rivalView.poisonLabel];
@@ -198,15 +198,15 @@
  *  ライフが1以下になっていないかチェック
  */
 -(void) checkLife {
-    if ((_userData.user1.life <= 0  || _userData.user1.poison == 10 ) && !_userData.gameSet) {
+    if ((_me.life <= 0  || _me.poison == 10 ) && !_userData.gameSet) {
         _userData.gameSet = true;
-        [self alert:_userData.user2
+        [self alert:_rival
                    :_userData.user1];
 
-    } else if((_userData.user2.life <= 0 || _userData.user2.poison == 10 ) && !_userData.gameSet) {
+    } else if((_rival.life <= 0 || _rival.poison == 10 ) && !_userData.gameSet) {
         _userData.gameSet = true;
-        [self alert:_userData.user1
-                   :_userData.user2];
+        [self alert:_me
+                   :_rival];
 
     } else {
         [self rewriteLifes];
@@ -222,15 +222,15 @@
     NSString *user1Life = nil;
     NSString *user2Life = nil;
 
-    _myView.userLife.text = [NSString stringWithFormat:@"%d",_userData.user1.life];
-    _rivalView.userLife.text = [NSString stringWithFormat:@"%d",_userData.user2.life];
-    if (_userData.user1.poison) {
+    _myView.userLife.text = [NSString stringWithFormat:@"%d",_me.life];
+    _rivalView.userLife.text = [NSString stringWithFormat:@"%d",_rival.life];
+    if (_me.poison) {
         [[MTLayoutView sharedInstance] makeBalloon:_myView.poisonLabel];
-        user1Life = [NSString stringWithFormat:@"%d",_userData.user1.poison];
+        user1Life = [NSString stringWithFormat:@"%d",_me.poison];
     }
-    if (_userData.user2.poison) {
+    if (_rival.poison) {
         [[MTLayoutView sharedInstance] makeBalloon:_rivalView.poisonLabel];
-        user2Life = [NSString stringWithFormat:@"%d",_userData.user2.poison];
+        user2Life = [NSString stringWithFormat:@"%d",_rival.poison];
     }
     _myView.poisonLabel.text = user1Life;
     _rivalView.poisonLabel.text = user2Life;
@@ -296,9 +296,9 @@
 - (void) changeLife:(id) sender {
     int point = (int)[sender tag];
     if (![sender superview].tag) {
-        _userData.user1.life += point;
+        _me.life += point;
     } else {
-        _userData.user2.life += point;
+        _rival.life += point;
     }
     
     [self checkLife];
@@ -308,11 +308,11 @@
  *
  *  @param sender 押されたボタンの情報
  */
-- (void) changePoison:(id) sender {
+- (void) addPoison:(id) sender {
     if (![sender superview].tag) {
-        _userData.user1.poison++;
+        _me.poison++;
     } else {
-        _userData.user2.poison++;
+        _rival.poison++;
     }
     [self checkLife];
     
@@ -322,7 +322,7 @@
  *
  *  @param sender 押されたボタンの情報
  */
-- (void) changeColor:(id) sender {
+- (void) selectPallet:(id) sender {
     if (![sender superview].tag) {
 
         [_myView setAlphaFilter:YES];
@@ -341,28 +341,28 @@
  *
  *  @param sender 押されたボタンの情報
  */
-- (void) selectPalletColor:(id) sender {
+- (void) selectColor:(id) sender {
 
-    int selectColor = (int) [sender tag];
+    int color = (int) [sender tag];
     
     if (![sender superview].tag) {
-        [_myView selectColor:selectColor];
+        [_myView changeColor:color];
         [_myView selectColor];
 
-        if (_userData.user1.userID != -1) {
-            _userData.user1.color = selectColor;
-            [_api updateUserColor:_userData.user1.userID
-                            color:selectColor];
+        if (_me.userID != -1) {
+            _me.color = color;
+            [_api updateUserColor:_me.userID
+                            color:color];
         }
             
     } else {
-        [_rivalView selectColor:selectColor];
+        [_rivalView changeColor:color];
         [_rivalView selectColor];
 
-        if (_userData.user2.userID != -1) {
-            _userData.user2.color = selectColor;
-            [_api updateUserColor:_userData.user2.userID
-                            color:selectColor];
+        if (_rival.userID != -1) {
+            _rival.color = color;
+            [_api updateUserColor:_rival.userID
+                            color:color];
         }        
     }
 

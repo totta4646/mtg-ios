@@ -17,6 +17,9 @@
 @property MTBattleView                       *myView;
 @property MTBattleView                       *rivalView;
 
+@property MTUser                             *me;
+@property MTUser                             *rival;
+
 @property UIButton                           *diceButton;
 @property UIButton                           *returnButton;
 @property UIButton                           *resetButton;

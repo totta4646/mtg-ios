@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @interface MTColorView : UIView
 
-@property UIButton *view;
+@property UIButton *colorView;
 @property float movePositionX;
 @property float movePositionY;
 

@@ -50,48 +50,47 @@
 #pragma mark setAction
 
 - (void) setColorPallets {
-    [_colorPallet addTarget:self action:@selector(changePallet:)forControlEvents:UIControlEventTouchUpInside];
+    [_colorPallet addTarget:self action:@selector(palletAction:)forControlEvents:UIControlEventTouchUpInside];
     
 }
 
 - (void) setLifeButtons {
-    [_up addTarget:self action:@selector(changeLife:)forControlEvents:UIControlEventTouchUpInside];
-    [_up5 addTarget:self action:@selector(changeLife:)forControlEvents:UIControlEventTouchUpInside];
-    [_down addTarget:self action:@selector(changeLife:)forControlEvents:UIControlEventTouchUpInside];
-    [_down5 addTarget:self action:@selector(changeLife:)forControlEvents:UIControlEventTouchUpInside];
+    [_up addTarget:self action:@selector(lifeAction:)forControlEvents:UIControlEventTouchUpInside];
+    [_up5 addTarget:self action:@selector(lifeAction:)forControlEvents:UIControlEventTouchUpInside];
+    [_down addTarget:self action:@selector(lifeAction:)forControlEvents:UIControlEventTouchUpInside];
+    [_down5 addTarget:self action:@selector(lifeAction:)forControlEvents:UIControlEventTouchUpInside];
     
 }
 
 - (void) setPoisonButtons {
-    [_poisonButton addTarget:self action:@selector(changePoison:)forControlEvents:UIControlEventTouchUpInside];
+    [_poisonButton addTarget:self action:@selector(poisonAction:)forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void) setPalletViews {
     
-    [_color addTarget:self action:@selector(changeColor:)forControlEvents:UIControlEventTouchUpInside];
-    [_color1 addTarget:self action:@selector(changeColor:)forControlEvents:UIControlEventTouchUpInside];
-    [_color2 addTarget:self action:@selector(changeColor:)forControlEvents:UIControlEventTouchUpInside];
-    [_color3 addTarget:self action:@selector(changeColor:)forControlEvents:UIControlEventTouchUpInside];
-    [_color4 addTarget:self action:@selector(changeColor:)forControlEvents:UIControlEventTouchUpInside];
+    [_color addTarget:self action:@selector(colorAction:)forControlEvents:UIControlEventTouchUpInside];
+    [_color1 addTarget:self action:@selector(colorAction:)forControlEvents:UIControlEventTouchUpInside];
+    [_color2 addTarget:self action:@selector(colorAction:)forControlEvents:UIControlEventTouchUpInside];
+    [_color3 addTarget:self action:@selector(colorAction:)forControlEvents:UIControlEventTouchUpInside];
+    [_color4 addTarget:self action:@selector(colorAction:)forControlEvents:UIControlEventTouchUpInside];
 
+    _colorPallet.adjustsImageWhenDisabled = NO;
     
     _palletViews = [[MTPalletColorView alloc] init];
-    _palletViews.color.view = _color;
-    _palletViews.color1.view = _color1;
-    _palletViews.color2.view = _color2;
-    _palletViews.color3.view = _color3;
-    _palletViews.color4.view = _color4;
+    _palletViews.color.colorView = _color;
+    _palletViews.color1.colorView = _color1;
+    _palletViews.color2.colorView = _color2;
+    _palletViews.color3.colorView = _color3;
+    _palletViews.color4.colorView = _color4;
     
     _palletViews.pallet.currentPosition = _colorPallet.frame;
-    _palletViews.pallet.view = _colorPallet;
+    _palletViews.pallet.palletView = _colorPallet;
+    
     
 }
 
-#pragma mark provate action
-/**
- *  パレットのアニメーション管理メソッド
- *
- */
+#pragma mark private action
+
 - (void) selectpallet {
     [[MTAnimation sharedInstance] startPalletButtonAnimation:_palletViews];
 }
@@ -104,32 +103,32 @@
 
 #pragma mark delegate
 
-- (void) changePallet:(UIButton *) sender {
-    [self.delegate changeColor:sender];
+- (void) palletAction:(UIButton *) sender {
+    [self.delegate selectPallet:sender];
 }
 
-- (void) changeLife:(UIButton *) sender {
+- (void) lifeAction:(UIButton *) sender {
     [self.delegate changeLife:sender];
     
 }
 
-- (void) changePoison:(UIButton *) sender {
-    [self.delegate changePoison:sender];
+- (void) poisonAction:(UIButton *) sender {
+    [self.delegate addPoison:sender];
 }
 
--(void) changeColor:(UIButton *) sender {
-    [self.delegate selectPalletColor:sender];
+-(void) colorAction:(UIButton *) sender {
+    [self.delegate selectColor:sender];
     
 }
 
 
-#pragma mark method
+#pragma mark public method
 /*
  *  背景の色を変える
  *
  *  @param param 色
  */
-- (void) selectColor:(int) param {
+- (void) changeColor:(int) param {
     UIColor *color = nil;
     if (param == 0) {
         color = COLOR;

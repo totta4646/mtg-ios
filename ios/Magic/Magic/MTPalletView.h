@@ -10,7 +10,7 @@
 
 @interface MTPalletView : UIView
 
-@property UIButton *view;
+@property UIButton *palletView;
 @property CGRect   currentPosition;
 
 @end

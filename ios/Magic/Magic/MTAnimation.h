@@ -15,7 +15,6 @@
                positionX: (float) x
                positionY: (float) y;
 
-- (void) moveCenter:(UIButton *) pallet;
 - (void) startPalletButtonAnimation:(MTPalletColorView *) color;
 - (void) backPalletButtons:(MTPalletColorView *) color;
 

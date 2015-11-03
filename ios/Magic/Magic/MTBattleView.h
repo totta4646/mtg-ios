@@ -15,10 +15,10 @@
 
 @optional
 
-- (void) changeColor:(id) sender;
-- (void) selectPalletColor:(id) sender;
+- (void) selectPallet:(id) sender;
+- (void) selectColor:(id) sender;
 - (void) changeLife:(id) sender;
-- (void) changePoison:(id) sender;
+- (void) addPoison:(id) sender;
 
 
 @end
@@ -52,7 +52,7 @@
 
 
 + (instancetype) view;
-- (void) selectColor:(int) param;
+- (void) changeColor:(int) param;
 - (void) setAlphaFilter:(BOOL) selected;
 - (void) selectColor;
 
