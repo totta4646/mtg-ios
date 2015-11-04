@@ -34,14 +34,6 @@
             });
         }
     });
-    
-    _dice = [[MTDiceView alloc] init];
-    _dice.frame = CGRectMake(0, 100, 100, 100);
-    [self.view addSubview:_dice];
-    
-    [_dice setTwo];
-
-
 }
 
 - (void)didReceiveMemoryWarning {

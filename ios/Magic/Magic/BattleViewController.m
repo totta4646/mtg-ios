@@ -272,7 +272,13 @@
 }
 
 - (void) diceAction:(id) sender {
-    
+    if (!_myView.dice) {
+        [_myView setDices];
+        [_rivalView setDices];
+    } else {
+        [_myView removeDices];
+        [_rivalView removeDices];
+    }
 }
 /**
  *  リセットボタン

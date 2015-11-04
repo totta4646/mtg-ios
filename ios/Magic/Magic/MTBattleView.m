@@ -42,12 +42,47 @@
     [self setColorPallets];
     [self setPoisonButtons];
     [self setPalletViews];
-
+    
+    
+    
     _disappearFilter = YES;
 }
 
 
 #pragma mark setAction
+
+- (void) setDices {
+    
+    [self setAlphaFilter:false];
+    
+    CGFloat size = 100;
+    _dice = [[MTDiceView alloc] init];
+    _dice.frame = CGRectMake((self.frame.size.width - size) / 2,
+                             (self.frame.size.height - size * 2) / 2 ,
+                             size,
+                             self.frame.size.height);
+    _dice.tag = 100;
+    
+    [self addSubview:_dice];
+    
+    [_dice.stop addTarget:self action:@selector(stopDice:)forControlEvents:UIControlEventTouchUpInside];
+    
+    [_dice setTimer];
+    
+}
+
+- (void) removeDices {
+
+    if ([_dice.timer isValid]) {
+        [_dice.timer invalidate];
+    }
+
+    [self setAlphaFilter:false];
+    [[self viewWithTag:100] removeFromSuperview];
+    
+    _dice = nil;
+    
+}
 
 - (void) setColorPallets {
     [_colorPallet addTarget:self action:@selector(changePallet:)forControlEvents:UIControlEventTouchUpInside];
@@ -87,7 +122,7 @@
     
 }
 
-#pragma mark provate action
+#pragma mark private action
 /**
  *  パレットのアニメーション管理メソッド
  *
@@ -116,9 +151,14 @@
     [self.delegate changePoison:sender];
 }
 
--(void) changeColor:(UIButton *) sender {
+- (void) changeColor:(UIButton *) sender {
     [self.delegate selectPalletColor:sender];
     
+}
+
+- (void) stopDice:(UIButton *) sender {
+    [_dice.timer invalidate];
+    _dice.shaking = false;
 }
 
 

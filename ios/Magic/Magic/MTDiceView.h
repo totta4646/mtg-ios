@@ -11,8 +11,13 @@
 @interface MTDiceView : UIView
 
 @property (nonatomic) UIButton                      *dice;
+@property (nonatomic) UIButton                      *stop;
 
-- (void) setOne;
-- (void) setTwo;
+@property (nonatomic) NSTimer                       *timer;
+
+@property (nonatomic) BOOL                          *shaking;
+
+- (void) removeViews;
+- (void) setTimer;
 
 @end

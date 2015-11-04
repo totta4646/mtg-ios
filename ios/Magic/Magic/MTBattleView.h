@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MTPalletColorView.h"
+#import "MTDiceView.h"
 
 @class BattleViewDelegate;
 
@@ -49,13 +50,15 @@
 @property (nonatomic) BOOL                          selectedView;
 
 @property (nonatomic) MTPalletColorView             *palletViews;
+@property (nonatomic) MTDiceView                    *dice;
 
 
 + (instancetype) view;
 - (void) selectColor:(int) param;
 - (void) setAlphaFilter:(BOOL) selected;
 - (void) selectColor;
-
+- (void) setDices;
+- (void) removeDices;
 @property (nonatomic, weak) id<BattleViewDelegate> delegate;
 
 @end
