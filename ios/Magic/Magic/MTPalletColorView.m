@@ -41,17 +41,17 @@
     _color.movePositionX = 0;
     _color.movePositionY = -90;
     
-    _color1.movePositionX = 60;
-    _color1.movePositionY = -30;
+    _color1.movePositionX = 85;
+    _color1.movePositionY = -27;
 
-    _color2.movePositionX = 45;
-    _color2.movePositionY = 45;
+    _color2.movePositionX = 52;
+    _color2.movePositionY = 72;
+    
+    _color3.movePositionX = -52;
+    _color3.movePositionY = 72;
 
-    _color3.movePositionX = -45;
-    _color3.movePositionY = 45;
-
-    _color4.movePositionX = -60;
-    _color4.movePositionY = -30;
+    _color4.movePositionX = -85;
+    _color4.movePositionY = -27;
 
 }
 

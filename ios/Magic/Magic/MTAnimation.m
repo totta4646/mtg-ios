@@ -34,7 +34,10 @@
     palletFrame.origin.x = (parent.size.width - palletFrame.size.width) / 2;
     palletFrame.origin.y = (parent.size.height - palletFrame.size.height) / 2;
     
-    [UIView animateWithDuration:0.5f
+    
+    [UIView animateWithDuration:0.6f
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          pallet.frame = palletFrame;
                      }
@@ -62,7 +65,9 @@
     originFrame.origin.x = (parent.size.width - originFrame.size.width) / 2;
     originFrame.origin.y = (parent.size.height - originFrame.size.height) / 2;
     
-    [UIView animateWithDuration:0.5f
+    [UIView animateWithDuration:0.3f
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          for (MTColorView *button in [color getViews]) {
                              button.colorView.frame = originFrame;
@@ -99,11 +104,15 @@
                                  color.frame.size.width,
                                  color.frame.size.height);
     
-    [UIView animateWithDuration:0.5f
+    
+    [UIView animateWithDuration:0.3f
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          color.frame = position;
                          color.layer.opacity = 1;
-                     }];
+                     }
+                     completion:^(BOOL finished) {}];
 }
 
 
