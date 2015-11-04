@@ -10,6 +10,7 @@
 #import "MTTableViewController.h"
 #import "BattleViewController.h"
 
+
 @interface MTTopViewController ()
 
 @end
@@ -33,8 +34,6 @@
             });
         }
     });
-
-
 }
 
 - (void)didReceiveMemoryWarning {

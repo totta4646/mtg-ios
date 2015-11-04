@@ -41,4 +41,11 @@
     return view;
 }
 
+- (UIView *) makeCircle:(UIView *) view {
+
+    float size = view.frame.size.width / 2;
+    view.layer.cornerRadius = size;
+    return view;
+}
+
 @end
