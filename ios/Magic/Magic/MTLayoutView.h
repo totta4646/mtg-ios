@@ -13,5 +13,6 @@
 - (UILabel *) makeBalloon:(UILabel *) view;
 - (UILabel *) deleteBalloon:(UILabel *) view;
 - (UIButton *) colorPallet:(UIButton *) view;
+- (UIView *) makeCircle:(UIView *) view;
 
 @end

@@ -60,6 +60,7 @@
 		3B24ED1E1BD7E49E0002DF09 /* pallet.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B24ED1D1BD7E49E0002DF09 /* pallet.png */; };
 		3B24ED201BD7E5DA0002DF09 /* dice.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B24ED1F1BD7E5DA0002DF09 /* dice.png */; };
 		3B24ED231BD7E8B60002DF09 /* MTAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B24ED221BD7E8B60002DF09 /* MTAnimation.m */; };
+		3BDCD5BB1BEA277200336497 /* MTDiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDCD5BA1BEA277200336497 /* MTDiceView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +152,8 @@
 		3B24ED1F1BD7E5DA0002DF09 /* dice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dice.png; sourceTree = "<group>"; };
 		3B24ED211BD7E8B60002DF09 /* MTAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAnimation.h; sourceTree = "<group>"; };
 		3B24ED221BD7E8B60002DF09 /* MTAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAnimation.m; sourceTree = "<group>"; };
+		3BDCD5B91BEA277200336497 /* MTDiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDiceView.h; sourceTree = "<group>"; };
+		3BDCD5BA1BEA277200336497 /* MTDiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDiceView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,6 +344,8 @@
 				3B137CBF1BD7D21F00E59F70 /* MTLayoutView.m */,
 				17443E581BD94C5400B77814 /* MTBattleView.h */,
 				17443E591BD94C5400B77814 /* MTBattleView.m */,
+				3BDCD5B91BEA277200336497 /* MTDiceView.h */,
+				3BDCD5BA1BEA277200336497 /* MTDiceView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -581,6 +586,7 @@
 				1748371D1B9C32F100EEC54D /* MTTableViewCell.m in Sources */,
 				17255BA31BA558410081C4EE /* SVIndefiniteAnimatedView.m in Sources */,
 				173455441BE15B15000DAB26 /* MTColorView.m in Sources */,
+				3BDCD5BB1BEA277200336497 /* MTDiceView.m in Sources */,
 				173455471BE15BDA000DAB26 /* MTPalletView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -704,6 +710,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/${PRODUCT_NAME}/MTPrefixHeader.pch";
@@ -712,6 +719,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = MagicManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -719,6 +727,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/${PRODUCT_NAME}/MTPrefixHeader.pch";
