@@ -53,7 +53,7 @@
 		17B482771BA5D83B00904A81 /* appicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B482661BA5D83B00904A81 /* appicon@2x.png */; };
 		17B482781BA5D83B00904A81 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 17B482671BA5D83B00904A81 /* iTunesArtwork */; };
 		17B482791BA5D83B00904A81 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 17B482681BA5D83B00904A81 /* iTunesArtwork@2x */; };
-		17B4827B1BA5DB8D00904A81 /* mtg_logo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 17B4827A1BA5DB8D00904A81 /* mtg_logo.jpeg */; };
+		17BCB8A81C3ADC02009450BD /* mtg_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 17BCB8A71C3ADC02009450BD /* mtg_logo.png */; };
 		3B137CBA1BD7D10300E59F70 /* MTCustomUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B137CB91BD7D10300E59F70 /* MTCustomUIButton.m */; };
 		3B137CC01BD7D21F00E59F70 /* MTLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B137CBF1BD7D21F00E59F70 /* MTLayoutView.m */; };
 		3B24ED1C1BD7E3CE0002DF09 /* reset.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B24ED1B1BD7E3CE0002DF09 /* reset.png */; };
@@ -142,7 +142,7 @@
 		17B482661BA5D83B00904A81 /* appicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appicon@2x.png"; sourceTree = "<group>"; };
 		17B482671BA5D83B00904A81 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		17B482681BA5D83B00904A81 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
-		17B4827A1BA5DB8D00904A81 /* mtg_logo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mtg_logo.jpeg; sourceTree = "<group>"; };
+		17BCB8A71C3ADC02009450BD /* mtg_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mtg_logo.png; sourceTree = "<group>"; };
 		3B137CB81BD7D10300E59F70 /* MTCustomUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCustomUIButton.h; sourceTree = "<group>"; };
 		3B137CB91BD7D10300E59F70 /* MTCustomUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCustomUIButton.m; sourceTree = "<group>"; };
 		3B137CBE1BD7D21F00E59F70 /* MTLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTLayoutView.h; sourceTree = "<group>"; };
@@ -388,7 +388,7 @@
 				171B04D81BDA8BB1005410FE /* return.png */,
 				170641791BD6ADDD00E749C0 /* skal.png */,
 				3B24ED1F1BD7E5DA0002DF09 /* dice.png */,
-				17B4827A1BA5DB8D00904A81 /* mtg_logo.jpeg */,
+				17BCB8A71C3ADC02009450BD /* mtg_logo.png */,
 				17B482571BA5D83B00904A81 /* ios */,
 			);
 			name = Images;
@@ -541,13 +541,13 @@
 				176BF7A61B9A912900F0FAC6 /* LaunchScreen.xib in Resources */,
 				3B24ED1E1BD7E49E0002DF09 /* pallet.png in Resources */,
 				17B4826D1BA5D83B00904A81 /* appicon-76.png in Resources */,
+				17BCB8A81C3ADC02009450BD /* mtg_logo.png in Resources */,
 				176BF7A31B9A912900F0FAC6 /* Images.xcassets in Resources */,
 				17B4826F1BA5D83B00904A81 /* appicon-Small-40.png in Resources */,
 				17B482731BA5D83B00904A81 /* appicon-Small.png in Resources */,
 				17B482781BA5D83B00904A81 /* iTunesArtwork in Resources */,
 				17B482751BA5D83B00904A81 /* appicon-Small@3x.png in Resources */,
 				3B24ED201BD7E5DA0002DF09 /* dice.png in Resources */,
-				17B4827B1BA5DB8D00904A81 /* mtg_logo.jpeg in Resources */,
 				17B4826B1BA5D83B00904A81 /* appicon-72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -661,7 +661,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "21f13a93-b3b1-4c5f-8803-c1125ef176ee";
+				PROVISIONING_PROFILE = "3984be9c-91db-48fb-b58e-61f4e87e4f3c";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "arm64 armv7";
 			};
@@ -684,7 +684,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: KOUHEI TOTANI";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: KOUHEI TOTANI (QW3F98S65Y)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -699,7 +699,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "21fe0c9a-737a-468f-84b4-075be503cc06";
+				PROVISIONING_PROFILE = "49b88f46-690e-49a2-9dce-78f50e9b941a";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "arm64 armv7";
@@ -745,10 +745,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -768,10 +765,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MagicTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "personal-Project.$(PRODUCT_NAME:rfc1034identifier)";
