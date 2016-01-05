@@ -62,6 +62,14 @@
 }
 
 /**
+ *  無敵モードを初期化
+ */
+
+-(void) setInvincible {
+    self.invincible = false;
+}
+
+/**
  *  ゲストモードのダミーの値
  */
 -(void) setGuest {

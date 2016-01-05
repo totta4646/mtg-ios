@@ -15,6 +15,7 @@
 @property (nonatomic) int      win;
 @property (nonatomic) int      poison;
 @property (nonatomic) int      color;
+@property (nonatomic) BOOL     invincible;
 
 @property (nonatomic) NSString *name;
 
@@ -23,6 +24,7 @@
 -(void) poisonIncriment;
 -(void) setLife;
 -(void) setPoison;
+-(void) setInvincible;
 -(void) setGuest;
 
 @end
