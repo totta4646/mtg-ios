@@ -20,6 +20,8 @@
 - (void) selectColor:(id) sender;
 - (void) changeLife:(id) sender;
 - (void) addPoison:(id) sender;
+- (void) invincible:(id) sender;
+- (void) Poison:(id) sender;
 
 
 @end
@@ -43,6 +45,8 @@
 @property (weak, nonatomic) IBOutlet UIButton       *color2;
 @property (weak, nonatomic) IBOutlet UIButton       *color3;
 @property (weak, nonatomic) IBOutlet UIButton       *color4;
+
+@property (weak, nonatomic) IBOutlet UIButton       *nonGameSetButton;
 
 @property (weak, nonatomic) IBOutlet UIView         *filter;
 

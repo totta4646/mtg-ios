@@ -36,6 +36,7 @@
 		176BF7B21B9A912900F0FAC6 /* MagicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7B11B9A912900F0FAC6 /* MagicTests.m */; };
 		176BF7D91B9A9A8200F0FAC6 /* MTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7D81B9A9A8200F0FAC6 /* MTUser.m */; };
 		176BF7DE1B9A9B9400F0FAC6 /* MTUserDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 176BF7DD1B9A9B9400F0FAC6 /* MTUserDataSource.m */; };
+		178CE2BC1C3C2CED009DD7AE /* platinum-angel.png in Resources */ = {isa = PBXBuildFile; fileRef = 178CE2BB1C3C2CED009DD7AE /* platinum-angel.png */; };
 		17B482691BA5D83B00904A81 /* appicon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B482581BA5D83B00904A81 /* appicon-60@2x.png */; };
 		17B4826A1BA5D83B00904A81 /* appicon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B482591BA5D83B00904A81 /* appicon-60@3x.png */; };
 		17B4826B1BA5D83B00904A81 /* appicon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B4825A1BA5D83B00904A81 /* appicon-72.png */; };
@@ -125,6 +126,7 @@
 		176BF7D81B9A9A8200F0FAC6 /* MTUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTUser.m; sourceTree = "<group>"; };
 		176BF7DC1B9A9B9400F0FAC6 /* MTUserDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTUserDataSource.h; sourceTree = "<group>"; };
 		176BF7DD1B9A9B9400F0FAC6 /* MTUserDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTUserDataSource.m; sourceTree = "<group>"; };
+		178CE2BB1C3C2CED009DD7AE /* platinum-angel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "platinum-angel.png"; sourceTree = "<group>"; };
 		17B482581BA5D83B00904A81 /* appicon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appicon-60@2x.png"; sourceTree = "<group>"; };
 		17B482591BA5D83B00904A81 /* appicon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appicon-60@3x.png"; sourceTree = "<group>"; };
 		17B4825A1BA5D83B00904A81 /* appicon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appicon-72.png"; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 		176BF7C31B9A91D200F0FAC6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				178CE2BB1C3C2CED009DD7AE /* platinum-angel.png */,
 				3B24ED1D1BD7E49E0002DF09 /* pallet.png */,
 				3B24ED1B1BD7E3CE0002DF09 /* reset.png */,
 				171B04D81BDA8BB1005410FE /* return.png */,
@@ -521,6 +524,7 @@
 				17255BA41BA558410081C4EE /* SVProgressHUD.bundle in Resources */,
 				171B04D91BDA8BB1005410FE /* return.png in Resources */,
 				3B24ED1C1BD7E3CE0002DF09 /* reset.png in Resources */,
+				178CE2BC1C3C2CED009DD7AE /* platinum-angel.png in Resources */,
 				174837231B9C3B5A00EEC54D /* BattleViewController.xib in Resources */,
 				174837181B9C322D00EEC54D /* MTTableViewController.xib in Resources */,
 				17B4826E1BA5D83B00904A81 /* appicon-76@2x.png in Resources */,

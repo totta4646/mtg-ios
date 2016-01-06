@@ -187,11 +187,12 @@
     [_rival setLife];
     [_me setPoison];
     [_rival setPoison];
+    [_me setInvincible];
+    [_rival setInvincible];
     
     [[MTLayoutView sharedInstance] deleteBalloon:_myView.poisonLabel];
     [[MTLayoutView sharedInstance] deleteBalloon:_rivalView.poisonLabel];
 
-    _userData.gameSet = false;
     
     [self rewriteLifes];
 }
@@ -200,13 +201,11 @@
  *  ライフが1以下になっていないかチェック
  */
 -(void) checkLife {
-    if ((_me.life <= 0  || _me.poison == 10 ) && !_userData.gameSet) {
-        _userData.gameSet = true;
+    if ([self isLose:_me]) {
         [self alert:_rival
                    :_userData.user1];
 
-    } else if((_rival.life <= 0 || _rival.poison == 10 ) && !_userData.gameSet) {
-        _userData.gameSet = true;
+    } else if([self isLose:_rival]) {
         [self alert:_me
                    :_rival];
 
@@ -215,6 +214,10 @@
         
     }
 
+}
+
+- (BOOL) isLose:(MTUser *) user {
+    return ((user.life <= 0  || user.poison == 10) && !user.invincible);
 }
 
 /**
@@ -325,6 +328,21 @@
     [self checkLife];
     
 }
+/**
+ *  毒カウンターの書き換え
+ *
+ *  @param sender 押されたボタンの情報
+ */
+- (void) invincible:(id)sender {
+    if (![sender superview].tag) {
+        _me.invincible = !_me.invincible;
+    } else {
+        _rival.invincible = !_rival.invincible;
+    }
+    [self checkLife];
+    
+}
+
 /**
  *  カラーパレットをタップ
  *
