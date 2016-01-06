@@ -329,15 +329,17 @@
     
 }
 /**
- *  毒カウンターの書き換え
+ *  無敵モードに変更
  *
  *  @param sender 押されたボタンの情報
  */
 - (void) invincible:(id)sender {
     if (![sender superview].tag) {
         _me.invincible = !_me.invincible;
+        _myView.nonGameSetButton.selected = _me.invincible;
     } else {
         _rival.invincible = !_rival.invincible;
+        _rivalView.nonGameSetButton.selected = _rival.invincible;
     }
     [self checkLife];
     

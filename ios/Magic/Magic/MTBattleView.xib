@@ -75,7 +75,8 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ebC-rL-Ct2" userLabel="non Game Set">
                     <rect key="frame" x="20" y="220" width="70" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="platinum-angel.png"/>
+                    <state key="normal" image="platinum-angel_A.png"/>
+                    <state key="selected" image="platinum-angel.png"/>
                 </button>
                 <view alpha="0.0" contentMode="scaleToFill" id="z85-i0-5mI" userLabel="filter">
                     <rect key="frame" x="0.0" y="-1" width="375" height="311"/>
@@ -156,6 +157,7 @@
     <resources>
         <image name="pallet.png" width="626" height="626"/>
         <image name="platinum-angel.png" width="200" height="160"/>
+        <image name="platinum-angel_A.png" width="200" height="160"/>
         <image name="skal.png" width="305" height="305"/>
     </resources>
 </document>
