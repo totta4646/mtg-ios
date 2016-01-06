@@ -150,7 +150,7 @@
     NSString *userName = winner.name;
     winner.win++;
     BOOL gameSet = false;
-    if (winner.win == 2 || winner.userID == -10) {
+    if (winner.win == _mach || winner.userID == -10) {
         gameSet = true;
     }
 
