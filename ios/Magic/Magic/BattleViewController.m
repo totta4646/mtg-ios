@@ -16,12 +16,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    _me = _userData.user1;
+    _rival = _userData.user2;
+
     [self setBattleViews];
     [self setOptionView];
     [self setLayout];
-
-    _me = _userData.user1;
-    _rival = _userData.user2;
     
     _api = [[MTApiManager alloc] init];
     
