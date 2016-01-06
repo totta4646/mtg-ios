@@ -157,8 +157,11 @@
     NSString *message = [NSString stringWithFormat:@"%@:%d勝 %@:%d勝",winner.name,winner.win,loser.name,loser.win];
     if (gameSet) {
         message = @"おめでとー";
-        [self sendResultData:winner :loser];
+        if (winner.userID != -10) {
+            [self sendResultData:winner :loser];
+        }
     }
+
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                              message:message
