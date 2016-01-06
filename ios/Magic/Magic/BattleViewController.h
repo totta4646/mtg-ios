@@ -24,6 +24,7 @@
 @property UIButton                           *returnButton;
 @property UIButton                           *resetButton;
 
+@property int                                mach;
 
 @property (nonatomic) UIView                 *filter;
 

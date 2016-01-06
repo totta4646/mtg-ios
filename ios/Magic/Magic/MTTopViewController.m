@@ -36,6 +36,11 @@
     });
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillAppear:animated];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -44,7 +49,7 @@
 #pragma mark private method
 
 -(void) modalTableView:(NSString *)navTitle
-                      :(BOOL)resultMode {
+                      :(int)mode {
     MTTableViewController *vc = [[MTTableViewController alloc] init];
     _userData = [[MTUserDataSource alloc] init];
     [SVProgressHUD showWithStatus:@"now loading"];
@@ -57,7 +62,7 @@
                 
                 [vc setUserData:_userData];
                 [vc setDataSource:_userData.userList];
-                [vc setResult:resultMode];
+                [vc setMode:mode];
                 
                 vc.navigationItem.title = navTitle;
 
@@ -77,12 +82,57 @@
     
 }
 
+#pragma mark alert
+
+-(void) showAlert {
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"対戦形式"
+                                                                             message:nil
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"1マッチ"
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:^(UIAlertAction *action) {
+                                                          [self therePointmach];
+                                                      }]];
+
+    [alertController addAction:[UIAlertAction actionWithTitle:@"1本"
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:^(UIAlertAction *action) {
+                                                          [self onePointmach];
+                                                      }]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+}
+
+#pragma mark action
+
+- (void)therePointmach {
+    [self modalTableView:@"対戦相手を選んでください。"
+                        :BattleModeMatch];
+}
+- (void)onePointmach {
+    [self modalTableView:@"対戦相手を選んでください。"
+                        :BattleModeSingle];
+}
+
+
+# pragma mark setter
+-(MTUserDataSource *) userData {
+    if (!_userData) {
+        _userData = [[MTUserDataSource alloc] init];
+    }
+    
+    return _userData;
+}
+
 
 #pragma mark action
 
 - (IBAction)selectUser:(id)sender {
-    [self modalTableView:@"対戦相手を選んでください。"
-                        :false];
+    [self showAlert];
 }
 
 
@@ -98,6 +148,6 @@
 
 - (IBAction)resultSelectUser:(id)sender {
     [self modalTableView:@"ユーザーを選んでください。"
-                        :true];
+                        :TableModeResult];
 }
 @end

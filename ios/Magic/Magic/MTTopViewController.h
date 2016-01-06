@@ -13,7 +13,14 @@
 @property (nonatomic) MTApiManager     *api;
 @property (nonatomic) MTUserDataSource *userData;
 
+typedef NS_ENUM(int, TableViewMode) {
+    TableModeResult = -1,
+    BattleModeSingle = 1,
+    BattleModeMatch = 2
+};
+
 - (IBAction)selectUser:(id)sender;
 - (IBAction)guestBattle:(id)sender;
 - (IBAction)resultSelectUser:(id)sender;
+
 @end

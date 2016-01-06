@@ -41,6 +41,7 @@
     [self setLifeButtons];
     [self setColorPallets];
     [self setPoisonButtons];
+    [self setNonGameSetButtons];
     [self setPalletViews];
     
     
@@ -89,6 +90,7 @@
     
 }
 
+
 - (void) setLifeButtons {
     [_up addTarget:self action:@selector(lifeAction:)forControlEvents:UIControlEventTouchUpInside];
     [_up5 addTarget:self action:@selector(lifeAction:)forControlEvents:UIControlEventTouchUpInside];
@@ -99,6 +101,10 @@
 
 - (void) setPoisonButtons {
     [_poisonButton addTarget:self action:@selector(poisonAction:)forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void) setNonGameSetButtons {
+    [_nonGameSetButton addTarget:self action:@selector(invincibleAction:)forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void) setPalletViews {
@@ -152,6 +158,10 @@
 
 - (void) poisonAction:(UIButton *) sender {
     [self.delegate addPoison:sender];
+}
+
+- (void) invincibleAction:(UIButton *) sender {
+    [self.delegate invincible:sender];
 }
 
 -(void) colorAction:(UIButton *) sender {

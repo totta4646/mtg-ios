@@ -57,7 +57,7 @@
     if ([_userData setUser:_dataSource
                           :corrent]) {
 
-        if (_result) {
+        if (_mode == -1) {
             
             _api = [[MTApiManager alloc] init];
             [SVProgressHUD showWithStatus:@"now loading"];
@@ -121,7 +121,7 @@
                                                                       preferredStyle:UIAlertControllerStyleAlert];
     
     
-    if (!_result) {
+    if (_mode != -1) {
         [alertController addAction:[UIAlertAction actionWithTitle:@"はい"
                                                             style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction *action) {
@@ -143,6 +143,7 @@
 
 - (void)otherButtonPushed {
     BattleViewController *vc = [[BattleViewController alloc] init];
+    [vc setMach:_mode];
     [vc setUserData:_userData];
     
     [self.navigationController pushViewController:vc animated:YES];
