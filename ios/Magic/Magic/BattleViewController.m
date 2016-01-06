@@ -38,11 +38,6 @@
     [super viewWillAppear:animated];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-    [super viewWillDisappear:animated];
-}
-
 
 #pragma mark private method
 
@@ -134,7 +129,11 @@
 #pragma mark private action
 
 -(void) backToTop {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+//    NSInteger hoge = [self.navigationController.viewControllers count];
+    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:0]
+                                          animated:YES];
+//    [self.navigationController popToRootViewControllerAnimated:YES];
 
 }
 
