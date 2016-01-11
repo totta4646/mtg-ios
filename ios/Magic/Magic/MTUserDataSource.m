@@ -39,7 +39,7 @@
     int userColor = (int)[[[data objectAtIndex:number] objectForKey:@"color"] integerValue];
     NSString *userName = [[data objectAtIndex:number] objectForKey:@"name"];
     
-    if (_user1.userID == number) {
+    if (_user1.userID == userID) {
         return false;
     }
     
