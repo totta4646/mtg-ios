@@ -18,6 +18,8 @@
 -(NSDictionary *) rePostDatas;
 -(NSDictionary *) getResultData:(int) userID
                                :(int)rivalID;
+-(NSDictionary *) postDeviceToken:(NSString *) token;
+
 -(void) updateUserColor:(int) userId
                   color:(int) selectColorId;
 

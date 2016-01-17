@@ -77,6 +77,25 @@
     return [self post:request];
     
 }
+
+/**
+ *  push用のデバイストークンを送信するAPI
+ *
+ *  @param token device token
+ *
+ *  @return status
+ */
+
+-(NSDictionary *) postDeviceToken:(NSString *)token {
+    NSString *param = [NSString stringWithFormat:@"device_token=%@",token];
+    NSString *url = [NSString stringWithFormat:@"%@token?%@",MY_HOST, param];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    request.HTTPMethod = @"POST";
+    
+    return [self post:request];
+    
+}
+
 /**
  *  電波などの影響で送信できていなかった情報の再び送信
  *
