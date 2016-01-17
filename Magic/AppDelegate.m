@@ -17,6 +17,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    
+    UIUserNotificationType types = UIUserNotificationTypeBadge |
+                                   UIUserNotificationTypeSound |
+                                   UIUserNotificationTypeAlert;
+    
+    UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
+    
+    //リモートPush通知を受信するためのdeviceTokenを要求
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+    
+    
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -32,6 +44,33 @@
     [self.window addSubview:_navigation.view];
     
     return YES;
+}
+
+/**
+ *  Push Setting
+ *
+ *  @return void
+ */
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSString *token = deviceToken.description;
+    
+    token = [token stringByReplacingOccurrencesOfString:@"<" withString:@""];
+    token = [token stringByReplacingOccurrencesOfString:@">" withString:@""];
+    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    MTApiManager *api = [[MTApiManager alloc] init];
+
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
+//        @autoreleasepool{
+            [api postDeviceToken:token];
+//            dispatch_sync(dispatch_get_main_queue(), ^{
+//            });
+//        }
+//    });
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"deviceToken error: %@", [error description]);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
