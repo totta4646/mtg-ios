@@ -379,7 +379,7 @@
         [_myView changeColor:color];
         [_myView selectColor];
 
-        if (_me.userID != -1) {
+        if (_me.userID != -10) {
             _me.color = color;
             [_api updateUserColor:_me.userID
                             color:color];
@@ -389,7 +389,7 @@
         [_rivalView changeColor:color];
         [_rivalView selectColor];
 
-        if (_rival.userID != -1) {
+        if (_rival.userID != -10) {
             _rival.color = color;
             [_api updateUserColor:_rival.userID
                             color:color];
