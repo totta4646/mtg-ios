@@ -60,13 +60,13 @@
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     MTApiManager *api = [[MTApiManager alloc] init];
 
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
-//        @autoreleasepool{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
+        @autoreleasepool{
             [api postDeviceToken:token];
-//            dispatch_sync(dispatch_get_main_queue(), ^{
-//            });
-//        }
-//    });
+            dispatch_sync(dispatch_get_main_queue(), ^{
+            });
+        }
+    });
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
