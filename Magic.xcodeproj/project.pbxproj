@@ -843,7 +843,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Magic",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/${PRODUCT_NAME}/MTPrefixHeader.pch";
@@ -866,7 +865,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Magic",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/${PRODUCT_NAME}/MTPrefixHeader.pch";
