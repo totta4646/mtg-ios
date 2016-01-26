@@ -54,59 +54,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     int corrent = (int)indexPath.row;
 
+    if (_mode == -1) {
+        MTResultViewController *vc = [[MTResultViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
+
     if ([_userData setUser:_dataSource
                           :corrent]) {
-
-        if (_mode == -1) {
-            
-            _api = [[MTApiManager alloc] init];
-            [SVProgressHUD showWithStatus:@"now loading"];
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
-                @autoreleasepool{
-                    NSDictionary *res = [[_api getResultData:_userData.user1.userID
-                                                       :_userData.user2.userID] objectForKey:@"data"];
-                    
-                    dispatch_sync(dispatch_get_main_queue(), ^{
-
-                        if([res count] != 0) {
-                            
-                            [SVProgressHUD dismiss];
-                            
-                            NSString *message = [NSString stringWithFormat:@"%@の勝ち : %@\n%@の勝ち : %@",
-                                                  [self castNilData:[res objectForKey:@"my_name"]],
-                                                  [self castNilData:[res objectForKey:@"win_sum"]],
-                                                  [self castNilData:[res objectForKey:@"rival_name"]],
-                                                  [self castNilData:[res objectForKey:@"lose_sum"]]];
-                            [self showAlert:message
-                                           :@"OK"];
-                        } else {
-                            [SVProgressHUD showWithStatus:@"failed"];
-                            [SVProgressHUD dismissWithDelay:.5f];
-
-                        }
-                    });
-                }
-            });
-            
-            
-            
-            
-            
-
-
-        } else {
-            [self showAlert:@"対戦を始めますか？"
-                           :@"いいえ"];
-            
-        }
+        
+        [self showAlert:@"対戦を始めますか？"
+                       :@"いいえ"];
     }
-}
-
--(NSString *) castNilData:(NSString *) value {
-    if(value == nil || [value isEqual:[NSNull null]] ) {
-        return @"0";
-    }
-    return value;
 }
 
 #pragma mark alert
@@ -119,15 +78,6 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                              message:message
                                                                       preferredStyle:UIAlertControllerStyleAlert];
-    
-    
-    if (_mode != -1) {
-        [alertController addAction:[UIAlertAction actionWithTitle:@"はい"
-                                                            style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction *action) {
-                                                              [self otherButtonPushed];
-                                                          }]];
-    }
     
     [alertController addAction:[UIAlertAction actionWithTitle:btnTitle
                                                         style:UIAlertActionStyleDefault

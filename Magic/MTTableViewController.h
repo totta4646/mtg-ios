@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MTResultViewController.h"
 
 @interface MTTableViewController : UITableViewController
 
