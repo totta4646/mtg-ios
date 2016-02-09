@@ -56,6 +56,7 @@
 
     if (_mode == -1) {
         _api = [[MTApiManager alloc] init];
+        [SVProgressHUD showWithStatus:@"now loading"];
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
             @autoreleasepool{
