@@ -16,8 +16,7 @@
 -(NSDictionary *) postResultData:(int)winUserId
                                 :(int)loseUserId;
 -(NSDictionary *) rePostDatas;
--(NSDictionary *) getResultData:(int) userID
-                               :(int)rivalID;
+-(NSDictionary *) getResultData:(int) userID;
 -(NSDictionary *) postDeviceToken:(NSString *) token;
 
 -(void) updateUserColor:(int) userId

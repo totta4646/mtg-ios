@@ -14,12 +14,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lastUpdateLabel;
 @property (weak, nonatomic) IBOutlet MBCircularProgressBarView *resultGraph;
-@property (weak, nonatomic) IBOutlet UILabel *winPercentLabel;
 
 @property                            UIColor *color;
 
 + (instancetype) view;
-
+- (UIColor *) setUserColor:(int) color;
 - (void) setResult:(NSString *) name
                   :(int) win
                   :(int) lose

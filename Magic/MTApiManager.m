@@ -18,10 +18,9 @@
  *  @return ユーザー一覧
  */
 -(NSDictionary *) getAllUser {
-    NSString *url = [NSString stringWithFormat:@"%@%@",MY_HOST ,@"get_user.php" ];
+    NSString *url = [NSString stringWithFormat:@"%@%@",MY_HOST ,UESRS];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     return [self post:request];
-    
 }
 
 /**
@@ -33,11 +32,11 @@
  */
 -(void) updateUserColor:(int) userId
                   color:(int) selectColorId {
-    
-    NSString *param = [NSString stringWithFormat:@"user=%d&color=%d",userId, selectColorId];
-    NSString *url = [NSString stringWithFormat:@"%@update_user.php?%@",MY_HOST ,param];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
 
+    NSString *param = [NSString stringWithFormat:@"?color=%d", selectColorId];
+    NSString *url = [NSString stringWithFormat:@"%@%@%d%@",MY_HOST,UESR ,userId,param];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    request.HTTPMethod = @"PUT";
     [self post:request];
 }
 
@@ -51,11 +50,10 @@
  */
 -(NSDictionary *) postResultData:(int)winUserId
                                 :(int)loseUserId {
-    
     NSString *param = [NSString stringWithFormat:@"winner=%d&loser=%d",winUserId, loseUserId];
-    NSString *url = [NSString stringWithFormat:@"%@post.php?%@",MY_HOST ,param];
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSString *url = [NSString stringWithFormat:@"%@%@create%@",MY_HOST ,RESULT,param ];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    request.HTTPMethod = @"POST";
     return [self post:request];
     
 }
@@ -63,15 +61,11 @@
  *  対戦結果を取得
  *
  *  @param userID  ユーザーのID
- *  @param rivalID ユーザーのID
  *
  *  @return 対戦結果
  */
--(NSDictionary *) getResultData:(int)userID
-                               :(int)rivalID {
-    NSString *param = [NSString stringWithFormat:@"user=%d&rival=%d",userID, rivalID];
-    NSString *url = [NSString stringWithFormat:@"%@get_result.php?%@",MY_HOST ,param];
-    
+-(NSDictionary *) getResultData:(int)userID {
+    NSString *url = [NSString stringWithFormat:@"%@%@%d",MY_HOST ,RESULT, userID];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
 
     return [self post:request];
@@ -87,8 +81,8 @@
  */
 
 -(NSDictionary *) postDeviceToken:(NSString *)token {
-    NSString *param = [NSString stringWithFormat:@"device_token=%@",token];
-    NSString *url = [NSString stringWithFormat:@"%@token?%@",MY_HOST, param];
+    NSString *param = [NSString stringWithFormat:@"?device_token=%@",token];
+    NSString *url = [NSString stringWithFormat:@"%@token%@",MY_HOST, param];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     request.HTTPMethod = @"POST";
     

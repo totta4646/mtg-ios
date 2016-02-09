@@ -55,16 +55,36 @@
     int corrent = (int)indexPath.row;
 
     if (_mode == -1) {
-        MTResultViewController *vc = [[MTResultViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+        _api = [[MTApiManager alloc] init];
         
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
+            @autoreleasepool{
+                MTResultViewController *vc = [[MTResultViewController alloc] init];
+                NSDictionary *res = [_api getResultData:[[[_dataSource objectAtIndex:corrent] objectForKey:@"id"] intValue]];
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                
+                    if (res) {
+                        vc.res = [res objectForKey:@"data"];
+                        [SVProgressHUD showWithStatus:@"success"];
+                        [SVProgressHUD dismissWithDelay:.5f];
+                        [self.navigationController pushViewController:vc animated:YES];
+                    } else {
+                        [SVProgressHUD showWithStatus:@"failed"];
+                        [SVProgressHUD dismissWithDelay:.5f];
+                        
+                    }
+                    
+                });
+            }
+        });
     }
-
-    if ([_userData setUser:_dataSource
-                          :corrent]) {
-        
-        [self showAlert:@"対戦を始めますか？"
-                       :@"いいえ"];
+    else {    
+        if ([_userData setUser:_dataSource
+                              :corrent]) {
+            
+            [self showAlert:@"対戦を始めますか？"
+                           :@"いいえ"];
+        }
     }
 }
 
@@ -79,6 +99,13 @@
                                                                              message:message
                                                                       preferredStyle:UIAlertControllerStyleAlert];
     
+
+    [alertController addAction:[UIAlertAction actionWithTitle:@"はい"
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:^(UIAlertAction *action) {
+                                                          [self otherButtonPushed];
+                                                      }]];
+
     [alertController addAction:[UIAlertAction actionWithTitle:btnTitle
                                                         style:UIAlertActionStyleDefault
                                                       handler:^(UIAlertAction *action) {

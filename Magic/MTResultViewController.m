@@ -21,10 +21,14 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setRivals];
-    self.navigationItem.title = @"とったー";
+    
+    _user = [_res objectForKey:@"user"];
+    _users = [_res objectForKey:@"users"];
+    
+    [self setRivals:_users];
+    self.navigationItem.title = [_user objectForKey:@"name"];
 
-    int count = 4;
+    int count = (int)[_users count];
     float height = [MTResultView view].frame.size.height;
 
     CGSize scrollSize = self.view.frame.size;
@@ -32,59 +36,47 @@
     _scrollView.contentSize = scrollSize;
 }
 
-- (void) setRivals {
-    MTResultView *hoge = [MTResultView view];
-    CGRect frame = hoge.frame;
-    frame.origin = CGPointMake(0,0);
-    hoge.frame = frame;
-    [hoge setResult:@"osam38"
-                   :10
-                   :20
-                   :33
-                   :1
-                   :@"2015"];
-    
-    MTResultView *hoge2 = [MTResultView view];
-    hoge2.frame = [self optimallyPosition:hoge
-                                         :hoge2];
+- (void) setRivals:(NSDictionary *) users {
 
-    [hoge2 setResult:@"osam38"
-                   :10
-                   :20
-                   :33
-                   :4
-                   :@"2015"];
+    MTResultView *tempResultView = nil;
+    for (NSDictionary *user in users) {
+        NSDictionary *rivalUser = [user objectForKey:@"user"];
+        NSDictionary *rivalResults = [user objectForKey:@"results"];
 
-    MTResultView *hoge3 = [MTResultView view];
-    hoge3.frame = [self optimallyPosition:hoge2
-                                         :hoge3];
-    
-    [hoge3 setResult:@"osam38"
-                    :10
-                    :20
-                    :33
-                    :5
-                    :@"2015"];
+        MTResultView *resultView = [MTResultView view];
+        CGRect frame = resultView.frame;
+        frame.origin = CGPointMake(0,0);
+        if (tempResultView) {
+            resultView.frame = [self optimallyPosition:tempResultView
+                                                 :resultView];
+        } else {
+            resultView.frame = frame;
+        }
+        
+        [resultView setResult:[rivalUser objectForKey:@"name"]
+                             :[[rivalResults objectForKey:@"win"] floatValue]
+                             :[[rivalResults objectForKey:@"lose"] floatValue]
+                             :[[rivalResults objectForKey:@"win_average"] floatValue] * 100
+                             :[[rivalUser objectForKey:@"color"] intValue]
+                             :nil];
 
-    MTResultView *hoge4 = [MTResultView view];
-    hoge4.frame = [self optimallyPosition:hoge3
-                                         :hoge4];
-    
-    [hoge4 setResult:@"osam38"
-                    :10
-                    :20
-                    :33
-                    :2
-                    :@"2015"];
-
-    [_scrollView addSubview:hoge];
-    [_scrollView addSubview:hoge2];
-    [_scrollView addSubview:hoge3];
-    [_scrollView addSubview:hoge4];
-
+        tempResultView = resultView;
+        [_scrollView addSubview:resultView];
+    }
 }
+
 - (void) viewWillAppear:(BOOL)animated {
-    [_winGraph setValue:80.f animateWithDuration:0];
+    float winAverage = [[_user objectForKey:@"win_average"] floatValue] * 100;
+    UIColor *color = [self getColor:[[_user objectForKey:@"color"] intValue]];
+    _winGraph.fontColor = color;
+    _winGraph.progressStrokeColor = color;
+    _allWinLabel.textColor = color;
+    _allLoseLabel.textColor = color;
+    _allWins.textColor = color;
+    _allLoses.textColor = color;
+    _allWins.text = [NSString stringWithFormat:@"%d回",[[_user objectForKey:@"wins"] intValue]];
+    _allLoses.text = [NSString stringWithFormat:@"%d回",[[_user objectForKey:@"loses"] intValue]];
+    [_winGraph setValue:winAverage animateWithDuration:0];
     
 }
 
@@ -100,5 +92,28 @@
     [super didReceiveMemoryWarning];
 }
 
+- (UIColor *) getColor:(int) color {
+    switch (color) {
+        case 0:
+            return COLOR;
+            break;
+        case 1:
+            return COLOR1;
+            break;
+        case 2:
+            return COLOR2;
+            break;
+        case 3:
+            return COLOR3;
+            break;
+        case 4:
+            return COLOR4;
+            break;
+            
+        default:
+            return COLOR;
+            break;
+    }
+}
 
 @end

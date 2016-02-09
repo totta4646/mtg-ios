@@ -17,7 +17,7 @@
 #define ALog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 
 //#define MY_HOST @"http://dev.totta.click/"
-#define MY_HOST @"http://mtg:gizmo@mtg.totta.click/"
+#define MY_HOST @"http://mtg:gizmo@mtg.totta.click/api/v2/"
 
 #define TEMP_ARRAY @"tempArrayKey"
 #define DISABLE_PUSH_NOTIFICATIONS
@@ -28,8 +28,13 @@
 #define COLOR3 [UIColor hx_colorWithHexString:@"FFCC66"]
 #define COLOR4 [UIColor hx_colorWithHexString:@"666666"]
 
+// api
+#define UESR @"user/"
+#define UESRS @"users/"
+#define RESULT @"result/"
+#define TOKEN @"token/"
 
-
+// import
 #import "MTApiManager.h"
 #import "MTUserDataSource.h"
 #import "SVProgressHUD.h"
