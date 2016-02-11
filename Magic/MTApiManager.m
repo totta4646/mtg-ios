@@ -18,7 +18,7 @@
  *  @return ユーザー一覧
  */
 -(NSDictionary *) getAllUser {
-    NSString *url = [NSString stringWithFormat:@"%@%@",MY_HOST ,UESRS];
+    NSString *url = [NSString stringWithFormat:@"%@%@",URI ,UESRS];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     return [self post:request];
 }
@@ -34,7 +34,7 @@
                   color:(int) selectColorId {
 
     NSString *param = [NSString stringWithFormat:@"?color=%d", selectColorId];
-    NSString *url = [NSString stringWithFormat:@"%@%@%d%@",MY_HOST,UESR ,userId,param];
+    NSString *url = [NSString stringWithFormat:@"%@%@%d%@",URI,UESR ,userId,param];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     request.HTTPMethod = @"PUT";
     [self post:request];
@@ -50,8 +50,8 @@
  */
 -(NSDictionary *) postResultData:(int)winUserId
                                 :(int)loseUserId {
-    NSString *param = [NSString stringWithFormat:@"winner=%d&loser=%d",winUserId, loseUserId];
-    NSString *url = [NSString stringWithFormat:@"%@%@create%@",MY_HOST ,RESULT,param ];
+    NSString *param = [NSString stringWithFormat:@"?winner=%d&loser=%d",winUserId, loseUserId];
+    NSString *url = [NSString stringWithFormat:@"%@%@create%@",URI ,RESULT,param ];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     request.HTTPMethod = @"POST";
     return [self post:request];
@@ -65,7 +65,7 @@
  *  @return 対戦結果
  */
 -(NSDictionary *) getResultData:(int)userID {
-    NSString *url = [NSString stringWithFormat:@"%@%@%d",MY_HOST ,RESULT, userID];
+    NSString *url = [NSString stringWithFormat:@"%@%@%d",URI ,RESULT, userID];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
 
     return [self post:request];
@@ -82,7 +82,7 @@
 
 -(NSDictionary *) postDeviceToken:(NSString *)token {
     NSString *param = [NSString stringWithFormat:@"?device_token=%@",token];
-    NSString *url = [NSString stringWithFormat:@"%@token%@",MY_HOST, param];
+    NSString *url = [NSString stringWithFormat:@"%@token%@",URI, param];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     request.HTTPMethod = @"POST";
     
