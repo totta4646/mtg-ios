@@ -65,10 +65,21 @@
                 dispatch_sync(dispatch_get_main_queue(), ^{
                 
                     if (res) {
-                        vc.res = [res objectForKey:@"data"];
-                        [SVProgressHUD showWithStatus:@"success"];
-                        [SVProgressHUD dismissWithDelay:.5f];
-                        [self.navigationController pushViewController:vc animated:YES];
+                        NSDictionary *data = [res objectForKey:@"data"];
+                        if ([[data objectForKey:@"users"] count] == 0) {
+                            [SVProgressHUD dismiss];
+
+                            [self showAlert:@"対戦情報がありません"
+                                           :@"対戦してください"
+                                           :@"OK"
+                                           :NormalAlertType];
+                            
+                        } else {
+                            vc.res = data;
+                            [SVProgressHUD showWithStatus:@"success"];
+                            [SVProgressHUD dismissWithDelay:.5f];
+                            [self.navigationController pushViewController:vc animated:YES];
+                        }
                     } else {
                         [SVProgressHUD showWithStatus:@"failed"];
                         [SVProgressHUD dismissWithDelay:.5f];
@@ -83,30 +94,35 @@
         if ([_userData setUser:_dataSource
                               :corrent]) {
             
-            [self showAlert:@"対戦を始めますか？"
-                           :@"いいえ"];
+            NSString *title = [NSString stringWithFormat:@"%@ vs %@",_userData.user1.name ,_userData.user2.name];
+            [self showAlert:title
+                           :@"対戦を始めますか？"
+                           :@"いいえ"
+                           :UserSelectAlertType];
         }
     }
 }
 
 #pragma mark alert
 
--(void) showAlert:(NSString *) message
-                 :(NSString *) btnTitle {
+-(void) showAlert:(NSString *) title
+                 :(NSString *) message
+                 :(NSString *) btnTitle
+                 :(NSInteger) AlertType {
     
-    NSString *title = [NSString stringWithFormat:@"%@ vs %@",_userData.user1.name ,_userData.user2.name];
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                              message:message
                                                                       preferredStyle:UIAlertControllerStyleAlert];
     
-
-    [alertController addAction:[UIAlertAction actionWithTitle:@"はい"
-                                                        style:UIAlertActionStyleDefault
-                                                      handler:^(UIAlertAction *action) {
-                                                          [self otherButtonPushed];
-                                                      }]];
-
+    if (AlertType == UserSelectAlertType) {
+        [alertController addAction:[UIAlertAction actionWithTitle:@"はい"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction *action) {
+                                                              [self otherButtonPushed];
+                                                          }]];
+    }
+    
     [alertController addAction:[UIAlertAction actionWithTitle:btnTitle
                                                         style:UIAlertActionStyleDefault
                                                       handler:^(UIAlertAction *action) {
@@ -114,8 +130,9 @@
                                                       }]];
     
     [self presentViewController:alertController animated:YES completion:nil];
-
+    
 }
+
 
 #pragma mark action
 

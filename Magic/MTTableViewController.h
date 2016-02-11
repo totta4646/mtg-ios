@@ -16,4 +16,10 @@
 @property (strong, nonatomic) NSArray                      *dataSource;
 @property (nonatomic) int                                  mode;
 
+typedef NS_ENUM(NSInteger, AlertType)
+{
+    NormalAlertType = 0,
+    UserSelectAlertType
+};
+
 @end
