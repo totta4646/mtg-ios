@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _connectionFlag = false;
     _dataSource = _userData.userList;
     
     
@@ -58,12 +58,17 @@
         _api = [[MTApiManager alloc] init];
         [SVProgressHUD showWithStatus:@"now loading"];
         
+        if (_connectionFlag) {
+            return;
+        }
+        
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
             @autoreleasepool{
+                _connectionFlag = true;
                 MTResultViewController *vc = [[MTResultViewController alloc] init];
                 NSDictionary *res = [_api getResultData:[[[_dataSource objectAtIndex:corrent] objectForKey:@"id"] intValue]];
                 dispatch_sync(dispatch_get_main_queue(), ^{
-                
+                    _connectionFlag = false;
                     if (res) {
                         NSDictionary *data = [res objectForKey:@"data"];
                         if ([[data objectForKey:@"users"] count] == 0) {
