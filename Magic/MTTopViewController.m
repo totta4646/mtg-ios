@@ -51,13 +51,14 @@
 
 -(void) modalTableView:(NSString *)navTitle
                       :(int)mode {
+    if (_connectionFlag) {
+        return;
+    }
+
     MTTableViewController *vc = [[MTTableViewController alloc] init];
     _userData = [[MTUserDataSource alloc] init];
     [SVProgressHUD showWithStatus:@"now loading"];
     
-    if (_connectionFlag) {
-        return;
-    }
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
         @autoreleasepool{
