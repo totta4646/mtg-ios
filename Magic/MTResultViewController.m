@@ -70,6 +70,7 @@
     UIColor *color = [self getColor:[[_user objectForKey:@"color"] intValue]];
     _winGraph.fontColor = color;
     _winGraph.progressStrokeColor = color;
+    _winGraph.progressColor = color;
     _allWinLabel.textColor = color;
     _allLoseLabel.textColor = color;
     _allWins.textColor = color;
