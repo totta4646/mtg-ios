@@ -84,6 +84,7 @@
     
     _resultGraph.fontColor = _color;
     _resultGraph.progressStrokeColor = _color;
+    _resultGraph.progressColor = _color;
     _rivalNameLabel.textColor = _color;
     
     self.layer.borderWidth = 1;
