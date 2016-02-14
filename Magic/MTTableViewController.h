@@ -15,6 +15,7 @@
 @property (nonatomic) MTApiManager                         *api;
 @property (strong, nonatomic) NSArray                      *dataSource;
 @property (nonatomic) int                                  mode;
+@property BOOL connectionFlag;
 
 typedef NS_ENUM(NSInteger, AlertType)
 {

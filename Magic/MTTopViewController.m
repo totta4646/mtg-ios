@@ -21,6 +21,7 @@
     [super viewDidLoad];
 
     self.navigationItem.title = @"Magic: The Gathering";
+    _connectionFlag = false;
     _api = [[MTApiManager alloc] init];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
@@ -54,12 +55,17 @@
     _userData = [[MTUserDataSource alloc] init];
     [SVProgressHUD showWithStatus:@"now loading"];
     
+    if (_connectionFlag) {
+        return;
+    }
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
         @autoreleasepool{
+            _connectionFlag = true;
             [_userData setUserList:[[_api getAllUser] objectForKey:@"data"]];
             
             dispatch_sync(dispatch_get_main_queue(), ^{
-                
+                _connectionFlag = false;
                 [vc setUserData:_userData];
                 [vc setDataSource:_userData.userList];
                 [vc setMode:mode];

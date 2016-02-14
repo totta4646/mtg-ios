@@ -12,6 +12,7 @@
 
 @property (nonatomic) MTApiManager     *api;
 @property (nonatomic) MTUserDataSource *userData;
+@property BOOL connectionFlag;
 
 typedef NS_ENUM(int, TableViewMode) {
     TableModeResult = -1,
