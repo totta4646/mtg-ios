@@ -51,7 +51,7 @@
     _rivalNameLabel.text = name;
     _resultLabel.text = [NSString stringWithFormat:@"勝ち : %d回　負け : %d回", win, lose];
     _lastUpdateLabel.text = date;
-    [_resultGraph setValue:parcent animateWithDuration:1];
+//    [_resultGraph setValue:parcent animateWithDuration:1];
 
     [self updateUserColor];
 }
@@ -82,9 +82,9 @@
 
 -(void) updateUserColor {
     
-    _resultGraph.fontColor = _color;
-    _resultGraph.progressStrokeColor = _color;
-    _resultGraph.progressColor = _color;
+//    _resultGraph.fontColor = _color;
+//    _resultGraph.progressStrokeColor = _color;
+//    _resultGraph.progressColor = _color;
     _rivalNameLabel.textColor = _color;
     
     self.layer.borderWidth = 1;

@@ -11,7 +11,7 @@
 
 @interface MTResultViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIView *resultView;
-@property (weak, nonatomic) IBOutlet MBCircularProgressBarView *winGraph;
+//@property (weak, nonatomic) IBOutlet MBCircularProgressBarView *winGraph;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *allWinLabel;

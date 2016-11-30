@@ -68,16 +68,16 @@
 - (void) viewWillAppear:(BOOL)animated {
     float winAverage = [[_user objectForKey:@"win_average"] floatValue] * 100;
     UIColor *color = [self getColor:[[_user objectForKey:@"color"] intValue]];
-    _winGraph.fontColor = color;
-    _winGraph.progressStrokeColor = color;
-    _winGraph.progressColor = color;
+//    _winGraph.fontColor = color;
+//    _winGraph.progressStrokeColor = color;
+//    _winGraph.progressColor = color;
     _allWinLabel.textColor = color;
     _allLoseLabel.textColor = color;
     _allWins.textColor = color;
     _allLoses.textColor = color;
     _allWins.text = [NSString stringWithFormat:@"%d回",[[_user objectForKey:@"wins"] intValue]];
     _allLoses.text = [NSString stringWithFormat:@"%d回",[[_user objectForKey:@"loses"] intValue]];
-    [_winGraph setValue:winAverage animateWithDuration:0];
+//    [_winGraph setValue:winAverage animateWithDuration:0];
     
 }
 

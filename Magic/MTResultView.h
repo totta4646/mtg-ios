@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MBCircularProgressBarView.h"
+//#import "MBCircularProgressBarView.h"
 
 @interface MTResultView : UIView
 @property (weak, nonatomic) IBOutlet UILabel *rivalNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lastUpdateLabel;
-@property (weak, nonatomic) IBOutlet MBCircularProgressBarView *resultGraph;
+//@property (weak, nonatomic) IBOutlet MBCircularProgressBarView *resultGraph;
 
 @property                            UIColor *color;
 
