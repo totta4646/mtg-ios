@@ -13,6 +13,7 @@
 @end
 
 @implementation BattleViewController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -131,9 +132,28 @@
 -(void) backToTop {
     
 //    NSInteger hoge = [self.navigationController.viewControllers count];
-    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:0]
-                                          animated:YES];
+//    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:0]
+//                                          animated:YES];
 //    [self.navigationController popToRootViewControllerAnimated:YES];
+
+}
+
+-(void) resetConfirm {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"確認"
+                                                                             message:@"試合を初めから始めますか?"
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK"
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:^(UIAlertAction *action) {
+                                                        [self allReset];
+                                                      }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"キャンセル"
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:^(UIAlertAction *action) {}]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 
 }
 
@@ -149,17 +169,17 @@
     NSString *userName = winner.name;
     winner.win++;
     BOOL gameSet = false;
-    if (winner.win == _mach || winner.userID == -10) {
+    if (winner.win == _mach) {
         gameSet = true;
     }
 
     NSString *title = [NSString stringWithFormat:@"%@ win",userName];
-    NSString *message = [NSString stringWithFormat:@"%@:%d勝 %@:%d勝",winner.name,winner.win,loser.name,loser.win];
+    NSString *message = [NSString stringWithFormat:@"%@: %d勝\n%@:% d勝",winner.name,winner.win,loser.name,loser.win];
     if (gameSet) {
-        message = @"おめでとー";
-        if (winner.userID != -10) {
-            [self sendResultData:winner :loser];
-        }
+        message = @"You Win.";
+//        if (winner.userID != -10) {
+//            [self sendResultData:winner :loser];
+//        }
     }
 
     
@@ -172,7 +192,7 @@
                                                         style:UIAlertActionStyleDefault
                                                       handler:^(UIAlertAction *action) {
                                                           if (gameSet) {
-                                                              [self backToTop];
+                                                              [self allReset];
                                                           } else {
                                                               [self reset];
                                                           }
@@ -204,13 +224,11 @@
  */
 -(void) checkLife {
     if ([self isLose:_me]) {
-        [self alert:_rival
-                   :_userData.user1];
-
-    } else if([self isLose:_rival]) {
         [self alert:_me
                    :_rival];
-
+    } else if ([self isLose:_rival]) {
+        [self alert:_rival
+                   :_me];
     } else {
         [self rewriteLifes];
         
@@ -219,7 +237,7 @@
 }
 
 - (BOOL) isLose:(MTUser *) user {
-    return ((user.life <= 0  || user.poison == 10) && !user.invincible);
+    return ((user.life <= 0  || user.poison >= 10) && !user.invincible);
 }
 
 /**
@@ -251,19 +269,22 @@
 -(void) sendResultData:(MTUser *) winner
                       :(MTUser *) loser {
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
-        @autoreleasepool{
-            NSDictionary *res = [_api postResultData:winner.userID
-                                                    :loser.userID];
-            
-            dispatch_sync(dispatch_get_main_queue(), ^{
-                if([res count] == 0) {
-                  [_api setTempData:winner.userID
-                                   :loser.userID];
-                }
-            });
-        }
-    });
+    // 不要な処理なのでここは通したくない
+    return;
+
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
+//        @autoreleasepool{
+//            NSDictionary *res = [_api postResultData:winner.userID
+//                                                    :loser.userID];
+//            
+//            dispatch_sync(dispatch_get_main_queue(), ^{
+//                if([res count] == 0) {
+//                  [_api setTempData:winner.userID
+//                                   :loser.userID];
+//                }
+//            });
+//        }
+//    });
 
     
 }
@@ -274,19 +295,36 @@
  *
  *  @param sender 押されたボタンの情報
  */
+- (void) allReset {
+    _me.win = 0;
+    _rival.win = 0;
+    [self reset];
+}
+
 - (void) returnAction:(id) sender {
-    [self backToTop];
+    [self resetConfirm];
 }
 
 - (void) diceAction:(id) sender {
     if (!_myView.dice) {
         [_myView setDices];
         [_rivalView setDices];
-    } else {
-        [_myView removeDices];
-        [_rivalView removeDices];
+
+
+        [NSTimer scheduledTimerWithTimeInterval:2.5f
+                                         target:self
+                                       selector:@selector(removeDice:)
+                                       userInfo:nil
+                                        repeats:NO];
     }
+    
 }
+
+- (void) removeDice:(NSTimer *) sender {
+    [_myView removeDices];
+    [_rivalView removeDices];
+}
+
 /**
  *  リセットボタン
  *
@@ -379,23 +417,17 @@
         [_myView changeColor:color];
         [_myView selectColor];
 
-        if (_me.userID != -10) {
-            _me.color = color;
-            [_api updateUserColor:_me.userID
-                            color:color];
-        }
-            
+        NSUserDefaults *ud = [[NSUserDefaults alloc] init];
+        [ud setObject:[NSNumber numberWithInteger:color] forKey:USER_COLOR_1];
+        
     } else {
         [_rivalView changeColor:color];
         [_rivalView selectColor];
 
-        if (_rival.userID != -10) {
-            _rival.color = color;
-            [_api updateUserColor:_rival.userID
-                            color:color];
-        }        
+        NSUserDefaults *ud = [[NSUserDefaults alloc] init];
+        [ud setObject:[NSNumber numberWithInteger:color] forKey:USER_COLOR_2];
     }
-
+    
     [_myView setAlphaFilter:NO];
     [_rivalView setAlphaFilter:NO];
     

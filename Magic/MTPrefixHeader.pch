@@ -26,6 +26,8 @@
 
 #define URI [NSString stringWithFormat:@"%@api/%@",MY_HOST, VERSION]
 
+#define USER_COLOR_1 @"user_color_1"
+#define USER_COLOR_2 @"user_color_2"
 #define TEMP_ARRAY @"tempArrayKey"
 #define DISABLE_PUSH_NOTIFICATIONS
 

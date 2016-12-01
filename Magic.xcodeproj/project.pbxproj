@@ -61,6 +61,7 @@
 		17B482781BA5D83B00904A81 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 17B482671BA5D83B00904A81 /* iTunesArtwork */; };
 		17B482791BA5D83B00904A81 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 17B482681BA5D83B00904A81 /* iTunesArtwork@2x */; };
 		17BCB8A81C3ADC02009450BD /* mtg_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 17BCB8A71C3ADC02009450BD /* mtg_logo.png */; };
+		17CE029E1DF06B70007DF9AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17CE029D1DF06B70007DF9AA /* GoogleService-Info.plist */; };
 		3B137CBA1BD7D10300E59F70 /* MTCustomUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B137CB91BD7D10300E59F70 /* MTCustomUIButton.m */; };
 		3B137CC01BD7D21F00E59F70 /* MTLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B137CBF1BD7D21F00E59F70 /* MTLayoutView.m */; };
 		3B24ED1C1BD7E3CE0002DF09 /* reset.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B24ED1B1BD7E3CE0002DF09 /* reset.png */; };
@@ -165,6 +166,7 @@
 		17B482671BA5D83B00904A81 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		17B482681BA5D83B00904A81 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		17BCB8A71C3ADC02009450BD /* mtg_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mtg_logo.png; sourceTree = "<group>"; };
+		17CE029D1DF06B70007DF9AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3B137CB81BD7D10300E59F70 /* MTCustomUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCustomUIButton.h; sourceTree = "<group>"; };
 		3B137CB91BD7D10300E59F70 /* MTCustomUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCustomUIButton.m; sourceTree = "<group>"; };
 		3B137CBE1BD7D21F00E59F70 /* MTLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTLayoutView.h; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				176BF7BD1B9A917600F0FAC6 /* Resouces */,
 				176BF7A21B9A912900F0FAC6 /* Images.xcassets */,
 				176BF7A41B9A912900F0FAC6 /* LaunchScreen.xib */,
+				17CE029D1DF06B70007DF9AA /* GoogleService-Info.plist */,
 				176BF7991B9A912900F0FAC6 /* Magic.xcdatamodeld */,
 				176BF7921B9A912900F0FAC6 /* Supporting Files */,
 			);
@@ -557,6 +560,7 @@
 					176BF78E1B9A912900F0FAC6 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = QW3F98S65Y;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -623,6 +627,7 @@
 				17BCB8A81C3ADC02009450BD /* mtg_logo.png in Resources */,
 				176BF7A31B9A912900F0FAC6 /* Images.xcassets in Resources */,
 				178CE2BE1C3D7A99009DD7AE /* platinum-angel_A.png in Resources */,
+				17CE029E1DF06B70007DF9AA /* GoogleService-Info.plist in Resources */,
 				17B4826F1BA5D83B00904A81 /* appicon-Small-40.png in Resources */,
 				17B482731BA5D83B00904A81 /* appicon-Small.png in Resources */,
 				17B482781BA5D83B00904A81 /* iTunesArtwork in Resources */,
@@ -795,7 +800,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "3984be9c-91db-48fb-b58e-61f4e87e4f3c";
+				PROVISIONING_PROFILE = "bde3278d-72f4-46da-89c6-09ac9aa20c8f";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "arm64 armv7";
 			};
@@ -837,7 +842,7 @@
 				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "49b88f46-690e-49a2-9dce-78f50e9b941a";
+				PROVISIONING_PROFILE = "b37b9578-8ae2-49e1-9ac8-2348cbfe90e7";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "arm64 armv7";
@@ -852,6 +857,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = QW3F98S65Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Magic",
@@ -861,7 +867,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MagicManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d2a5366d-a451-4857-bc1f-5a73d3022632";
+				PROVISIONING_PROFILE_SPECIFIER = mtg_dev;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -873,7 +880,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = QW3F98S65Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Magic",
@@ -883,7 +891,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MagicManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "b37b9578-8ae2-49e1-9ac8-2348cbfe90e7";
+				PROVISIONING_PROFILE_SPECIFIER = mtg_dist;
 			};
 			name = Release;
 		};

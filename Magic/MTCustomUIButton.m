@@ -5,6 +5,7 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
     self.layer.cornerRadius = self.cornerRadius;
     self.layer.borderWidth  = self.borderWidth ;
 }

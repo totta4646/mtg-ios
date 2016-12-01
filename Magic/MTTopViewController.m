@@ -148,6 +148,7 @@
     [_userData makeGuestUserData];
 
     [vc setUserData:_userData];
+    
     [self.navigationController pushViewController:vc animated:YES];
 
 }

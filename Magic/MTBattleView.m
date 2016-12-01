@@ -59,17 +59,29 @@
     CGFloat size = 100;
     _dice = [[MTDiceView alloc] init];
     _dice.frame = CGRectMake((self.frame.size.width - size) / 2,
-                             (self.frame.size.height - size * 2) / 2 ,
+                             (self.frame.size.height - size) / 2 ,
                              size,
                              self.frame.size.height);
     _dice.tag = 100;
     
     [self addSubview:_dice];
     
-    [_dice.stop addTarget:self action:@selector(stopDice:)forControlEvents:UIControlEventTouchUpInside];
+//    [_dice.stop addTarget:self action:@selector(stopDice:)forControlEvents:UIControlEventTouchUpInside];
     
     [_dice setTimer];
+
+    [NSTimer scheduledTimerWithTimeInterval:0.8f
+                                     target:self
+                                   selector:@selector(stopDice)
+                                   userInfo:nil
+                                    repeats:NO];
+
     
+}
+
+- (void) stopDice {
+    [_dice.timer invalidate];
+    _dice.shaking = false;
 }
 
 - (void) removeDices {
@@ -169,7 +181,7 @@
     
 }
 
-- (void) stopDice:(UIButton *) sender {
+- (void) stopDice:(NSTimer *) sender {
     [_dice.timer invalidate];
     _dice.shaking = false;
 }

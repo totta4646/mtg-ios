@@ -66,7 +66,8 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    float winAverage = [[_user objectForKey:@"win_average"] floatValue] * 100;
+    [super viewWillAppear:animated];
+//    float winAverage = [[_user objectForKey:@"win_average"] floatValue] * 100;
     UIColor *color = [self getColor:[[_user objectForKey:@"color"] intValue]];
 //    _winGraph.fontColor = color;
 //    _winGraph.progressStrokeColor = color;

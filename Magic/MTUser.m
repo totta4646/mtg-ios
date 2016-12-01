@@ -73,7 +73,7 @@
  *  ゲストモードのダミーの値
  */
 -(void) setGuest {
-    _name = @"player";
+    _name = @"";
     _userID = -10;
 }
 

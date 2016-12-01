@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+@import Firebase;
+
 @interface AppDelegate ()
 
 @end
@@ -17,28 +19,52 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    
-    UIUserNotificationType types = UIUserNotificationTypeBadge |
-                                   UIUserNotificationTypeSound |
-                                   UIUserNotificationTypeAlert;
-    
-    UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
-    [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
-    
-    //リモートPush通知を受信するためのdeviceTokenを要求
-    [[UIApplication sharedApplication] registerForRemoteNotifications];
+    // init FireBase
+    [FIRApp configure];
     
     
-    [UIApplication sharedApplication].idleTimerDisabled = YES;
+    // 現行仕様でプッシュ通知を使う予定はない
+//    UIUserNotificationType types = UIUserNotificationTypeBadge |
+//                                   UIUserNotificationTypeSound |
+//                                   UIUserNotificationTypeAlert;
+//    
+//    UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+//    [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
+//    
+//    //リモートPush通知を受信するためのdeviceTokenを要求
+//    [[UIApplication sharedApplication] registerForRemoteNotifications];
+//    
+//    
+//    [UIApplication sharedApplication].idleTimerDisabled = YES;
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = [[UIViewController alloc] init];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    MTTopViewController *viewController = [[MTTopViewController alloc] initWithNibName:@"MTTopViewController" bundle:nil];
+    
+    BattleViewController *vc = [[BattleViewController alloc] init];
+    _userData = [[MTUserDataSource alloc] init];
+    [_userData makeGuestUserData];
+    _userData.user1.name = @"player2";
+    _userData.user2.name = @"player1";
+
+    _userData.user1.userID = 1;
+    _userData.user2.userID = 2;
+
+    
+    NSUserDefaults *ud = [[NSUserDefaults alloc] init];
+    _userData.user1.color = [[ud objectForKey:USER_COLOR_1] intValue];
+    _userData.user2.color = [[ud objectForKey:USER_COLOR_2] intValue];
+    
+    vc.mach = 2;
+    
+    [vc setUserData:_userData];
+
+    
+//    MTTopViewController *viewController = [[MTTopViewController alloc] initWithNibName:@"MTTopViewController" bundle:nil];
     _navigation = [[UINavigationController alloc]
-                      initWithRootViewController:viewController];
+                      initWithRootViewController:vc];
     
     [self.window addSubview:_navigation.view];
     
@@ -52,26 +78,26 @@
  */
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    NSString *token = deviceToken.description;
+//    NSString *token = deviceToken.description;
     
-    token = [token stringByReplacingOccurrencesOfString:@"<" withString:@""];
-    token = [token stringByReplacingOccurrencesOfString:@">" withString:@""];
-    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
-        @autoreleasepool{
-            MTApiManager *api = [[MTApiManager alloc] init];
-            [api postDeviceToken:token];
-            dispatch_sync(dispatch_get_main_queue(), ^{
-            });
-        }
-    });
+//    token = [token stringByReplacingOccurrencesOfString:@"<" withString:@""];
+//    token = [token stringByReplacingOccurrencesOfString:@">" withString:@""];
+//    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+//    
+//    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
+//        @autoreleasepool{
+//            MTApiManager *api = [[MTApiManager alloc] init];
+//            [api postDeviceToken:token];
+//            dispatch_sync(dispatch_get_main_queue(), ^{
+//            });
+//        }
+//    });
 
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-    NSLog(@"deviceToken error: %@", [error description]);
+//    NSLog(@"deviceToken error: %@", [error description]);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

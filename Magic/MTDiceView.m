@@ -22,19 +22,19 @@
         _dice.tag = 0;
         _dice.layer.cornerRadius = 10;
         
-        _stop = [[UIButton alloc] init];
-        _stop.frame = CGRectMake(-20, 130, 140, 40);
-        _stop.backgroundColor = [UIColor hx_colorWithHexString:@"e9e9e9"];
-        _stop.tag = 0;
-        [_stop setTitle:@"STOP" forState:UIControlStateNormal];
-        [_stop setTitleColor:[UIColor hx_colorWithHexString:@"797979"]
-                    forState:UIControlStateNormal];
-        
-        _stop.titleLabel.font = [UIFont systemFontOfSize:30];
-        _stop.layer.cornerRadius = 5;
+//        _stop = [[UIButton alloc] init];
+//        _stop.frame = CGRectMake(-20, 130, 140, 40);
+//        _stop.backgroundColor = [UIColor hx_colorWithHexString:@"e9e9e9"];
+//        _stop.tag = 0;
+//        [_stop setTitle:@"STOP" forState:UIControlStateNormal];
+//        [_stop setTitleColor:[UIColor hx_colorWithHexString:@"797979"]
+//                    forState:UIControlStateNormal];
+//        
+//        _stop.titleLabel.font = [UIFont systemFontOfSize:30];
+//        _stop.layer.cornerRadius = 5;
     
         [self addSubview:_dice];
-        [self addSubview:_stop];
+//        [self addSubview:_stop];
         
         
         _shaking = YES;
